@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { Page404Component } from './page404/page404.component';
 
+import { SDKBrowserModule } from './shared/sdk/index';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { Page404Component } from './page404/page404.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SDKBrowserModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
