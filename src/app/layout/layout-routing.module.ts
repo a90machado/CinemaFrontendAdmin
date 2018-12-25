@@ -1,7 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LayoutComponent } from './layout.component';
+import { LandingComponent } from './landing/landing.component';
+import { CinemasComponent } from './cinemas/cinemas.component';
+import { MoviesComponent } from './movies/movies.component';
+import { UsersComponent } from './users/users.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: LayoutComponent, children: [
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: 'home', component: LandingComponent},
+    {path: 'cinemas', component: CinemasComponent},
+    {path: 'movies', component: MoviesComponent},
+    {path: 'managa/users', component: UsersComponent}
+  ]}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
