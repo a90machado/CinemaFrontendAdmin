@@ -7,10 +7,17 @@ import { CinemasComponent } from './cinemas/cinemas.component';
 import { LandingComponent } from './landing/landing.component';
 import { MoviesComponent } from './movies/movies.component';
 import { UsersComponent } from './users/users.component';
-import { HeaderComponent } from './_shared/_components/header/header.component';
+import { HeaderComponent } from '../shared/components/index';
 
 @NgModule({
-  declarations: [LayoutComponent, CinemasComponent, LandingComponent, MoviesComponent, UsersComponent, HeaderComponent],
+  declarations: [
+    LayoutComponent,
+    CinemasComponent,
+    LandingComponent,
+    MoviesComponent,
+    HeaderComponent,
+    UsersComponent
+  ],
   imports: [
     CommonModule,
     LayoutRoutingModule
