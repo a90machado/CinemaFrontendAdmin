@@ -1,0 +1,94 @@
+.login-block {
+  background: #2B4162;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #00A5CF, #2B4162);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #00A5CF, #2B4162);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+}
+
+.banner-sec {
+  background: url(https://static.pexels.com/photos/33972/pexels-photo.jpg) no-repeat left bottom;
+  background-size: cover;
+  min-height: 31.25rem;
+  border-radius: 0 0.3125rem 0.3125rem 0;
+  padding: 0;
+}
+
+.container {
+  background: #FAFAFF;
+  border-radius: 0.3125rem;
+}
+
+.item,
+img {
+  border-radius: 0 0.3125rem 0.3125rem 0;
+}
+
+.caption {
+  text-align: left;
+  left: 5%;
+}
+
+.login-sec {
+  padding: 3.125rem 1.875rem;
+  position: relative;
+}
+
+.login-sec h2 {
+  margin-bottom: 1.875rem;
+  font-weight: 800;
+  font-size: 1.875rem;
+  color: #2B4162;
+}
+
+.login-sec h2:after {
+  content: " ";
+  width: 6.25rem;
+  height: 0.3125rem;
+  background: #F46036;
+  display: block;
+  margin-top: 1.25rem;
+  border-radius: 0.1875rem;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.btn-login {
+  background: #2B4162;
+  color: #FAFAFF;
+  font-weight: 600;
+}
+
+.banner-text {
+  width: 70%;
+  position: absolute;
+  bottom: 2.5rem;
+  padding-left: 1.25rem;
+}
+
+.banner-text h2 {
+  color: #FAFAFF;
+  font-weight: 600;
+}
+
+.banner-text h2:after {
+  content: " ";
+  width: 6.25rem;
+  height: 0.3125rem;
+  background: #FAFAFF;
+  display: block;
+  margin-top: 1.25rem;
+  border-radius: 3px;
+}
+
+.banner-text p {
+  color: #FAFAFF;
+}
