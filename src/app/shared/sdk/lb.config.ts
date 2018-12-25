@@ -1,15 +1,17 @@
+import { BASE_URL, API_VERSION } from '../base.url';
+
 /* tslint:disable */
 /**
 * @module LoopBackConfig
 * @description
 *
-* The LoopBackConfig module help developers to externally 
+* The LoopBackConfig module help developers to externally
 * configure the base url and api version for loopback.io
 *
 * Example
 *
 * import { LoopBackConfig } from './sdk';
-* 
+*
 * @Component() // No metadata needed for this module
 *
 * export class MyApp {
@@ -20,8 +22,8 @@
 * }
 **/
 export class LoopBackConfig {
-  private static path: string = '//0.0.0.0:3000';
-  private static version: string | number = 'api';
+  private static path: string = BASE_URL;
+  private static version: string | number = API_VERSION;
   private static authPrefix: string = '';
   private static debug: boolean = true;
   private static filterOn: string = 'headers';
@@ -32,7 +34,7 @@ export class LoopBackConfig {
   public static setApiVersion(version: string = 'api'): void {
     LoopBackConfig.version = version;
   }
-  
+
   public static getApiVersion(): string | number {
     return LoopBackConfig.version;
   }
@@ -40,7 +42,7 @@ export class LoopBackConfig {
   public static setBaseURL(url: string = '/'): void {
     LoopBackConfig.path = url;
   }
-  
+
   public static getPath(): string {
     return LoopBackConfig.path;
   }
