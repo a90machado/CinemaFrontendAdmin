@@ -8,11 +8,12 @@ import { AccountApi } from '../sdk';
 
 export class AuthGuard implements CanActivate {
 
-  constructor(private _router: Router) {
+  constructor(private _router: Router,
+    private _accountApi: AccountApi) {
   }
 
   canActivate(): boolean {
-    if (localStorage.getItem('token')) {
+    if (this._accountApi.isAuthenticated()) {
       return true;
     } else {
       this._router.navigate(['/login']);
