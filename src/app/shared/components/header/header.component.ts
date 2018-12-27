@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountApi } from '../../sdk';
+import { AccountApi, Account, AccessToken } from '../../sdk';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,15 +9,27 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private _accountApi: AccountApi,
-              private _router: Router) { }
+  roleUser = false;
+  account: Account;
+  message = '';
+
+  constructor(  private _accountApi: AccountApi,
+                private _router: Router) { }
 
   ngOnInit() {
+    this.checkRoleUser();
   }
 
   logout() {
     this._accountApi.logout();
     this._router.navigate(['/login']);
+  }
+
+  private checkRoleUser() {
+    this._accountApi.getCurrent().subscribe((result: any) => {
+      this.account = result;
+      this.roleUser = (this.account.role === 'Admin') ? true : false;
+    });
   }
 
 }

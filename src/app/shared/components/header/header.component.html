@@ -17,7 +17,7 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <a class="nav-link" routerLink="/manage/users" routerLinkActive="active"><button class="btn btn-outline-success my-2 my-sm-0" type="button">Users</button></a>
+      <a class="nav-link" *ngIf=(roleUser) routerLink="/manage/users" routerLinkActive="active"><button class="btn btn-outline-success my-2 my-sm-0" type="button">Users</button></a>
       <button (click)="logout()"  class="btn btn-outline-danger my-2 my-sm-0" type="button">Logout</button>
     </form>
   </div>
