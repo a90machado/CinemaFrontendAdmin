@@ -8,8 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { Page404Component } from './page404/page404.component';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SDKBrowserModule } from './shared/sdk/index';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SDKBrowserModule } from './shared/sdk/index';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NoopAnimationsModule,
     FormsModule,
     SDKBrowserModule.forRoot(),

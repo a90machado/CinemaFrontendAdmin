@@ -1,3 +1,6 @@
-.tableMovies{
+.movies{
     margin-top: 3rem;
+}
+.mousehover {
+    cursor: pointer;
 }

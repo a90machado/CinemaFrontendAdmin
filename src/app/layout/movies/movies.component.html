@@ -1,3 +1,5 @@
-<div class="col-8 mx-auto tableMovies">
-<app-data-table></app-data-table>
+<div class="movies">
+<h2 class="text-center">My Movies <a (click)="updateMovies()" class="mousehover"><i class="fas fa-redo-alt fa-xs" style="font-size: 1rem"><sub>Refresh</sub></i></a></h2>
+
+<app-tables [header]='["title","synopsis","releaseDate","minimumAge","image","endDate", "duration","director","cast"]' [data$]='movies$' [theme]='"table-bordered"'></app-tables>
 </div>
