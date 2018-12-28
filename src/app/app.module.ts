@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +20,9 @@ import { SDKBrowserModule } from './shared/sdk/index';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NoopAnimationsModule,
     FormsModule,
-    SDKBrowserModule.forRoot()
+    SDKBrowserModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
