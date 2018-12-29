@@ -14,5 +14,7 @@ export class TablesComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  getMovieDetails(row){
+    console.log("click working");
+  }
 }

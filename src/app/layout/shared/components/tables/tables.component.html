@@ -1,19 +1,18 @@
 <div class="table-responsive container">
   <table class="table table-hover" [ngClass]='theme'>
     <thead class="tableHead">
-      <tr>
+      <tr >
         <th *ngFor="let col of header">
           {{col}}
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data$ | async">
+      <tr *ngFor="let row of data$ | async" (click)="getMovieDetails(row)">
         <td *ngFor="let col of header">
           {{row[col]}}
         </td>
       </tr>
     </tbody>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </table>
 </div>

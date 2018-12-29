@@ -1,8 +1,14 @@
 .table-responsive{
     margin: auto;
     margin-top: 3rem;
+    height:600px;
+    overflow:auto;  
+    margin-top:20px;
 }
 .tableHead{
     background-color: seashell;
     text-align: center;
+}
+tr {
+    cursor: pointer;
 }
