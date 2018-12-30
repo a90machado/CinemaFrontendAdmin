@@ -8,7 +8,7 @@ import { LandingComponent } from './landing/landing.component';
 import { MoviesComponent } from './movies/movies.component';
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from '../shared/components/index';
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { TableComponent } from './shared/components/index';
 
 @NgModule({
   declarations: [
@@ -17,13 +17,11 @@ import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/mate
     LandingComponent,
     MoviesComponent,
     HeaderComponent,
-    UsersComponent
+    UsersComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
     LayoutRoutingModule
   ]
 })
