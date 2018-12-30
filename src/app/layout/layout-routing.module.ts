@@ -5,6 +5,7 @@ import { LandingComponent } from './landing/landing.component';
 import { CinemasComponent } from './cinemas/cinemas.component';
 import { MoviesComponent } from './movies/movies.component';
 import { UsersComponent } from './users/users.component';
+import { UserRoleGuard } from '../shared/guards/index';
 
 const routes: Routes = [
   {path: '', component: LayoutComponent, children: [
@@ -12,7 +13,7 @@ const routes: Routes = [
     {path: 'home', component: LandingComponent},
     {path: 'cinemas', component: CinemasComponent},
     {path: 'movies', component: MoviesComponent},
-    {path: 'manage/users', component: UsersComponent}
+    {path: 'manage/users', component: UsersComponent, canActivate: [UserRoleGuard]}
   ]}
 ];
 
