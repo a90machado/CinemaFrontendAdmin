@@ -9,6 +9,9 @@ import { MoviesComponent } from './movies/movies.component';
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from '../shared/components/index';
 import { TableComponent } from './shared/components/index';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NewUserModalComponent } from './shared/components/modals/new-user-modal/new-user-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +21,14 @@ import { TableComponent } from './shared/components/index';
     MoviesComponent,
     HeaderComponent,
     UsersComponent,
-    TableComponent
+    TableComponent,
+    NewUserModalComponent
   ],
   imports: [
     CommonModule,
+    ModalModule.forRoot(),
     LayoutRoutingModule
-  ]
+  ],
+  entryComponents: [ NewUserModalComponent ]
 })
 export class LayoutModule { }
