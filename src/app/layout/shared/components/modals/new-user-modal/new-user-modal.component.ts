@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/';
+import { Account, AccountApi } from 'src/app/shared/sdk';
+import { DataService } from '../../../services';
+
 
 @Component({
   selector: 'app-new-user-modal',
@@ -8,9 +11,27 @@ import { BsModalRef } from 'ngx-bootstrap/modal/';
 })
 export class NewUserModalComponent implements OnInit {
 
-  constructor( public _modalRef: BsModalRef ) { }
+  account: Account = new Account();
+  message = '';
+
+  constructor(  public _modalRef: BsModalRef,
+                private _accountApi: AccountApi,
+                private _dataService: DataService ) {
+                  this.account.emailVerified = true;
+                  this.account.createdAt = new Date();
+                }
 
   ngOnInit() {
+  }
+
+  private newUser() {
+    this._accountApi.create(this.account).subscribe(() => {
+      this._modalRef.hide();
+      this._dataService.updateAccounts();
+  }, err => {
+    this.message = err;
+  }
+  );
   }
 
 }
