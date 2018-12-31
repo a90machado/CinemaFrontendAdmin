@@ -22,6 +22,7 @@ export class TablesComponent implements OnInit {
   @Input() synopsis = ''
   @Input() synopsisMovie = ''
   @Input() image = ''
+  @Input() delete = ''
 
   constructor() { }
 
@@ -41,6 +42,8 @@ export class TablesComponent implements OnInit {
     this.synopsis= "Synopsis: ";
     this.synopsisMovie= row.synopsis;
     this.image= row.image;
+    this.delete= "Delete Movie";
+
   }
   
 }
