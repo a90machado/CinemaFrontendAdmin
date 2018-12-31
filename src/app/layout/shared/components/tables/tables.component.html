@@ -9,14 +9,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of data$ | async" (click)="getMovieDetails(row)">
-        <td *ngFor="let col of header">
+        <td *ngFor="let col of header" >
           {{row[col]}}
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-<br><br><br>
 <div class="container-fluid details">
   <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-6">

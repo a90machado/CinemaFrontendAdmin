@@ -1,5 +1,12 @@
 <div class="movies">
-<h2 class="text-center">My Movies <a (click)="updateMovies()" class="mousehover"><i class="fas fa-redo-alt fa-xs" style="font-size: 1rem"><sub>Refresh</sub></i></a></h2>
+        <div class="row">
+                <div class="col-sm-12 col-md-1 col-lg-1"></div>
+                        <div class="col-sm-12 col-md-10 col-lg-10 moviesBox">
 
-<app-tables [header]='["title","synopsis","releaseDate","minimumAge","image","endDate", "duration","director","cast"]' [data$]='movies$' [theme]='"table-bordered"'></app-tables>
+                        <h2 class="text-center moviesPage" >My Movies <a (click)="updateMovies()" class="mousehover"><i class="fas fa-redo-alt fa-xs" style="font-size: 1rem"><sub>Refresh</sub></i></a></h2>
+                    </div>
+<div class="col-sm-12 col-md-1 col-lg-1">
+</div></div>
+
+<app-tables [header]='["title","releaseDate","minimumAge","endDate", "duration"]' [data$]='movies$' [theme]='"table-bordered"'></app-tables>
 </div>

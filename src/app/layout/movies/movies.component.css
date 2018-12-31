@@ -4,3 +4,12 @@
 .mousehover {
     cursor: pointer;
 }
+h2 {
+    color:rgb(30, 80, 95);
+}
+.moviesPage{
+    color: black;
+}
+.moviesBox{
+    outline: thick ridge pink;
+}

@@ -42,4 +42,5 @@ export class TablesComponent implements OnInit {
     this.synopsisMovie= row.synopsis;
     this.image= row.image;
   }
+  
 }
