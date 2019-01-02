@@ -37,13 +37,10 @@ export class UsersComponent implements OnInit {
 
   handleSelectedRow(eventData) {
     console.log(eventData);
+    console.log(eventData.name);
     const initialState = eventData;
     this.modalRef = this._modalService.show(EditUserModalComponent, {initialState});
   }
 
 }
 
-// let bsModalRef = this.modalService.show(..);
-// bsModalRef.content.action.take(1).subscribe((value) => {
-// 		console.log(value) // here you will get the value
-// 		});
