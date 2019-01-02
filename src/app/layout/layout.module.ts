@@ -12,6 +12,7 @@ import { HeaderComponent } from '../shared/components/index';
 import { TableComponent } from './shared/components/index';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NewUserModalComponent } from './shared/components/modals/new-user-modal/new-user-modal.component';
+import { EditUserModalComponent } from './shared/components/modals/edit-user-modal/edit-user-modal.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NewUserModalComponent } from './shared/components/modals/new-user-modal
     HeaderComponent,
     UsersComponent,
     TableComponent,
-    NewUserModalComponent
+    NewUserModalComponent,
+    EditUserModalComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,6 @@ import { NewUserModalComponent } from './shared/components/modals/new-user-modal
     FormsModule,
     LayoutRoutingModule
   ],
-  entryComponents: [ NewUserModalComponent ]
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent ]
 })
 export class LayoutModule { }

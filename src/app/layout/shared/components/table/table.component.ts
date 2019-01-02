@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -9,7 +9,7 @@ export class TableComponent implements OnInit {
   @Input()  header: any;
   @Input()  data$: any;
   @Input()  theme = 'table-dark';
-  selectedRow: Number;
+  @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
 
   constructor( ) {
   }
@@ -17,9 +17,8 @@ export class TableComponent implements OnInit {
   ngOnInit() {
   }
 
-  clickedRow(index) {
-    this.selectedRow = index;
-    console.log(this.selectedRow);
+  clickedRow(row) {
+    this.selectedRow.emit(row);
   }
 
 }

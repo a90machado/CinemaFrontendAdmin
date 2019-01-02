@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { DataService } from '../shared/services';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { NewUserModalComponent, TableComponent } from '../shared/components';
+import { NewUserModalComponent, EditUserModalComponent } from '../shared/components';
 
 
 @Component({
@@ -15,9 +15,9 @@ export class UsersComponent implements OnInit {
   modalRef: BsModalRef;
 
   constructor(  private _dataService: DataService,
-                private _modelService: BsModalService,
-                private _tableComponent: TableComponent) {
-    this.accounts$ = this._dataService.accounts$;
+                private _modalService: BsModalService) {
+
+                  this.accounts$ = this._dataService.accounts$;
   }
 
   ngOnInit() {
@@ -28,11 +28,22 @@ export class UsersComponent implements OnInit {
   }
 
   addNewUser() {
-    this.modalRef = this._modelService.show(NewUserModalComponent);
+    this.modalRef = this._modalService.show(NewUserModalComponent);
   }
 
   deleteUser() {
 
   }
 
+  handleSelectedRow(eventData) {
+    console.log(eventData);
+    const initialState = eventData;
+    this.modalRef = this._modalService.show(EditUserModalComponent, {initialState});
+  }
+
 }
+
+// let bsModalRef = this.modalService.show(..);
+// bsModalRef.content.action.take(1).subscribe((value) => {
+// 		console.log(value) // here you will get the value
+// 		});
