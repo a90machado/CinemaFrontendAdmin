@@ -9,10 +9,17 @@ export class TableComponent implements OnInit {
   @Input()  header: any;
   @Input()  data$: any;
   @Input()  theme = 'table-dark';
+  selectedRow: Number;
 
-  constructor() { }
+  constructor( ) {
+  }
 
   ngOnInit() {
+  }
+
+  clickedRow(index) {
+    this.selectedRow = index;
+    console.log(this.selectedRow);
   }
 
 }

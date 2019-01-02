@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { Page404Component } from './page404/page404.component';
 
 import { SDKBrowserModule } from './shared/sdk/index';
+import { TableComponent } from './layout/shared/components';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { SDKBrowserModule } from './shared/sdk/index';
     FormsModule,
     SDKBrowserModule.forRoot(),
   ],
-  providers: [],
+  providers: [ TableComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

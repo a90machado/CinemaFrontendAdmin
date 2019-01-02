@@ -5,12 +5,20 @@
         <th *ngFor="let col of header">
           {{col}}
         </th>
+        <!-- Actions -->
+        <th>
+          <input type="checkbox" aria-label="">
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data$ | async">
+      <tr *ngFor="let row of data$ | async, let i = index" (click)="clickedRow(i)">
         <td *ngFor="let col of header">
           {{row[col]}}
+        </td>
+        <!-- Actions -->
+        <td>
+          <input type="checkbox" aria-label="">
         </td>
       </tr>
     </tbody>

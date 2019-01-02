@@ -1,5 +1,8 @@
-<h2>Users <button type="button" class="btn btn-primary right" (click)="updateUsers()"> Update </button></h2>
-<button class="btn btn-outline-primary" type="button" (click)="addNewUser()">Create</button>
+<h2>Users</h2>
+<div class="container">
+  <button class="btn btn-outline-primary" type="button" (click)="addNewUser()">Create</button>
+  <button class="btn btn-warning" type="button" (click)="deleteUser()">Delete</button>
+</div>
 <div class="container">
   <app-table [header]='["name","email","username","role"]' [data$]='accounts$' [theme]='"table-bordered"'></app-table>
 </div>
