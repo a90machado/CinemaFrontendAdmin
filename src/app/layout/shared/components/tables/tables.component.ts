@@ -23,7 +23,7 @@ export class TablesComponent implements OnInit {
   @Input() synopsisMovie = ''
   @Input() image = ''
   @Input() delete = ''
-
+  @Input() setTrueOrFalse = "true"
   constructor() { }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class TablesComponent implements OnInit {
     this.synopsisMovie= row.synopsis;
     this.image= row.image;
     this.delete= "Delete Movie";
-
+    this.setTrueOrFalse="false";
   }
   
 }

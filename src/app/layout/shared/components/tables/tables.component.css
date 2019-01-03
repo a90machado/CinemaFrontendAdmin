@@ -22,3 +22,6 @@ th, thead{
     cursor: pointer;
     width: 150px;
   }
+  [hidden] {
+      display:none;
+  }
