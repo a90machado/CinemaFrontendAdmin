@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../../services';
 
 @Component({
   selector: 'app-table',
@@ -14,17 +15,20 @@ export class TableComponent implements OnInit {
   @Output() deleteRow: EventEmitter<boolean> = new EventEmitter();
 
 
-  constructor( ) {
+  constructor(private dataService: DataService, ) {
   }
 
   ngOnInit() {
   }
 
   clickedRow(row) {
+    console.log(this.value)
     this.selectedRow.emit({row:row,value:this.value});
   }
   clickDelete(){
     this.value=true;
   }
-
+  updateMovies(){
+    this.dataService.updateMovies();
+  }
 }

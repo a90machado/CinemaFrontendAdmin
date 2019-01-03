@@ -43,9 +43,10 @@ export class MoviesComponent implements OnInit {
     this.movie = eventData.row;
     if (eventData.value==true) {
       this.tableComponent.value=false;
+      eventData.value=false;
       console.log("user want to delete")
       this.movieApiService.deleteMovie(this.movie.id).subscribe();
-      this.updateMovies();
+      window.location.reload();
     } 
   }
 
