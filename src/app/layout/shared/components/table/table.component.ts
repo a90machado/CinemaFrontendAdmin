@@ -12,10 +12,8 @@ export class TableComponent implements OnInit {
   @Input()  value: boolean=false;
   @Input()  theme = 'table-dark';
   @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
-  @Output() deleteRow: EventEmitter<boolean> = new EventEmitter();
 
-
-  constructor(private dataService: DataService, ) {
+  constructor(private dataService: DataService ) {
   }
 
   ngOnInit() {
@@ -28,7 +26,6 @@ export class TableComponent implements OnInit {
   clickDelete(){
     this.value=true;
   }
-  updateMovies(){
-    this.dataService.updateMovies();
-  }
+  addNew(){}
+
 }

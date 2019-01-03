@@ -46,11 +46,14 @@ export class MoviesComponent implements OnInit {
       eventData.value=false;
       console.log("user want to delete")
       this.movieApiService.deleteMovie(this.movie.id).subscribe();
-      window.location.reload();
+      
     } 
   }
 
   updateMovies(){
     this.dataService.updateMovies();
+  }
+  addNew(){
+    console.log("add new")
   }
 }

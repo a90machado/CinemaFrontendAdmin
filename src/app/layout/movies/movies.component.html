@@ -8,9 +8,11 @@
                 </div>
 <div class="col-sm-12 col-md-1 col-lg-1">
 </div></div>
-
+<br>
+<div class="container">
+<button type="button" style= "float: right"class="btn btn-info add-new" (click)="addNew()"><i class="fa fa-plus"></i> Add New</button>
 <app-table [header]='["title","releaseDate","minimumAge","endDate", "duration"]' [data$]='movies$' [theme]='"table-bordered"'  (selectedRow)="handleSelectedRow($event)"></app-table>
-
+</div>
 <br>
 <div *ngIf=(movie) class="container-fluid details">
   <div class="row">

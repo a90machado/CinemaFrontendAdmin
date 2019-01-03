@@ -16,9 +16,7 @@ tr {
 th, thead{
     border: 1px solid black;
 }
-button{
-    text-align: right;
-}
+
 .material-icons{
     color:rgb(145, 9, 9);
 }
