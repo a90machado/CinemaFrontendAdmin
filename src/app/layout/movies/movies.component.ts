@@ -3,6 +3,7 @@ import { DataService } from '../shared/services';
 import { ReplaySubject } from 'rxjs';
 import { Movie } from 'src/app/layout/shared/components/modals/movie';
 import { MovieApiService } from '../shared/services/movie-api.service';
+import { TableComponent } from '../shared/components';
 
 @Component({
   selector: 'app-movies',
@@ -23,7 +24,8 @@ export class MoviesComponent implements OnInit {
   movie: Movie;
 
   constructor(    private dataService: DataService,
-    private movieApiService: MovieApiService
+    private movieApiService: MovieApiService,
+    private tableComponent: TableComponent
     ) { 
       this.duration = "Duration: ";
       this.releaseDate= "Release Date: ";
@@ -40,8 +42,10 @@ export class MoviesComponent implements OnInit {
   handleSelectedRow(eventData) {
     this.movie = eventData.row;
     if (eventData.value==true) {
+      this.tableComponent.value=false;
       console.log("user want to delete")
       this.movieApiService.deleteMovie(this.movie.id).subscribe();
+      this.updateMovies();
     } 
   }
 

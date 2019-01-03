@@ -24,7 +24,6 @@ export class DataService {
     );
   }
   public updateMovies() {
-    
     this.movieApi.getMovies().subscribe((res: any) => {
 
       this.movies$.next(res);
