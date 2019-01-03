@@ -8,8 +8,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TableComponent implements OnInit {
   @Input()  header: any;
   @Input()  data$: any;
+  @Input()  value: boolean=false;
   @Input()  theme = 'table-dark';
   @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
+  @Output() deleteRow: EventEmitter<boolean> = new EventEmitter();
+
 
   constructor( ) {
   }
@@ -18,7 +21,10 @@ export class TableComponent implements OnInit {
   }
 
   clickedRow(row) {
-    this.selectedRow.emit(row);
+    this.selectedRow.emit({row:row,value:this.value});
+  }
+  clickDelete(){
+    this.value=true;
   }
 
 }

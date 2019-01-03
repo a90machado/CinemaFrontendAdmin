@@ -13,4 +13,9 @@ import { HttpClient } from '@angular/common/http';
     public getMovies(){
         return this.http.get('http://localhost:8080/CinemaTicketSystem/api/movie/');
     }
+
+    public deleteMovie (id: number){
+        const url = `{http://localhost:8080/CinemaTicketSystem/api/movie}/${id}`; 
+        this.http.delete(url);
+      }
   }

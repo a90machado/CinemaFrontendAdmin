@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../shared/services';
 import { ReplaySubject } from 'rxjs';
 import { Movie } from 'src/app/layout/shared/components/modals/movie';
+import { MovieApiService } from '../shared/services/movie-api.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class MoviesComponent implements OnInit {
   public movies$: ReplaySubject<Movie[]>;
   movie: Movie;
 
-  constructor(    private dataService: DataService
+  constructor(    private dataService: DataService,
+    private movieApiService: MovieApiService
     ) { 
       this.duration = "Duration: ";
       this.releaseDate= "Release Date: ";
@@ -35,8 +37,12 @@ export class MoviesComponent implements OnInit {
   }
 
   handleSelectedRow(eventData) {
-    this.movie = eventData;
+    this.movie = eventData.row;
+    if (eventData.value==true) {
+      this.movieApiService.deleteMovie(eventData.row.id);
+    } 
   }
+
   updateMovies(){
     this.dataService.updateMovies();
   }

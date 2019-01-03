@@ -30,4 +30,5 @@ export class DataService {
       this.movies$.next(res);
     });
   }
+
 }
