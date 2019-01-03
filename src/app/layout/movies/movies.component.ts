@@ -4,7 +4,6 @@ import { ReplaySubject } from 'rxjs';
 import { Movie } from 'src/app/layout/shared/components/modals/movie';
 import { MovieApiService } from '../shared/services/movie-api.service';
 
-
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -17,6 +16,8 @@ export class MoviesComponent implements OnInit {
   @Input() cast = ''
   @Input() synopsis = ''
   @Input() delete = ''
+
+
 
   public movies$: ReplaySubject<Movie[]>;
   movie: Movie;
@@ -40,8 +41,7 @@ export class MoviesComponent implements OnInit {
     this.movie = eventData.row;
     if (eventData.value==true) {
       console.log("user want to delete")
-      console.log(this.movie.id)
-      this.movieApiService.deleteMovie(this.movie.id);
+      this.movieApiService.deleteMovie(this.movie.id).subscribe();
     } 
   }
 
