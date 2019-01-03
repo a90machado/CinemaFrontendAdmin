@@ -15,7 +15,8 @@ import { HttpClient } from '@angular/common/http';
     }
 
     public deleteMovie (id: number){
-        const url = `{http://localhost:8080/CinemaTicketSystem/api/movie}/${id}`; 
+        console.log("is in movieapiservice")
+        const url = `http://localhost:8080/CinemaTicketSystem/api/movie/${id}`; 
         this.http.delete(url);
       }
   }

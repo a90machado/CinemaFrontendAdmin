@@ -39,7 +39,9 @@ export class MoviesComponent implements OnInit {
   handleSelectedRow(eventData) {
     this.movie = eventData.row;
     if (eventData.value==true) {
-      this.movieApiService.deleteMovie(eventData.row.id);
+      console.log("user want to delete")
+      console.log(this.movie.id)
+      this.movieApiService.deleteMovie(this.movie.id);
     } 
   }
 
