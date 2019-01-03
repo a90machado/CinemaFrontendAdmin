@@ -1,4 +1,5 @@
-<div class="table-responsive">
+<div class="table-responsive container">
+    <button type="button" style= "float: right"class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
   <table class="table" [ngClass]='theme'>
     <thead>
       <tr>
@@ -8,6 +9,9 @@
         <!-- Actions -->
         <th>
           <input type="checkbox" aria-label="">
+        </th>
+        <th>
+            <a class="delete" title="Delete" data-toggle="tooltip"></a>
         </th>
       </tr>
     </thead>
@@ -20,6 +24,9 @@
         <td>
           <input type="checkbox" aria-label="">
         </td>
+        <td>
+        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+      </td>
       </tr>
     </tbody>
   </table>

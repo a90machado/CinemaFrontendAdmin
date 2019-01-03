@@ -16,3 +16,6 @@ tr {
 th, thead{
     border: 1px solid black;
 }
+button{
+    text-align: right;
+}

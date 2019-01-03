@@ -13,6 +13,7 @@ import { TableComponent } from './shared/components/index';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NewUserModalComponent } from './shared/components/modals/new-user-modal/new-user-modal.component';
 import { EditUserModalComponent } from './shared/components/modals/edit-user-modal/edit-user-modal.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { EditUserModalComponent } from './shared/components/modals/edit-user-mod
     CommonModule,
     ModalModule.forRoot(),
     FormsModule,
+    MatIconModule,
     LayoutRoutingModule
   ],
   entryComponents: [ NewUserModalComponent, EditUserModalComponent ]
