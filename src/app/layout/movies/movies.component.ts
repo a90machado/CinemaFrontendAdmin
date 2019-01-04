@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../shared/services';
 import { ReplaySubject } from 'rxjs';
-import { Movie } from 'src/app/layout/shared/components/modals/movie';
+import { Movie } from 'src/app/shared/sdk/models/movie';
 import { MovieApiService } from '../shared/services/movie-api.service';
 import { TableComponent } from '../shared/components';
 
