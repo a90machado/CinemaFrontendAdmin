@@ -33,7 +33,7 @@ const httpOptions = {
         return this.http.delete(url, httpOptions) .pipe(
             catchError(this.handleError)
           );;
-          window.location.reload();
+          location.reload();
       }
 
       private handleError(error: HttpErrorResponse) {
