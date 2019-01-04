@@ -5,11 +5,10 @@
   </button>
 </div>
 <div class="modal-body">
- <div class="row">
+  <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-6">
       <div class="text-center">
-        <img  class="card-img-top"  src={{image}}
-          alt="Card image cap">
+        <img class="card-img-top" src={{image}} alt="Card image cap">
         <br>
       </div>
     </div>
@@ -19,6 +18,9 @@
         <p>{{minimumAge}}</p>
         <hr>
         <p><b>Duration: </b>{{duration}}</p>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
         <p><b>Release Date: </b>{{releaseDate}}</p>
         <p><b>End Date: </b>{{endDate}}</p>
         <p><b>Director: </b>{{director}}</p>
@@ -28,5 +30,5 @@
         </p>
       </div>
     </div>
-  </div> 
+  </div>
 </div>

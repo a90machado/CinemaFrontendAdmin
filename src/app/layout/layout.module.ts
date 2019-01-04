@@ -17,6 +17,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { NewMovieModalComponent } from './shared/components/modals/new-movie-modal/new-movie-modal.component';
 import { MovieModalComponent } from './shared/components/modals/movie-modal/movie-modal.component';
 import { EditMovieModalComponent } from './shared/components/modals/edit-movie-modal/edit-movie-modal.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { EditMovieModalComponent } from './shared/components/modals/edit-movie-m
     ModalModule.forRoot(),
     FormsModule,
     MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     LayoutRoutingModule
   ],
   entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent ]

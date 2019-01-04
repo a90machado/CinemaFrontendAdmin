@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
     "angular-mat-datepicker": "0.0.2",
+    "angular-material-datepicker": "^1.0.2",
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
