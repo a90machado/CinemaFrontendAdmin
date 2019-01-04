@@ -9,23 +9,30 @@ import { DataService } from '../../services';
 export class TableComponent implements OnInit {
   @Input()  header: any;
   @Input()  data$: any;
-  @Input()  value: boolean=false;
+  @Input()  value = false;
   @Input()  theme = 'table-dark';
   @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
+  @Output() delete: EventEmitter<any> = new EventEmitter<any>();
+
 
   constructor(private dataService: DataService ) {
+
+
   }
 
   ngOnInit() {
+    
   }
 
   clickedRow(row) {
-    console.log(this.value)
-    this.selectedRow.emit({row:row,value:this.value});
+    this.selectedRow.emit(row);
   }
-  clickDelete(){
-    this.value=true;
+
+  clickDelete(row){
+    this.delete.emit(row);
   }
+
   addNew(){}
+
 
 }

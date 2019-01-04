@@ -30,10 +30,10 @@ const httpOptions = {
         console.log("is in movieapiservice")
         console.log(id);
         const url = `http://localhost:8080/CinemaTicketSystem/api/movie/${id}`; 
-        return this.http.delete(url, httpOptions) .pipe(
+        return this.http.delete(url, httpOptions).pipe(
             catchError(this.handleError)
           );;
-          location.reload();
+          // location.reload();
       }
 
       private handleError(error: HttpErrorResponse) {

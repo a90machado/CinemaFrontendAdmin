@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { Page404Component } from './page404/page404.component';
-
+import { DatePipe } from '@angular/common';
 import { SDKBrowserModule } from './shared/sdk/index';
 import { TableComponent } from './layout/shared/components';
 
@@ -25,7 +25,7 @@ import { TableComponent } from './layout/shared/components';
     FormsModule,
     SDKBrowserModule.forRoot(),
   ],
-  providers: [ TableComponent ],
+  providers: [ TableComponent, DatePipe ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

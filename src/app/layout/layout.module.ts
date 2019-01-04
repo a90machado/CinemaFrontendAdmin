@@ -14,6 +14,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NewUserModalComponent } from './shared/components/modals/new-user-modal/new-user-modal.component';
 import { EditUserModalComponent } from './shared/components/modals/edit-user-modal/edit-user-modal.component';
 import {MatIconModule} from '@angular/material/icon';
+import { NewMovieModalComponent } from './shared/components/modals/new-movie-modal/new-movie-modal.component';
+import { MovieModalComponent } from './shared/components/modals/movie-modal/movie-modal.component';
+import { EditMovieModalComponent } from './shared/components/modals/edit-movie-modal/edit-movie-modal.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import {MatIconModule} from '@angular/material/icon';
     UsersComponent,
     TableComponent,
     NewUserModalComponent,
-    EditUserModalComponent
+    EditUserModalComponent,
+    NewMovieModalComponent,
+    MovieModalComponent,
+    EditMovieModalComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +41,6 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule,
     LayoutRoutingModule
   ],
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent ]
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent ]
 })
 export class LayoutModule { }

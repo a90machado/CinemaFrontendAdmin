@@ -7,24 +7,18 @@
         </th>
         <!-- Actions -->
         <th>
-          <input type="checkbox" aria-label="">
-        </th>
-        <th>
             <a class="delete" title="Delete" data-toggle="tooltip"></a>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data$ | async" (click)="clickedRow(row)">
-        <td *ngFor="let col of header">
+      <tr *ngFor="let row of data$ | async" >
+        <td *ngFor="let col of header" (click)="clickedRow(row)">
           {{row[col]}}
         </td>
         <!-- Actions -->
         <td>
-          <input type="checkbox" aria-label="">
-        </td>
-        <td>
-        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons" (click)="clickDelete(row)">&#xE872;</i></a>
+        <i class="material-icons">edit</i><i class="material-icons delete" (click)="clickDelete(row)">&#xE872;</i>
       </td>
       </tr>
     </tbody>
