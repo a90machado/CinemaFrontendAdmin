@@ -19,6 +19,9 @@ import { MovieModalComponent } from './shared/components/modals/movie-modal/movi
 import { EditMovieModalComponent } from './shared/components/modals/edit-movie-modal/edit-movie-modal.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -43,8 +46,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BsDatepickerModule.forRoot(),
     LayoutRoutingModule
   ],
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent ]
+
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent ]
 })
 export class LayoutModule { }

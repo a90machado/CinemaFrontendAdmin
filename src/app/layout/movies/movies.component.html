@@ -11,7 +11,8 @@
 <br>
 <div class="container">
 <button type="button" style= "float: right"class="btn btn-info add-new" (click)="addNew()"><i class="fa fa-plus"></i> Add New</button>
-<app-table [header]='["title","duration","cast","director","minimumAge","releaseDate","endDate" ]' [data$]='movies$' [theme]='"table-bordered"'  (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
+<app-table [header]='["title","duration","cast","director","minimumAge","releaseDate","endDate" ]' [data$]='movies$' [theme]='"table-bordered"' (edit)="handleEdit($event)" (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
 </div>
 <br>
+
 </div>

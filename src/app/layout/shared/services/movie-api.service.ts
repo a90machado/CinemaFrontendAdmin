@@ -1,17 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError} from 'rxjs/operators';
-
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
-  })
-};
-
+import { Movie } from 'src/app/shared/models/movie';
 
 @Injectable({
     providedIn: 'root'
@@ -30,10 +21,15 @@ const httpOptions = {
         console.log("is in movieapiservice")
         console.log(id);
         const url = `http://localhost:8080/CinemaTicketSystem/api/movie/${id}`; 
-        return this.http.delete(url, httpOptions).pipe(
+        return this.http.delete(url).pipe(
             catchError(this.handleError)
           );;
-          // location.reload();
+      }
+      public editMovie (movie: Movie): Observable<Movie>{
+        const url = `http://localhost:8080/CinemaTicketSystem/api/movie/`; 
+        return this.http.put<Movie>(url,movie).pipe(
+            catchError(this.handleError)
+          );;
       }
 
       private handleError(error: HttpErrorResponse) {
@@ -51,4 +47,5 @@ const httpOptions = {
         return throwError(
           'Something bad happened; please try again later.');
       };
+
   }

@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
   @Input()  theme = 'table-dark';
   @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
   @Output() delete: EventEmitter<any> = new EventEmitter<any>();
-
+  @Output() edit: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private dataService: DataService ) {
 
@@ -30,6 +30,10 @@ export class TableComponent implements OnInit {
 
   clickDelete(row){
     this.delete.emit(row);
+  }
+  clickEdit(row){
+    console.log(row)
+    this.edit.emit(row);
   }
 
   addNew(){}

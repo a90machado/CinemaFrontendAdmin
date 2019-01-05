@@ -3,9 +3,9 @@ import { DataService } from '../shared/services';
 import { ReplaySubject } from 'rxjs';
 import { Movie } from 'src/app/shared/models/movie';
 import { MovieApiService } from '../shared/services/movie-api.service';
-import { TableComponent } from '../shared/components';
 import { MovieModalComponent } from '../shared/components/modals/movie-modal/movie-modal.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { EditMovieModalComponent } from '../shared/components/modals/edit-movie-modal/edit-movie-modal.component';
 
 
 @Component({
@@ -21,7 +21,6 @@ export class MoviesComponent implements OnInit {
 
   constructor(    private dataService: DataService,
     private movieApiService: MovieApiService,
-    private tableComponent: TableComponent,
     
     public modalService: BsModalService,
     ) 
@@ -52,5 +51,10 @@ export class MoviesComponent implements OnInit {
       this.dataService.updateMovies();
     });
     
+  }
+  handleEdit(eventData){
+    console.log("moviecomponent")
+    const initialState = eventData;
+    this.modalRef = this.modalService.show(EditMovieModalComponent, {initialState});
   }
 }
