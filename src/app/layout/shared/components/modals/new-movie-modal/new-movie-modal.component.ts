@@ -16,7 +16,8 @@ export class NewMovieModalComponent implements OnInit {
 
   ngOnInit() {
   }
-  newMovie(){
+  searchMovie(){
     this.movieApiService.searchMovie(this.titleToSearch,this.yearToSearch).subscribe((res:any) => {this.movie$.next(res)});
   }
+  newMovie(){}
 }

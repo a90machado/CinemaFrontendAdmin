@@ -13,9 +13,13 @@
         <label for="inputYear" class="text-uppercase">Release Year of the Movie: </label>
         <input  id="inputYear" name="yearToSearch" type="text" class="form-control" [(ngModel)]="yearToSearch" placeholder="" required>
         </div>
-        <p *ngIf="movie$ | async as movie; else loading"><b>Movie found: </b>{{movie.Title}}</p>
-        <p><b>Release date of the movie found: </b></p>
-        <p><b>Release Date:</b></p>
+        <button (click)="searchMovie()">Search movie</button>
+        <br><br>
+        <div *ngIf="movie$ | async as movie">
+        <p><b>Movie found: </b>{{movie.Title}}</p>
+        <p><b>Release date of the movie found: </b>{{movie.Released}}</p>
+        </div>
+        <p><b>Release Date in my cinemas:</b></p>
         <div class="row">
           <div class="form-group col-sm-12 col-md-3 col-lg-3">
             <label for="sel1">Day:</label>
@@ -109,7 +113,7 @@
             </select>
           </div>
         </div>
-        <p><b>End Date:</b></p>
+        <p><b>End Date in my cinemas:</b></p>
         <div class="row">
           <div class="form-group col-sm-12 col-md-3 col-lg-3">
             <label for="sel4">Day:</label>
