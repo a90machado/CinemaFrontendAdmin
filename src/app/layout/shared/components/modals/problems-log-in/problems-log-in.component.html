@@ -1,6 +1,6 @@
 
 
-
+<div class="my-modal">
 <div class="modal-header">
   <h4 class="modal-title pull-left">Email Us</h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="_modalRef.hide()">
@@ -19,13 +19,14 @@
       <input id="name" name="name" type="text" [(ngModel)]="email.name" class="form-control" placeholder="" required>
     </div>
     <div class="form-group">
-      <label for="role" class="text-uppercase">Subject</label>
-      <input id="role" name="role" type="text" [(ngModel)]="email.subject" class="form-control" placeholder="" required>
+      <label for="subject" class="text-uppercase">Subject</label>
+      <input id="subject" name="role" type="text" [(ngModel)]="email.subject" class="form-control" placeholder="" required>
     </div>
     <div class="form-group">
-        <label for="role" class="text-uppercase">Message</label>
-        <input id="role" name="role" type="text" [(ngModel)]="email.message" class="form-control" placeholder="" required>
+        <label for="message" class="text-uppercase">Message</label>
+        <input id="message" name="role" type="text" [(ngModel)]="email.message" class="form-control" placeholder="" required>
       </div>
     <button type="submit" class="btn btn-login float-right">Send</button>
   </form>
+</div>
 </div>

@@ -17,6 +17,13 @@ export class LoginComponent implements OnInit {
   toggleViewPWD = 'password';
   message = '';
   modalRef: BsModalRef;
+  config = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false,
+    class: "teste"
+  };
 
   constructor(private _accountApi: AccountApi,
               private _router: Router,
@@ -49,10 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   problems() {
-    this._modalService.config.class = 'modal-lg';
-    this.modalRef = this._modalService.show(ProblemsLogInComponent, {
-      animated: false
-    });
+    this.modalRef = this._modalService.show(ProblemsLogInComponent, this.config);
   }
 
 }
