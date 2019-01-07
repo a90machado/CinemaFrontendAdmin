@@ -33,6 +33,7 @@ export class NewMovieModalComponent implements OnInit {
   teste="";
   years = [];
   currentYear: number;
+  
 
   
   movieToSave: Movie = new Movie();
@@ -151,6 +152,7 @@ export class NewMovieModalComponent implements OnInit {
     this.movieToSave.synopsis=movie.Plot;
     this.movieToSave.releaseDate=this.releaseDate;
     this.movieToSave.endDate=this.endDate;
+    this.movieToSave.minimumAge=this.minimumAge;
 
     this.movieApiService.addMovie(this.movieToSave).subscribe(() =>{
       this.dataService.updateMovies();
