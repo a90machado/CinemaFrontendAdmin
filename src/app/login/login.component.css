@@ -79,8 +79,8 @@
   cursor: pointer;
 }
 
-.far:active{
-  color: #7F60EB;
+.active{
+  color: #7F60EB!important;
 }
 
 .error{

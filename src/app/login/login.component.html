@@ -10,7 +10,7 @@
       <input name="username" type="text" [(ngModel)]="account.username" class="form-control" placeholder="Username"
         autocomplete="off" required>
       <div class="eye">
-        <i class="far fa-eye" (click)="viewPWD()"></i>
+        <i [ngClass]="{'active': clicked}" class="far fa-eye" (click)="viewPWD()"></i>
         <input name="password" type="{{ toggleViewPWD }}" [(ngModel)]="account.password" class="form-control" placeholder="Password"
           autocomplete="off" required>
       </div>

@@ -13,6 +13,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class LoginComponent implements OnInit {
 
   account: Account = new Account();
+  clicked = false;
   toggleViewPWD = 'password';
   message = '';
   modalRef: BsModalRef;
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   viewPWD() {
+    this.clicked = !this.clicked; 
     if (this.toggleViewPWD === 'password') {
       this.toggleViewPWD = 'text';
     } else {
