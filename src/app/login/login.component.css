@@ -10,12 +10,14 @@
   width: 100%;
   min-height: 100vh;
 
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   display: flex;
 }
 
 .container{
+  margin-top: 40px;
   background-color: rgb( 33, 41, 66);
   border-radius: 9px;
   border-top: 10px solid #79A6FE;
@@ -105,12 +107,13 @@
   background: #5D33E6;
 }
 
-a{
+p{
   color: #5C7FDA;
   text-decoration: none;
+  cursor: pointer;
 }
 
-a:hover{
+p:hover{
   text-decoration: underline;
 }
 
@@ -122,4 +125,14 @@ a:hover{
 .header{
   text-align: center;
   margin-top: 20px;
+}
+
+.footer{
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #78797d;
+  font-size: 14px;
+  text-align: center;
 }

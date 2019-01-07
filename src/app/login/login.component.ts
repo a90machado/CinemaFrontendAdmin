@@ -15,11 +15,11 @@ export class LoginComponent implements OnInit {
   account: Account = new Account();
   toggleViewPWD = 'password';
   message = '';
-  // modalRef: BsModalRef;
+  modalRef: BsModalRef;
 
   constructor(private _accountApi: AccountApi,
               private _router: Router,
-              // private _modalService: BsModalService
+              private _modalService: BsModalService
               ) { }
 
   ngOnInit() {
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   problems() {
-    // this.modalRef = this._modalService.show(ProblemsLogInComponent);
+    this.modalRef = this._modalService.show(ProblemsLogInComponent);
   }
 
 }

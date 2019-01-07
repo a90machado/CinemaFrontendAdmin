@@ -10,12 +10,14 @@ import { LoginComponent } from './login/login.component';
 import { Page404Component } from './page404/page404.component';
 
 import { SDKBrowserModule } from './shared/sdk/index';
-import { TableComponent } from './layout/shared/components';
+import { TableComponent, ProblemsLogInComponent } from './layout/shared/components';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ProblemsLogInComponent,
     Page404Component
   ],
   imports: [
@@ -23,8 +25,10 @@ import { TableComponent } from './layout/shared/components';
     AppRoutingModule,
     NoopAnimationsModule,
     FormsModule,
+    ModalModule.forRoot(),
     SDKBrowserModule.forRoot(),
   ],
+  entryComponents: [ ProblemsLogInComponent ],
   providers: [ TableComponent ],
   bootstrap: [AppComponent]
 })

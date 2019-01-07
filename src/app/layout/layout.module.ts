@@ -11,7 +11,7 @@ import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from '../shared/components/index';
 import { TableComponent } from './shared/components/index';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { NewUserModalComponent, EditUserModalComponent, ProblemsLogInComponent } from './shared/components/';
+import { NewUserModalComponent, EditUserModalComponent } from './shared/components/';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,7 @@ import { NewUserModalComponent, EditUserModalComponent, ProblemsLogInComponent }
     UsersComponent,
     TableComponent,
     NewUserModalComponent,
-    EditUserModalComponent,
-    ProblemsLogInComponent
+    EditUserModalComponent
   ],
   imports: [
     CommonModule,
