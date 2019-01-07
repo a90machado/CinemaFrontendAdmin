@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import * as emailjs from 'emailjs-com';
 
 @Component({
   selector: 'app-problems-log-in',
@@ -9,23 +10,27 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class ProblemsLogInComponent implements OnInit {
 
   email = {
-    email: '',
-    name: '',
+    reply_to: '',
+    from_name: '',
     subject: '',
-    message: ''
+    message_html: ''
   };
 
-  constructor( public _modalRef: BsModalRef ) { 
-     
-
-   }
+  constructor(public _modalRef: BsModalRef) {
+  }
 
   ngOnInit() {
-    
+
   }
 
   emailUs() {
 
+    emailjs.send('gmail', 'template_Usm8sltX', this.email, 'user_D79wQNojPhIDfDrMSz3OI')
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      }, (err) => {
+        console.log('FAILED...', err);
+      });
   }
 
 }
