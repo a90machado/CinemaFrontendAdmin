@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-problems-log-in',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProblemsLogInComponent implements OnInit {
 
-  constructor() { }
+  email = {
+    email: String,
+    name: String,
+    subject: String,
+    message: String
+  };
+
+  constructor( public _modalRef: BsModalRef ) { }
 
   ngOnInit() {
+  }
+
+  emailUs() {
+
   }
 
 }

@@ -136,3 +136,9 @@ p:hover{
   font-size: 14px;
   text-align: center;
 }
+
+.teste{
+  background-color: red;
+  background: red;
+  color: red;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Account, AccessToken, AccountApi } from '../shared/sdk';
@@ -47,7 +47,10 @@ export class LoginComponent implements OnInit {
   }
 
   problems() {
-    this.modalRef = this._modalService.show(ProblemsLogInComponent);
+    this._modalService.config.class = 'modal-lg';
+    this.modalRef = this._modalService.show(ProblemsLogInComponent, {
+      animated: false
+    });
   }
 
 }
