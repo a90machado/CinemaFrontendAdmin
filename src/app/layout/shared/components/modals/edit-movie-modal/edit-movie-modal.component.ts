@@ -3,6 +3,8 @@ import { Movie } from 'src/app/shared/models/movie';
 import { MovieApiService } from '../../../services/movie-api.service';
 import { DataService } from '../../../services';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { yearsPerPage } from '@angular/material/datepicker/typings/multi-year-view';
+import { getFullYear } from 'ngx-bootstrap/chronos/public_api';
 
 @Component({
   selector: 'app-edit-movie-modal',
@@ -18,11 +20,26 @@ export class EditMovieModalComponent implements OnInit {
   dayEnd= "";
   monthEnd = "";
   yearEnd = "";
+  years = [];
+  currentYear: number;
+  
+ 
 
-
-  constructor( private movieApiService: MovieApiService, private dataService: DataService, public modalRef: BsModalRef ) { }
+  constructor( private movieApiService: MovieApiService, private dataService: DataService, public modalRef: BsModalRef ) { 
+    this.createArrayYears()
+  }
 
   ngOnInit() {
+  }
+
+  createArrayYears(){
+    this.currentYear=(new Date()).getFullYear();
+    this.years.push(this.currentYear-1);
+    this.years.push(this.currentYear);
+    for (let i = 0; i < 3; i++) {
+      this.currentYear+=1;
+      this.years.push(this.currentYear);
+    }
   }
 
   editMovie(id,title,image,minimumAge,duration,releaseDate,endDate,director,cast,synopsis){
@@ -98,8 +115,8 @@ export class EditMovieModalComponent implements OnInit {
     if (this.monthEnd=="December") {
       this.monthEnd="12";
     }
-    releaseDate=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease+"T00:00:00";
-    endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd+"T00:00:00";
+    releaseDate=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease;
+    endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd;
 
     console.log(id,title,image,minimumAge,duration,director,cast,synopsis,releaseDate,endDate);
     this.movie.id=id;

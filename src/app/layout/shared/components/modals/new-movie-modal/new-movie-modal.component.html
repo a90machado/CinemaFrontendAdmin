@@ -9,11 +9,14 @@
         <label for="inputTitle" class="text-uppercase">Title of the Movie: </label>
         <input  id="inputTitle" name="titleToSearch" type="text" class="form-control" [(ngModel)]="titleToSearch" placeholder="" required>
         </div>
-        <div class="form-group">
-        <label for="inputYear" class="text-uppercase">Release Year of the Movie: </label>
-        <input  id="inputYear" name="yearToSearch" type="text" class="form-control" [(ngModel)]="yearToSearch" placeholder="" required>
-        </div>
-        <button (click)="searchMovie()">Search movie</button>
+        <div class="form-group" class="col-sm-12 col-md-12 col-lg-12">
+            <label for="sel3">Release Year of the Movie:</label>
+            <select id="sel3" [(ngModel)]="yearToSearch">
+              <option *ngFor="let year of years">{{year}}</option>
+            </select>
+          </div>
+        <br>
+        <button (click)="searchMovie()" class="buttonSearch">Search movie</button>
         <br><br>
         <div *ngIf="movie$ | async as movie">
         <p><b>Movie found: </b>{{movie.Title}}</p>
@@ -74,43 +77,11 @@
             </select>
           </div>
           <div class="form-group" class="col-sm-12 col-md-4 col-lg-4">
-            <label for="sel3">Year:</label>
-            <select id="sel3" [(ngModel)]="yearRelease">
-              <option>2018</option>
-              <option>2019</option>
-              <option>2020</option>
-              <option>2021</option>
-              <option>2022</option>
-              <option>2023</option>
-              <option>2024</option>
-              <option>2025</option>
-              <option>2026</option>
-              <option>2027</option>
-              <option>2028</option>
-              <option>2029</option>
-              <option>2030</option>
-              <option>2031</option>
-              <option>2032</option>
-              <option>2033</option>
-              <option>2034</option>
-              <option>2035</option>
-              <option>2036</option>
-              <option>2037</option>
-              <option>2038</option>
-              <option>2039</option>
-              <option>2040</option>
-              <option>2041</option>
-              <option>2042</option>
-              <option>2043</option>
-              <option>2044</option>
-              <option>2045</option>
-              <option>2046</option>
-              <option>2047</option>
-              <option>2048</option>
-              <option>2049</option>
-              <option>2050</option>
-            </select>
-          </div>
+              <label for="sel6">Year:</label>
+              <select id="sel6" [(ngModel)]="yearRelease" >
+                <option *ngFor="let year of years" >{{year}}</option>
+              </select>
+            </div>
         </div>
         <p><b>End Date in my cinemas:</b></p>
         <div class="row">
@@ -168,42 +139,11 @@
             </select>
           </div>
           <div class="form-group" class="col-sm-12 col-md-4 col-lg-4">
-            <label for="sel6">Year:</label>
-            <select id="sel6" [(ngModel)]="yearEnd">
-              <option>2019</option>
-              <option>2020</option>
-              <option>2021</option>
-              <option>2022</option>
-              <option>2023</option>
-              <option>2024</option>
-              <option>2025</option>
-              <option>2026</option>
-              <option>2027</option>
-              <option>2028</option>
-              <option>2029</option>
-              <option>2030</option>
-              <option>2031</option>
-              <option>2032</option>
-              <option>2033</option>
-              <option>2034</option>
-              <option>2035</option>
-              <option>2036</option>
-              <option>2037</option>
-              <option>2038</option>
-              <option>2039</option>
-              <option>2040</option>
-              <option>2041</option>
-              <option>2042</option>
-              <option>2043</option>
-              <option>2044</option>
-              <option>2045</option>
-              <option>2046</option>
-              <option>2047</option>
-              <option>2048</option>
-              <option>2049</option>
-              <option>2050</option>
-            </select>
-          </div>
+              <label for="sel6">Year:</label>
+              <select id="sel6" [(ngModel)]="yearEnd" >
+                <option *ngFor="let year of years" >{{year}}</option>
+              </select>
+            </div>
         </div>
     </div>
     <button *ngIf="movie$ | async as movie" type="submit" (click)="newMovie(movie)" class="btn btn-login float-right">Create</button>

@@ -27,12 +27,12 @@ export class DataService {
   public updateMovies() {
     this.movieApi.getMovies().subscribe((res: any) => {
       
-      //
+     
       
-     // for (const iterator of res) {
-     //   iterator.releaseDate = this.datepipe.transform(iterator.releaseDate, 'yyyy-MM-dd');
-    //    iterator.endDate = this.datepipe.transform(iterator.endDate, 'yyyy-MM-dd');
-     // }
+      for (const iterator of res) {
+        iterator.releaseDate = this.datepipe.transform(iterator.releaseDate, 'yyyy-MM-dd');
+        iterator.endDate = this.datepipe.transform(iterator.endDate, 'yyyy-MM-dd');
+      }
 
       this.movies$.next(res);
     });

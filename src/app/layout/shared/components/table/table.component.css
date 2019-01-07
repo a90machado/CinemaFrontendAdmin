@@ -19,5 +19,12 @@ th, thead{
 
 .delete{
     color:rgb(145, 9, 9);
-    margin-left: 1rem;
+}
+.icons{
+    display:flex;
+    flex-direction: row;
+    width: 3rem;
+}
+.data{
+    min-width: 120px;
 }

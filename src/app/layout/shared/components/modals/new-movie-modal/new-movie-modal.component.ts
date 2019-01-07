@@ -26,16 +26,32 @@ export class NewMovieModalComponent implements OnInit {
   image="";
   minimumAge: number;
   duration: number;
+  stringDuration="";
   director="";
   cast="";
   synopsis="";
+  teste="";
+  years = [];
+  currentYear: number;
+
   
   movieToSave: Movie = new Movie();
   public movie$: ReplaySubject<any []>= new ReplaySubject(1);
-  constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) { }
+  constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) { this.createArrayYears()}
 
   ngOnInit() {
   }
+
+  createArrayYears(){
+    this.currentYear=(new Date()).getFullYear();
+    this.years.push(this.currentYear-1);
+    this.years.push(this.currentYear);
+    for (let i = 0; i < 3; i++) {
+      this.currentYear+=1;
+      this.years.push(this.currentYear);
+    }
+  }
+
   searchMovie(){
     this.movieApiService.searchMovie(this.titleToSearch,this.yearToSearch).subscribe((res:any) => {this.movie$.next(res)});
   }
@@ -112,20 +128,30 @@ export class NewMovieModalComponent implements OnInit {
     if (this.monthEnd=="December") {
       this.monthEnd="12";
     }
-    this.releaseDate=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease+"T00:00:00";
-    this.endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd+"T00:00:00";
 
+    for (let index = 0; index < movie.Runtime.length; index++) {
+      if (movie.Runtime[index]!=" "){
+        this.stringDuration+=movie.Runtime[index];
+      }
+      else{
+        break;
+      }
+    }
+
+    console.log(Number(this.stringDuration));
+
+    this.releaseDate=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease;
+    this.endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd;
     this.movieToSave.title=movie.Title;
     this.movieToSave.image=movie.Poster;
     this.movieToSave.minimumAge=111;
-    this.movieToSave.duration=111;
+    this.movieToSave.duration=Number(this.stringDuration);
     this.movieToSave.director=movie.Director;
     this.movieToSave.cast=movie.Actors;
     this.movieToSave.synopsis=movie.Plot;
     this.movieToSave.releaseDate=this.releaseDate;
     this.movieToSave.endDate=this.endDate;
 
-    console.log(this.movieToSave);
     this.movieApiService.addMovie(this.movieToSave).subscribe(() =>{
       this.dataService.updateMovies();
     });
