@@ -18,7 +18,6 @@
         <div *ngIf="movie$ | async as movie">
         <p><b>Movie found: </b>{{movie.Title}}</p>
         <p><b>Release date of the movie found: </b>{{movie.Released}}</p>
-        </div>
         <p><b>Release Date in my cinemas:</b></p>
         <div class="row">
           <div class="form-group col-sm-12 col-md-3 col-lg-3">
@@ -206,5 +205,6 @@
             </select>
           </div>
         </div>
-    <button type="submit" (click)="newMovie()" class="btn btn-login float-right">Create</button>
+    </div>
+    <button *ngIf="movie$ | async as movie" type="submit" (click)="newMovie(movie)" class="btn btn-login float-right">Create</button>
     </div>

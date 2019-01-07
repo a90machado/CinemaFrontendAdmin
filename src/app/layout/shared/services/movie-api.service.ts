@@ -34,7 +34,12 @@ import { Movie } from 'src/app/shared/models/movie';
             catchError(this.handleError)
           );;
       }
-
+      public addMovie (movie: Movie): Observable<Movie>{
+        const url = `http://localhost:8080/CinemaTicketSystem/api/movie/new`; 
+        return this.http.post<Movie>(url,movie).pipe(
+            catchError(this.handleError)
+          );;
+      }
       private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
           // A client-side or network error occurred. Handle it accordingly.
