@@ -9,15 +9,19 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class ProblemsLogInComponent implements OnInit {
 
   email = {
-    email: String,
-    name: String,
-    subject: String,
-    message: String
+    email: '',
+    name: '',
+    subject: '',
+    message: ''
   };
 
-  constructor( public _modalRef: BsModalRef ) { }
+  constructor( public _modalRef: BsModalRef ) { 
+     
+
+   }
 
   ngOnInit() {
+    
   }
 
   emailUs() {

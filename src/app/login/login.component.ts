@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     keyboard: true,
     backdrop: true,
     ignoreBackdropClick: false,
-    class: "teste"
+    class: "my-modal"
   };
 
   constructor(private _accountApi: AccountApi,
