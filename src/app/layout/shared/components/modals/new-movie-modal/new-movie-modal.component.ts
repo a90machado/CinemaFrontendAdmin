@@ -145,7 +145,6 @@ export class NewMovieModalComponent implements OnInit {
     this.endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd;
     this.movieToSave.title=movie.Title;
     this.movieToSave.image=movie.Poster;
-    this.movieToSave.minimumAge=111;
     this.movieToSave.duration=Number(this.stringDuration);
     this.movieToSave.director=movie.Director;
     this.movieToSave.cast=movie.Actors;
