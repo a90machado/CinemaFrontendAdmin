@@ -37,7 +37,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     EditUserModalComponent,
     NewMovieModalComponent,
     MovieModalComponent,
-    EditMovieModalComponent
+    EditMovieModalComponent,
+    NewMovieModalComponent
   ],
   imports: [
     CommonModule,
@@ -52,6 +53,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     LayoutRoutingModule
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent ]
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent ]
 })
 export class LayoutModule { }

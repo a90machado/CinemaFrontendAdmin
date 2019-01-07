@@ -6,6 +6,7 @@ import { MovieApiService } from '../shared/services/movie-api.service';
 import { MovieModalComponent } from '../shared/components/modals/movie-modal/movie-modal.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { EditMovieModalComponent } from '../shared/components/modals/edit-movie-modal/edit-movie-modal.component';
+import { NewMovieModalComponent } from '../shared/components/modals/new-movie-modal/new-movie-modal.component';
 
 
 @Component({
@@ -42,10 +43,6 @@ export class MoviesComponent implements OnInit {
     this.dataService.updateMovies();
   }
   
-  addNew(){
-    console.log("add new")
-  }
-
   handleDelete(eventData){
     this.movieApiService.deleteMovie(eventData.id).subscribe(() =>{
       this.dataService.updateMovies();
@@ -56,5 +53,9 @@ export class MoviesComponent implements OnInit {
     console.log("moviecomponent")
     const initialState = eventData;
     this.modalRef = this.modalService.show(EditMovieModalComponent, {initialState});
+  }
+
+  addNew(){
+    this.modalRef = this.modalService.show(NewMovieModalComponent);
   }
 }

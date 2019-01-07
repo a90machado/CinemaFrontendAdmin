@@ -16,6 +16,9 @@ import { Movie } from 'src/app/shared/models/movie';
     public getMovies(){
         return this.http.get('http://localhost:8080/CinemaTicketSystem/api/movie/');
     }
+    public searchMovie(titleToSearch: string, yearToSearch: string){
+        return this.http.get(`http://www.omdbapi.com/?apikey=9bcc8f54&t=${titleToSearch}&y=${yearToSearch}&plot=full`);
+    }
 
     public deleteMovie (id: number): Observable<{}>{
         console.log("is in movieapiservice")

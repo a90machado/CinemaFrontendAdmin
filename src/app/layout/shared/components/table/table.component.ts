@@ -36,7 +36,4 @@ export class TableComponent implements OnInit {
     this.edit.emit(row);
   }
 
-  addNew(){}
-
-
-}
+ }
