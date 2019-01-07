@@ -127,8 +127,8 @@ export class EditMovieModalComponent implements OnInit {
     this.movie.director=director;
     this.movie.cast=cast;
     this.movie.synopsis=synopsis;
-    this.movie.releaseDate=releaseDate;
-    this.movie.endDate=endDate;
+    this.movie.releaseDate=releaseDate+"T00:00:00";
+    this.movie.endDate=endDate+"T00:00:00";
 
     this.movieApiService.editMovie(this.movie).subscribe(() =>{
       this.dataService.updateMovies();
