@@ -1,27 +1,29 @@
-<div class="modal-header">
-  <h4 class="modal-title pull-left">Email Us</h4>
-  <button type="button" class="close pull-right" aria-label="Close" (click)="_modalRef.hide()">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+<div class="my-modal">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Email<span> our Support:</span></h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="_modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 <div class="modal-body">
-  <form #formLogin="ngForm" (ngSubmit)="emailUs()" class="login-form">
-    <div class="form-group">
-      <label for="email" class="text-uppercase">Email</label>
-      <input id="email" name="email" type="text" [(ngModel)]="email.reply_to" class="form-control" placeholder="Email" required>
-    </div>
-    <div class="form-group">
-      <label for="name" class="text-uppercase">Name</label>
-      <input id="name" name="name" type="text" [(ngModel)]="email.from_name" class="form-control" placeholder="Name" required>
-    </div>
-    <div class="form-group">
-      <label for="subject" class="text-uppercase">Subject</label>
-      <input id="subject" name="role" type="text" [(ngModel)]="email.subject" class="form-control" placeholder="Subject" required>
-    </div>
-    <div class="form-group">
-      <label for="message" class="text-uppercase">Message</label>
-      <input id="message" name="role" type="text" [(ngModel)]="email.message_html" class="form-control" placeholder="Message" required>
-    </div>
-    <button type="submit" class="btn btn-login float-right">Send</button>
-  </form>
+    <form #formLogin="ngForm" (ngSubmit)="emailUs()" class="login-form">
+      <div class="form-group">
+        <label for="email" class="text-uppercase">Email</label>
+        <input id="email" name="email" type="text" [(ngModel)]="email.reply_to" class="form-control" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <label for="name" class="text-uppercase">Name</label>
+        <input id="name" name="name" type="text" [(ngModel)]="email.from_name" class="form-control" placeholder="Name" required>
+      </div>
+      <div class="form-group">
+        <label for="subject" class="text-uppercase">Subject</label>
+        <input id="subject" name="role" type="text" [(ngModel)]="email.subject" class="form-control" placeholder="Subject" required>
+      </div>
+      <div class="form-group">
+        <label for="message" class="text-uppercase">Message</label>
+        <input id="message" name="role" type="text" [(ngModel)]="email.message_html" class="form-control" placeholder="Message" required>
+      </div>
+      <button type="submit" class="btn btn-login float-right">Send</button>
+    </form>
+  </div>
 </div>

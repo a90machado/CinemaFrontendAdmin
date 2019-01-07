@@ -1,0 +1,17 @@
+.modal-header {
+    background: #1d243d;
+}
+
+.modal-header h4 {
+    color: #5C6BC0;
+    font-size: 30px;
+}
+  
+.modal-header h4 span {
+    color: #DFDEEE;
+    font-weight: lighter;
+}
+
+.close{
+    color: #79A6FE;
+}
