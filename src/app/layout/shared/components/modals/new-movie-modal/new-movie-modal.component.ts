@@ -38,7 +38,10 @@ export class NewMovieModalComponent implements OnInit {
   
   movieToSave: Movie = new Movie();
   public movie$: ReplaySubject<any []>= new ReplaySubject(1);
-  constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) { this.createArrayYears()}
+  constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) { 
+    this.createArrayYears()
+  
+  }
 
   ngOnInit() {
   }
@@ -144,8 +147,8 @@ export class NewMovieModalComponent implements OnInit {
 
     console.log(this.duration);
 
-    this.releaseDate=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease+"T00:00:00";
-    this.endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd+"T00:00:00";
+    this.releaseDate=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease;
+    this.endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd;
     this.movieToSave.title=movie.Title;
     this.movieToSave.image=movie.Poster;
     this.movieToSave.duration=this.duration;

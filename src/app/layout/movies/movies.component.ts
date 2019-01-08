@@ -52,7 +52,7 @@ export class MoviesComponent implements OnInit {
   handleEdit(eventData){
     console.log("moviecomponent")
     const initialState = eventData;
-    this.modalRef = this.modalService.show(EditMovieModalComponent, {initialState});
+    this.modalRef = this.modalService.show(EditMovieModalComponent, {"initialState":initialState});
   }
 
   addNew(){

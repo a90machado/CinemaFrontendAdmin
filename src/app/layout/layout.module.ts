@@ -22,6 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     MatFormFieldModule,
     MatInputModule,
     BsDatepickerModule.forRoot(),
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    MatSelectModule
   ],
 
   entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent ]

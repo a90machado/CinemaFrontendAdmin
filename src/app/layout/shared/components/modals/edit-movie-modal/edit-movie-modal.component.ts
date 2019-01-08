@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from 'src/app/shared/models/movie';
 import { MovieApiService } from '../../../services/movie-api.service';
 import { DataService } from '../../../services';
@@ -11,12 +11,12 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./edit-movie-modal.component.css']
 })
 export class EditMovieModalComponent implements OnInit {
-
+  optionsDay=[]
   movie: Movie = new Movie();
-  dayRelease = "";
+  dayRelease:string;
   monthRelease = "";
   yearRelease = "";
-  dayEnd= "";
+  dayEnd: string;
   monthEnd = "";
   yearEnd = "";
   years = [];
@@ -24,12 +24,65 @@ export class EditMovieModalComponent implements OnInit {
   releaseDateNew="";
   endDateNew="";
   minimumAgeNew: number;
+  monthsArray=[];
 
-  constructor( private movieApiService: MovieApiService, private dataService: DataService, public modalRef: BsModalRef ) { 
-    this.createArrayYears()
+  @Input()releaseDate:string;
+  @Input()endDate:string; 
+  @Input()minimumAge:number; 
+  @Input()id:number; 
+  @Input()title:string; 
+  @Input()image:string;
+  @Input()duration:number; 
+  @Input()director:string; 
+  @Input()cast:string; 
+  @Input()synopsis:string; 
+
+
+  constructor(private movieApiService: MovieApiService, private dataService: DataService, public modalRef: BsModalRef ) { 
+    
   }
 
   ngOnInit() {
+    this.dayRelease=this.releaseDate[8]+this.releaseDate[9];
+    this.monthRelease=this.convertMonthToString(this.releaseDate[5]+this.releaseDate[6]);
+    this.yearRelease=this.releaseDate[0]+this.releaseDate[1]+this.releaseDate[2]+this.releaseDate[3];
+    this.minimumAgeNew=this.minimumAge;
+    this.dayEnd=this.endDate[8]+this.endDate[9];
+    this.monthEnd=this.convertMonthToString(this.releaseDate[5]+this.releaseDate[6]);
+    this.yearEnd=this.releaseDate[0]+this.releaseDate[1]+this.releaseDate[2]+this.releaseDate[3];
+
+    this.createArrayYears();
+    this.createArrayDays()
+
+  }
+
+  setForm(){
+    
+  }
+
+  editMovie(){
+    
+    this.releaseDateNew=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease;
+    this.endDateNew=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd;
+
+    this.movie.id=this.id;
+    this.movie.title=this.title;
+    this.movie.image=this.image;
+    this.movie.duration=this.duration;
+    this.movie.director=this.director;
+    this.movie.cast=this.cast;
+    this.movie.synopsis=this.synopsis;
+    this.movie.releaseDate=this.releaseDateNew;
+    this.movie.endDate=this.endDateNew;
+    this.movie.minimumAge=this.minimumAgeNew;
+
+
+    if (this.movie.releaseDate!=this.releaseDate||this.movie.endDate!=this.endDate||this.movie.minimumAge!=this.minimumAge) {
+      this.movieApiService.editMovie(this.movie).subscribe(() =>{
+        this.dataService.updateMovies();
+      });
+      console.log(this.movie.releaseDate,this.releaseDate,this.movie.endDate,this.endDate,this.movie.minimumAge,this.minimumAge)
+    }
   }
 
   createArrayYears(){
@@ -41,123 +94,94 @@ export class EditMovieModalComponent implements OnInit {
       this.years.push(this.currentYear);
     }
   }
-
-  editMovie(id,title,image,minimumAge,duration,releaseDate,endDate,director,cast,synopsis){
-    if (this.monthRelease=="January") {
-      this.monthRelease="01";
-    }
-    else if (this.monthRelease=="February") {
-      this.monthRelease="02";
-    }
-    else if (this.monthRelease=="March") {
-      this.monthRelease="03";
-    }
-    else if (this.monthRelease=="April") {
-      this.monthRelease="04";
-    }
-    else if (this.monthRelease=="May") {
-      this.monthRelease="05";
-    }
-    else if (this.monthRelease=="June") {
-      this.monthRelease="06";
-    }
-    else if (this.monthRelease=="July") {
-      this.monthRelease="07";
-    }
-    else if (this.monthRelease=="August") {
-      this.monthRelease="08";
-    }
-    else if (this.monthRelease=="September") {
-      this.monthRelease="09";
-    }
-    else if (this.monthRelease=="October") {
-      this.monthRelease="10";
-    }
-    else if (this.monthRelease=="November") {
-      this.monthRelease="11";
-    }
-    else if (this.monthRelease=="December") {
-      this.monthRelease="12";
-    }
-    else{
-      this.monthRelease=releaseDate[5]+releaseDate[6];
-    }
-    if (this.monthEnd=="January") {
-      this.monthEnd="01";
-    }
-    else if (this.monthEnd=="February") {
-      this.monthEnd="02";
-    }
-    else if (this.monthEnd=="March") {
-      this.monthEnd="03";
-    }
-    else if (this.monthEnd=="April") {
-      this.monthEnd="04";
-    }
-    else if (this.monthEnd=="May") {
-      this.monthEnd="05";
-    }
-    else if (this.monthEnd=="June") {
-      this.monthEnd="06";
-    }
-    else if (this.monthEnd=="July") {
-      this.monthEnd="07";
-    }
-    else if (this.monthEnd=="August") {
-      this.monthEnd="08";
-    }
-    else if (this.monthEnd=="September") {
-      this.monthEnd="09";
-    }
-    else if (this.monthEnd=="October") {
-      this.monthEnd="10";
-    }
-    else if (this.monthEnd=="November") {
-      this.monthEnd="11";
-    }
-    else if (this.monthEnd=="December") {
-      this.monthEnd="12";
-    }
-    else{
-      this.monthEnd=endDate[5]+endDate[6];
-    }
-
-    if (this.yearRelease=="") {
-      this.yearRelease=endDate[0]+endDate[1]+endDate[2]+endDate[3];
-    }
-    if (this.dayRelease=="") {
-      this.dayRelease=endDate[8]+endDate[9];
-    }
-    if (this.yearEnd=="") {
-      this.yearEnd=endDate[0]+endDate[1]+endDate[2]+endDate[3];
-    }
-    if (this.dayEnd=="") {
-      this.dayEnd=endDate[8]+endDate[9];
-    }
-    if (this.minimumAgeNew==undefined){
-      this.minimumAgeNew=minimumAge;
-    }
-
-    this.releaseDateNew=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease;
-    this.endDateNew=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd;
-
-    this.movie.id=id;
-    this.movie.title=title;
-    this.movie.image=image;
-    this.movie.duration=duration;
-    this.movie.director=director;
-    this.movie.cast=cast;
-    this.movie.synopsis=synopsis;
-    this.movie.releaseDate=this.releaseDateNew+"T00:00:00Z[UTC]";
-    this.movie.endDate=this.endDateNew+"T00:00:00Z[UTC]";
-    this.movie.minimumAge=this.minimumAgeNew;
-
-
-    if (this.movie.releaseDate!=releaseDate||this.movie.endDate!=endDate||this.movie.minimumAge!=minimumAge) {
-      this.movieApiService.editMovie(this.movie).subscribe(() =>{
-        this.dataService.updateMovies();
-      });
-      console.log(this.movie.releaseDate,releaseDate,this.movie.endDate,endDate,this.movie.minimumAge,minimumAge)
+  createArrayDays(){
+    for (let i = 1; i < 32; i++) {
+      if(i<10){
+        this.optionsDay.push('0'+i)
+      } else {
+        this.optionsDay.push(i)
+      }
+      
     }
   }
+
+  convertMonthToNumber(monthString){
+    if (monthString=="January") {
+      monthString="01";
+    }
+    if (monthString=="February") {
+      monthString="02";
+    }
+    if (monthString=="March") {
+      monthString="03";
+    }
+    if (monthString=="April") {
+      monthString="04";
+    }
+    if (monthString=="May") {
+      monthString="05";
+    }
+    if (monthString=="June") {
+      monthString="06";
+    }
+    if (monthString=="July") {
+      monthString="07";
+    }
+    if (monthString=="August") {
+      monthString="08";
+    }
+    if (monthString=="September") {
+      monthString="09";
+    }
+    if (monthString=="October") {
+      monthString="10";
+    }
+    if (monthString=="November") {
+      monthString="11";
+    }
+    if (monthString=="December") {
+      monthString="12";
+    }
+    return monthString;
+  }
+  convertMonthToString(monthNumber){
+    if (monthNumber=="01") {
+      monthNumber="January";
+    }
+    if (monthNumber=="02") {
+      monthNumber="February";
+    }
+    if (monthNumber=="03") {
+      monthNumber="March";
+    }
+    if (monthNumber=="04") {
+      monthNumber="April";
+    }
+    if (monthNumber=="05") {
+      monthNumber="May";
+    }
+    if (monthNumber=="06") {
+      monthNumber="June";
+    }
+    if (monthNumber=="07") {
+      monthNumber="July";
+    }
+    if (monthNumber=="08") {
+      monthNumber="August";
+    }
+    if (monthNumber=="09") {
+      monthNumber="September";
+    }
+    if (monthNumber=="10") {
+      monthNumber="October";
+    }
+    if (monthNumber=="11") {
+      monthNumber="November";
+    }
+    if (monthNumber=="12") {
+      monthNumber="December";
+    }
+    return monthNumber;
+  }
+
 }
