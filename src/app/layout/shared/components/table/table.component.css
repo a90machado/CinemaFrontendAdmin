@@ -23,7 +23,7 @@ th, thead{
 .icons{
     display:flex;
     flex-direction: row;
-    width: 3rem;
+    width: 1rem;
 }
 .data{
     min-width: 120px;

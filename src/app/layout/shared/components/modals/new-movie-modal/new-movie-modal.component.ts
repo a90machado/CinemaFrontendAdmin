@@ -11,6 +11,7 @@ import { DataService } from '../../../services';
   styleUrls: ['./new-movie-modal.component.css']
 })
 export class NewMovieModalComponent implements OnInit {
+  optionsDay=[]
   titleToSearch='';
   yearToSearch='';
   dayRelease = "";
@@ -39,99 +40,20 @@ export class NewMovieModalComponent implements OnInit {
   movieToSave: Movie = new Movie();
   public movie$: ReplaySubject<any []>= new ReplaySubject(1);
   constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) { 
-    this.createArrayYears()
+    
   
   }
 
   ngOnInit() {
-  }
-
-  createArrayYears(){
-    this.currentYear=(new Date()).getFullYear();
-    this.years.push(this.currentYear-1);
-    this.years.push(this.currentYear);
-    for (let i = 0; i < 3; i++) {
-      this.currentYear+=1;
-      this.years.push(this.currentYear);
-    }
+    this.createArrayYears();
+    this.createArrayDays();
   }
 
   searchMovie(){
     this.movieApiService.searchMovie(this.titleToSearch,this.yearToSearch).subscribe((res:any) => {this.movie$.next(res)});
   }
   newMovie(movie){
-    if (this.monthRelease=="January") {
-      this.monthRelease="01";
-    }
-    if (this.monthRelease=="February") {
-      this.monthRelease="02";
-    }
-    if (this.monthRelease=="March") {
-      this.monthRelease="03";
-    }
-    if (this.monthRelease=="April") {
-      this.monthRelease="04";
-    }
-    if (this.monthRelease=="May") {
-      this.monthRelease="05";
-    }
-    if (this.monthRelease=="June") {
-      this.monthRelease="06";
-    }
-    if (this.monthRelease=="July") {
-      this.monthRelease="07";
-    }
-    if (this.monthRelease=="August") {
-      this.monthRelease="08";
-    }
-    if (this.monthRelease=="September") {
-      this.monthRelease="09";
-    }
-    if (this.monthRelease=="October") {
-      this.monthRelease="10";
-    }
-    if (this.monthRelease=="November") {
-      this.monthRelease="11";
-    }
-    if (this.monthRelease=="December") {
-      this.monthRelease="12";
-    }
-    if (this.monthEnd=="January") {
-      this.monthEnd="01";
-    }
-    if (this.monthEnd=="February") {
-      this.monthEnd="02";
-    }
-    if (this.monthEnd=="March") {
-      this.monthEnd="03";
-    }
-    if (this.monthEnd=="April") {
-      this.monthEnd="04";
-    }
-    if (this.monthEnd=="May") {
-      this.monthEnd="05";
-    }
-    if (this.monthEnd=="June") {
-      this.monthEnd="06";
-    }
-    if (this.monthEnd=="July") {
-      this.monthEnd="07";
-    }
-    if (this.monthEnd=="August") {
-      this.monthEnd="08";
-    }
-    if (this.monthEnd=="September") {
-      this.monthEnd="09";
-    }
-    if (this.monthEnd=="October") {
-      this.monthEnd="10";
-    }
-    if (this.monthEnd=="November") {
-      this.monthEnd="11";
-    }
-    if (this.monthEnd=="December") {
-      this.monthEnd="12";
-    }
+
 
     for (let index = 0; index < movie.Runtime.length; index++) {
       if (movie.Runtime[index]!=" "){
@@ -143,12 +65,10 @@ export class NewMovieModalComponent implements OnInit {
         break;
       }
     }
-    console.log(movie.Runtime);
 
-    console.log(this.duration);
 
-    this.releaseDate=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease;
-    this.endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd;
+    this.releaseDate=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease;
+    this.endDate=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd;
     this.movieToSave.title=movie.Title;
     this.movieToSave.image=movie.Poster;
     this.movieToSave.duration=this.duration;
@@ -162,5 +82,63 @@ export class NewMovieModalComponent implements OnInit {
     this.movieApiService.addMovie(this.movieToSave).subscribe(() =>{
       this.dataService.updateMovies();
     });
+  }
+  createArrayDays(){
+    for (let i = 1; i < 32; i++) {
+      if(i<10){
+        this.optionsDay.push('0'+i)
+      } else {
+        this.optionsDay.push(i)
+      }
+      
+    }
+  }
+  createArrayYears(){
+    this.currentYear=(new Date()).getFullYear();
+    this.years.push(this.currentYear-1);
+    this.years.push(this.currentYear);
+    for (let i = 0; i < 3; i++) {
+      this.currentYear+=1;
+      this.years.push(this.currentYear);
+    }
+  }
+  convertMonthToNumber(monthString){
+    if (monthString=="January") {
+      monthString="01";
+    }
+    if (monthString=="February") {
+      monthString="02";
+    }
+    if (monthString=="March") {
+      monthString="03";
+    }
+    if (monthString=="April") {
+      monthString="04";
+    }
+    if (monthString=="May") {
+      monthString="05";
+    }
+    if (monthString=="June") {
+      monthString="06";
+    }
+    if (monthString=="July") {
+      monthString="07";
+    }
+    if (monthString=="August") {
+      monthString="08";
+    }
+    if (monthString=="September") {
+      monthString="09";
+    }
+    if (monthString=="October") {
+      monthString="10";
+    }
+    if (monthString=="November") {
+      monthString="11";
+    }
+    if (monthString=="December") {
+      monthString="12";
+    }
+    return monthString;
   }
 }

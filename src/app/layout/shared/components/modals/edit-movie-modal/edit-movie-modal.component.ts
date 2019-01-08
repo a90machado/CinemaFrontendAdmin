@@ -52,7 +52,7 @@ export class EditMovieModalComponent implements OnInit {
     this.yearEnd=this.releaseDate[0]+this.releaseDate[1]+this.releaseDate[2]+this.releaseDate[3];
 
     this.createArrayYears();
-    this.createArrayDays()
+    this.createArrayDays();
 
   }
 
