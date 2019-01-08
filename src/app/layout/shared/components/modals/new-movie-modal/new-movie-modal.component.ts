@@ -11,11 +11,12 @@ import { DataService } from '../../../services';
   styleUrls: ['./new-movie-modal.component.css']
 })
 export class NewMovieModalComponent implements OnInit {
-  optionsDay=[]
+  optionsDay1=[]
+  optionsDay2=[]
   titleToSearch='';
   yearToSearch='';
   dayRelease = "";
-  monthRelease = "";
+  monthRelease = "September";
   yearRelease = "";
   dayEnd= "";
   monthEnd = "";
@@ -86,12 +87,15 @@ export class NewMovieModalComponent implements OnInit {
   createArrayDays(){
     for (let i = 1; i < 32; i++) {
       if(i<10){
-        this.optionsDay.push('0'+i)
+        this.optionsDay1.push('0'+i)
+        this.optionsDay2.push('0'+i)
       } else {
-        this.optionsDay.push(i)
+        this.optionsDay1.push(i)
+        this.optionsDay2.push(i)
       }
       
     }
+    this.optionsDay2.splice(this.optionsDay2.length,1);
   }
   createArrayYears(){
     this.currentYear=(new Date()).getFullYear();
