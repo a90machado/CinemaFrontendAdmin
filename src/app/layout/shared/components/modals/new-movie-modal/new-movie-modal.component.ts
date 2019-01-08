@@ -135,17 +135,20 @@ export class NewMovieModalComponent implements OnInit {
         this.stringDuration+=movie.Runtime[index];
       }
       else{
+        this.duration = Number(this.stringDuration);
+        this.stringDuration="";
         break;
       }
     }
+    console.log(movie.Runtime);
 
-    console.log(Number(this.stringDuration));
+    console.log(this.duration);
 
     this.releaseDate=this.yearRelease+"-"+this.monthRelease+"-"+this.dayRelease+"T00:00:00";
     this.endDate=this.yearEnd+"-"+this.monthEnd+"-"+this.dayEnd+"T00:00:00";
     this.movieToSave.title=movie.Title;
     this.movieToSave.image=movie.Poster;
-    this.movieToSave.duration=Number(this.stringDuration);
+    this.movieToSave.duration=this.duration;
     this.movieToSave.director=movie.Director;
     this.movieToSave.cast=movie.Actors;
     this.movieToSave.synopsis=movie.Plot;
