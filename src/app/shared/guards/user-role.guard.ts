@@ -13,7 +13,7 @@ export class UserRoleGuard implements CanActivate {
   constructor(private _router: Router,
               private _accountApi: AccountApi) {
                 this._accountApi.getCurrent().subscribe((result: any) => {
-                  this.roleUser = (result.role === 'Admin') ? true : false;
+                  this.roleUser = (result.role === 'admin') ? true : false;
                 });
               }
 
