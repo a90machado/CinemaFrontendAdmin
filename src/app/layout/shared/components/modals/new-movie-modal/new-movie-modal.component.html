@@ -115,6 +115,7 @@
                 <option>18</option>
             </select>
           </div>
+          <p class="error">{{error}}</p>
     </div>
     <button *ngIf="movie$ | async as movie" type="submit" (click)="newMovie(movie)" class="btn btn-login float-right">Create</button>
     </div>

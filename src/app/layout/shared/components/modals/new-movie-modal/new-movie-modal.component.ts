@@ -26,7 +26,7 @@ export class NewMovieModalComponent implements OnInit {
   yearEnd = "";
   releaseDate="";
   endDate="";
-
+  error="";
   title="";
   image="";
   minimumAge: number;
@@ -38,31 +38,25 @@ export class NewMovieModalComponent implements OnInit {
   teste="";
   years = [];
   currentYear: number;
-  
-
+  dateRelease:Date;
+  dateEnd:Date;
   
   movieToSave: Movie = new Movie();
   public movie$: ReplaySubject<any []>= new ReplaySubject(1);
   constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) { 
     
-  
   }
 
   ngOnInit() {
     this.createArrayYears();
     this.createArrayDays();
-    console.log(this.optionsDay1);
-    console.log(this.optionsDay2);
-    console.log(this.optionsDay3);
-    console.log(this.optionsDay4);
-
   }
 
   searchMovie(){
     this.movieApiService.searchMovie(this.titleToSearch,this.yearToSearch).subscribe((res:any) => {this.movie$.next(res)});
   }
   newMovie(movie){
-
+    this.error="";
 
     for (let index = 0; index < movie.Runtime.length; index++) {
       if (movie.Runtime[index]!=" "){
@@ -87,9 +81,22 @@ export class NewMovieModalComponent implements OnInit {
     this.movieToSave.endDate=this.endDate;
     this.movieToSave.minimumAge=this.minimumAge;
 
-    this.movieApiService.addMovie(this.movieToSave).subscribe(() =>{
-      this.dataService.updateMovies();
-    });
+    this.dateRelease= new Date(this.releaseDate);
+    this.dateEnd= new Date(this.endDate);
+
+    console.log(this.dateRelease.getTime());
+    console.log(this.dateEnd.getTime());
+
+    if (this.dateRelease.getTime()>this.dateEnd.getTime()) {
+      this.error="Release date of the movie must be equal or before end date";
+    }
+
+    if (this.error=="") {
+      this.movieApiService.addMovie(this.movieToSave).subscribe(() =>{
+        this.dataService.updateMovies();
+      });
+    }
+    
   }
   createArrayDays(){
     for (let i = 1; i < 32; i++) {
