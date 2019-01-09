@@ -2,7 +2,7 @@
 .table-responsive{
     margin: auto;
     margin-top: 3rem;
-    height:500px;
+    height:600px;
     overflow:auto;  
     text-align: center;
 }
@@ -21,9 +21,7 @@ th, thead{
     color:rgb(145, 9, 9);
 }
 .icons{
-    display:flex;
-    flex-direction: row;
-    width: 1rem;
+    padding: 2px;
 }
 .data{
     min-width: 120px;
