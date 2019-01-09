@@ -6,7 +6,7 @@
     color: #5C6BC0;
     font-size: 30px;
 }
-  
+
 .modal-header h4 span {
     color: #DFDEEE;
     font-weight: lighter;
@@ -14,4 +14,20 @@
 
 .close{
     color: #79A6FE;
+}
+
+.is-invalid{
+  color: red;
+}
+
+.is-invalid input{
+  border-color: red;
+}
+
+.is-valid{
+  color: green;
+}
+
+.is-valid input{
+  border-color: green;
 }

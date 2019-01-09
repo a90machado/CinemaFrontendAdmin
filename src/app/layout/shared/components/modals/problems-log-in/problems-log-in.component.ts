@@ -13,7 +13,8 @@ export class ProblemsLogInComponent implements OnInit {
     reply_to: '',
     from_name: '',
     subject: '',
-    message_html: ''
+    message_html: '',
+    not_robot: false
   };
 
   constructor(public _modalRef: BsModalRef) {

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     keyboard: true,
     backdrop: true,
     ignoreBackdropClick: false,
-    class: "my-modal"
+    class: 'my-modal'
   };
 
   constructor(private _accountApi: AccountApi,
@@ -34,20 +34,26 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    this._accountApi.login(this.account).subscribe((token: AccessToken) => {
-      this._router.navigate(['/home']);
-    }, err => {
-      if (err.statusCode === 400) {
-        this.message = 'Username or email is required.';
-      } else if (err.statusCode === 401) {
-        this.message = 'Username or password do not match.';
+    if (!this.account.username) {
+      this.message = 'Username is required';
+    } else if (!this.account.password) {
+      this.message = 'Password is required';
+    } else {
+      this._accountApi.login(this.account).subscribe((token: AccessToken) => {
+        this._router.navigate(['/home']);
+      }, err => {
+        if (err.statusCode === 400) {
+          this.message = 'Username is required';
+        } else if (err.statusCode === 401) {
+          this.message = 'Username or password do not match';
+        }
       }
+      );
     }
-    );
   }
 
   viewPWD() {
-    this.clicked = !this.clicked; 
+    this.clicked = !this.clicked;
     if (this.toggleViewPWD === 'password') {
       this.toggleViewPWD = 'text';
     } else {

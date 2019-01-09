@@ -1,20 +1,18 @@
-
-
 <section class="login-block">
 
   <div class="container">
     <div class="header">
-        <img src="https://imageshack.com/a/img922/1139/98OUg5.png" alt="Jarvis your TicketLine" width="180">
+      <img src="https://imageshack.com/a/img922/1139/98OUg5.png" alt="Jarvis your TicketLine" width="180">
     </div>
     <form #formLogin="ngForm" (ngSubmit)="onLogin()" class="box text-center">
       <h4 class="text-center">Admin<span>Dashboard</span></h4>
       <h5 class="text-center">Sign in to your account.</h5>
       <input name="username" type="text" [(ngModel)]="account.username" class="form-control" placeholder="Username"
-        autocomplete="off" required>
+        autocomplete="off" required #username="ngModel">
       <div class="eye">
         <i [ngClass]="{'active': clicked}" class="far fa-eye" (click)="viewPWD()"></i>
-        <input name="password" type="{{ toggleViewPWD }}" [(ngModel)]="account.password" class="form-control" placeholder="Password"
-          autocomplete="off" required>
+        <input name="password" type="{{ toggleViewPWD }}" [(ngModel)]="account.password" class="form-control"
+          placeholder="Password" autocomplete="off" required>
       </div>
       <div class="text-left">
         <span class="error" id="message">{{ message }}</span>
@@ -27,9 +25,8 @@
   </div>
 
   <div class="footer">
-      <span>Jarvis <i class="fas fa-ticket-alt"></i><a href="https://github.com/git"> by André Machado, Nuno Pêgo, Soraya Santos</a></span>
+    <span>Jarvis <i class="fas fa-ticket-alt"></i><a href="https://github.com/git"> by André Machado, Nuno Pêgo, Soraya
+        Santos</a></span>
   </div>
 
 </section>
-
-
