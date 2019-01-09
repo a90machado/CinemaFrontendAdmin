@@ -11,12 +11,15 @@ import { DataService } from '../../../services';
   styleUrls: ['./new-movie-modal.component.css']
 })
 export class NewMovieModalComponent implements OnInit {
-  optionsDay1=[]
-  optionsDay2=[]
+  optionsDay1=[];
+  optionsDay2=[];
+  optionsDay3=[];
+  optionsDay4=[];
+
   titleToSearch='';
   yearToSearch='';
   dayRelease = "";
-  monthRelease = "September";
+  monthRelease = "";
   yearRelease = "";
   dayEnd= "";
   monthEnd = "";
@@ -48,6 +51,11 @@ export class NewMovieModalComponent implements OnInit {
   ngOnInit() {
     this.createArrayYears();
     this.createArrayDays();
+    console.log(this.optionsDay1);
+    console.log(this.optionsDay2);
+    console.log(this.optionsDay3);
+    console.log(this.optionsDay4);
+
   }
 
   searchMovie(){
@@ -66,7 +74,6 @@ export class NewMovieModalComponent implements OnInit {
         break;
       }
     }
-
 
     this.releaseDate=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease;
     this.endDate=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd;
@@ -89,13 +96,22 @@ export class NewMovieModalComponent implements OnInit {
       if(i<10){
         this.optionsDay1.push('0'+i)
         this.optionsDay2.push('0'+i)
+        this.optionsDay3.push('0'+i)
+        this.optionsDay4.push('0'+i)
+
       } else {
         this.optionsDay1.push(i)
         this.optionsDay2.push(i)
+        this.optionsDay3.push(i)
+        this.optionsDay4.push(i)
+
       }
       
     }
-    this.optionsDay2.splice(this.optionsDay2.length,1);
+    this.optionsDay2.splice(this.optionsDay2.length-1,1);
+    this.optionsDay3.splice(this.optionsDay3.length-2,2);
+    this.optionsDay4.splice(this.optionsDay4.length-3,3);
+
   }
   createArrayYears(){
     this.currentYear=(new Date()).getFullYear();
@@ -144,5 +160,12 @@ export class NewMovieModalComponent implements OnInit {
       monthString="12";
     }
     return monthString;
+  }
+  isLeapYear(ano){
+    if ( ( ano % 4 == 0 && ano % 100 != 0 ) || (ano % 400 == 0) ) { 
+      return true; 
+  } else {
+      return false;
+  }
   }
 }

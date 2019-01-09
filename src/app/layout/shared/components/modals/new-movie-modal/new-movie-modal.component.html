@@ -25,8 +25,17 @@
         <div class="row">
           <div class="form-group col-sm-12 col-md-3 col-lg-3">
             <label for="sel1">Day:</label>
-            <select id="sel1" [(ngModel)]="dayRelease" *ngIf="monthRelease==='September'">
+            <select id="sel1" [(ngModel)]="dayRelease" *ngIf="monthRelease==='April'|| monthRelease==='June'|| monthRelease==='September'|| monthRelease==='November'">
+              <option *ngFor="let day of optionsDay2" value="{{day}}">{{day}}</option>
+            </select>
+            <select id="sel11" [(ngModel)]="dayRelease" *ngIf="monthRelease===''|| monthRelease==='January'|| monthRelease==='March'|| monthRelease==='May'|| monthRelease==='July'|| monthRelease==='August'|| monthRelease==='December'">
               <option *ngFor="let day of optionsDay1" value="{{day}}">{{day}}</option>
+            </select>
+            <select id="sel12" [(ngModel)]="dayRelease" *ngIf="monthRelease==='February' && isLeapYear(yearRelease)">
+              <option *ngFor="let day of optionsDay3" value="{{day}}">{{day}}</option>
+            </select>
+            <select id="sel12" [(ngModel)]="dayRelease" *ngIf="monthRelease==='February' && !isLeapYear(yearRelease)">
+              <option *ngFor="let day of optionsDay4" value="{{day}}">{{day}}</option>
             </select>
           </div>
           <div class="form-group col-sm-12 col-md-5 col-lg-5">
