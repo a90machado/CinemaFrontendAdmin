@@ -1,21 +1,39 @@
-.modal-header {
-    background: #1d243d;
+/* Modal */
+.modal-body{
+  padding: 10px;
 }
 
-.modal-header h4 {
-    color: #5C6BC0;
-    font-size: 30px;
-}
-
-.modal-header h4 span {
-    color: #DFDEEE;
-    font-weight: lighter;
-}
-
+/* Header */
 .close{
     color: #79A6FE;
 }
 
+/* Form */
+.form-group #from_name{
+  width: 298px;
+}
+.form-group #reply_to{
+  width: 470px;
+  margin-left: 10px;
+}
+.form-group #message_html{
+  height: 200px;
+  resize: none;
+}
+.not_robot{
+  width: 298px;
+  border: none;
+  padding: 0;
+  margin-top: 5px;
+}
+.btnSubmit{
+  width: 300px;
+}
+.btnSubmit:disabled{
+  color: red;
+}
+
+/* States Validations */
 .is-invalid{
   color: red;
 }

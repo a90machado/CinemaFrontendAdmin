@@ -1,39 +1,46 @@
 <div class="my-modal">
+
+  <!-- Modal Header -->
   <div class="modal-header">
     <h4 class="modal-title pull-left">Email<span> our Support:</span></h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="_modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <!-- Modal Body -->
   <div class="modal-body">
+    <!-- Login Form -->
     <form #formContact="ngForm" (ngSubmit)="emailUs()" class="">
-      <div class="form-group" [class.is-invalid]="from_name.invalid && from_name.touched" [class.is-valid]="from_name.valid">
-        <label for="from_name" class="text-uppercase">Name</label>
-        <input id="from_name" name="from_name" [(ngModel)]="email.from_name" type="text" class="form-control"
-          placeholder="Name" required minlength="3" pattern="[a-zA-Z ]*" #from_name="ngModel">
-        <span class="form-text" *ngIf="from_name?.errors?.required && from_name.touched">
-          Name is required
-        </span>
-        <span class="form-text" *ngIf="from_name?.errors?.pattern && from_name.touched">
-          Only text is available
-        </span>
-        <span class="form-text" *ngIf="!from_name?.errors?.pattern && from_name?.errors?.minlength && from_name.touched">
-          Name required three caractheres minimum
-        </span>
+
+      <div class="d-flex flex-row">
+        <!-- Name Field -->
+        <div class="form-group" [class.is-invalid]="from_name.invalid && from_name.touched" [class.is-valid]="from_name.valid">
+          <input id="from_name" name="from_name" [(ngModel)]="email.from_name" type="text" class="form-control"
+            placeholder="Name" required minlength="3" pattern="[a-zA-Z ]*" #from_name="ngModel">
+          <span class="form-text" *ngIf="from_name?.errors?.required && from_name.touched">
+            Name is required
+          </span>
+          <span class="form-text" *ngIf="from_name?.errors?.pattern && from_name.touched">
+            Only text is available
+          </span>
+          <span class="form-text" *ngIf="!from_name?.errors?.pattern && from_name?.errors?.minlength && from_name.touched">
+            Name required three caractheres minimum
+          </span>
+        </div>
+        <!-- Email Field -->
+        <div class="form-group" [class.is-invalid]="reply_to.invalid && reply_to.touched" [class.is-valid]="reply_to.valid">
+          <input id="reply_to" name="reply_to" type="text" [(ngModel)]="email.reply_to" type="text" class="form-control"
+            placeholder="Email" required email #reply_to="ngModel">
+          <span class="form-text" *ngIf="reply_to?.errors?.required && reply_to.touched">
+            Email is required
+          </span>
+          <span class="form-text" *ngIf="reply_to?.errors?.email && reply_to.touched">
+            Email is invalid
+          </span>
+        </div>
       </div>
-      <div class="form-group" [class.is-invalid]="reply_to.invalid && reply_to.touched" [class.is-valid]="reply_to.valid">
-        <label for="reply_to" class="text-uppercase">Email</label>
-        <input id="reply_to" name="reply_to" type="text" [(ngModel)]="email.reply_to" type="text" class="form-control"
-          placeholder="Email" required email #reply_to="ngModel">
-        <span class="form-text" *ngIf="reply_to?.errors?.required && reply_to.touched">
-          Email is required
-        </span>
-        <span class="form-text" *ngIf="reply_to?.errors?.email && reply_to.touched">
-          Email is invalid
-        </span>
-      </div>
+      <!-- Subject Field -->
       <div class="form-group" [class.is-invalid]="subject.invalid && subject.touched" [class.is-valid]="subject.valid">
-        <label for="subject" class="text-uppercase">Subject</label>
         <input id="subject" name="subject" type="text" [(ngModel)]="email.subject" type="text" class="form-control"
           placeholder="Subject" required minlength="5" pattern="[a-zA-Z ]*" #subject="ngModel">
         <span class="form-text" *ngIf="subject?.errors?.required && subject.touched">
@@ -46,10 +53,10 @@
           Is required ten caractheres minimum
         </span>
       </div>
+      <!-- Message Field -->
       <div class="form-group" [class.is-invalid]="message_html.invalid && message_html.touched" [class.is-valid]="message_html.valid">
-        <label for="message_html" class="text-uppercase">Message</label>
-        <input id="message_html" name="message_html" type="text" [(ngModel)]="email.message_html" type="text" class="form-control"
-          placeholder="Message" required minlength="10" #message_html="ngModel">
+        <textarea id="message_html" name="message_html" type="text" [(ngModel)]="email.message_html" type="text" class="form-control"
+          placeholder="Write your message" required minlength="10" #message_html="ngModel"></textarea>
         <span class="form-text" *ngIf="message_html?.errors?.required && message_html.touched">
           Message is required
         </span>
@@ -57,17 +64,23 @@
           Is required ten caractheres minimum
         </span>
       </div>
-      <div class="form-group" [class.is-invalid]="not_robot.invalid && not_robot.touched" [class.is-valid]="not_robot.valid">
-        <div class="form-control">
-          <label for="" class="checkbox-inline">
-            <input id="not_robot" name="not_robot" type="checkbox" name="not_robot" [(ngModel)]="email.not_robot"
-              required #not_robot="ngModel">
-            Human verify needs to be check <i class="fas fa-robot"></i>
-          </label>
+      <div class="d-flex flex-row">
+        <!-- Human Verify -->
+        <div class="form-group" [class.is-invalid]="not_robot.invalid && not_robot.untouched" [class.is-valid]="not_robot.valid">
+          <div class="form-control not_robot">
+            <label for="" class="checkbox-inline">
+              <input id="not_robot" name="not_robot" type="checkbox" name="not_robot" [(ngModel)]="email.not_robot"
+                required #not_robot="ngModel">
+              Human verify <i class="fas fa-robot"></i>
+            </label>
+          </div>
+        </div>
+        <!-- Submit Action -->
+        <div class="ml-auto">
+          <button type="submit" class="btn btn-primary btnSubmit" [disabled]="formContact.invalid">{{(formContact.invalid)?
+            'Form incomplete' : 'Send'}}</button>
         </div>
       </div>
-      <button type="submit" class="btn btn-login float-right" [disabled]="formContact.invalid">{{(formContact.invalid)?
-        'Form incomplete' : 'Send'}}</button>
     </form>
   </div>
 </div>
