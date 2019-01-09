@@ -28,6 +28,10 @@ export class EditMovieModalComponent implements OnInit {
   endDateNew="";
   minimumAgeNew: number;
   monthsArray=[];
+  error="";
+  dateRelease:Date;
+  dateEnd:Date;
+
 
   @Input()releaseDate:string;
   @Input()endDate:string; 
@@ -51,8 +55,8 @@ export class EditMovieModalComponent implements OnInit {
     this.yearRelease=this.releaseDate[0]+this.releaseDate[1]+this.releaseDate[2]+this.releaseDate[3];
     this.minimumAgeNew=this.minimumAge;
     this.dayEnd=this.endDate[8]+this.endDate[9];
-    this.monthEnd=this.convertMonthToString(this.releaseDate[5]+this.releaseDate[6]);
-    this.yearEnd=this.releaseDate[0]+this.releaseDate[1]+this.releaseDate[2]+this.releaseDate[3];
+    this.monthEnd=this.convertMonthToString(this.endDate[5]+this.endDate[6]);
+    this.yearEnd=this.endDate[0]+this.endDate[1]+this.endDate[2]+this.endDate[3];
 
     this.createArrayYears();
     this.createArrayDays();
@@ -64,7 +68,8 @@ export class EditMovieModalComponent implements OnInit {
   }
 
   editMovie(){
-    
+    this.error="";
+
     this.releaseDateNew=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease;
     this.endDateNew=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd;
 
@@ -79,8 +84,17 @@ export class EditMovieModalComponent implements OnInit {
     this.movie.endDate=this.endDateNew;
     this.movie.minimumAge=this.minimumAgeNew;
 
+    this.dateRelease= new Date(this.releaseDate);
+    this.dateEnd= new Date(this.endDate);
 
-    if (this.movie.releaseDate!=this.releaseDate||this.movie.endDate!=this.endDate||this.movie.minimumAge!=this.minimumAge) {
+    console.log(this.dateRelease.getTime());
+    console.log(this.dateEnd.getTime());
+
+    if (this.dateRelease.getTime()>this.dateEnd.getTime()) {
+      this.error="Release date of the movie must be equal or before end date";
+    }
+
+    if ((this.movie.releaseDate!=this.releaseDate||this.movie.endDate!=this.endDate||this.movie.minimumAge!=this.minimumAge)&&this.error=="") {
       this.movieApiService.editMovie(this.movie).subscribe(() =>{
         this.dataService.updateMovies();
       });
