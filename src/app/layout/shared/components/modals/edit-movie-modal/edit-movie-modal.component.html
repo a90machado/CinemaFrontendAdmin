@@ -22,8 +22,17 @@
         <div class="row">
           <div class="form-group col-sm-12 col-md-3 col-lg-3">
             <label for="sel1">Day:</label>
-            <select id="sel1" [(ngModel)]="dayRelease" >
-              <option *ngFor="let day of optionsDay" value="{{day}}">{{day}}</option>
+            <select id="sel11" [(ngModel)]="dayRelease" *ngIf="monthRelease==='April'|| monthRelease==='June'|| monthRelease==='September'|| monthRelease==='November'">
+              <option *ngFor="let day of optionsDay2" value="{{day}}">{{day}}</option>
+            </select>
+            <select id="sel12" [(ngModel)]="dayRelease" *ngIf="monthRelease===''|| monthRelease==='January'|| monthRelease==='March'|| monthRelease==='May'|| monthRelease==='July'|| monthRelease==='August'|| monthRelease==='December'">
+              <option *ngFor="let day of optionsDay1" value="{{day}}">{{day}}</option>
+            </select>
+            <select id="sel13" [(ngModel)]="dayRelease" *ngIf="monthRelease==='February' && isLeapYear(yearRelease)">
+              <option *ngFor="let day of optionsDay3" value="{{day}}">{{day}}</option>
+            </select>
+            <select id="sel14" [(ngModel)]="dayRelease" *ngIf="monthRelease==='February' && !isLeapYear(yearRelease)">
+              <option *ngFor="let day of optionsDay4" value="{{day}}">{{day}}</option>
             </select>
           </div>
           <div class="form-group col-sm-12 col-md-5 col-lg-5">
@@ -53,9 +62,18 @@
         <p><b>End Date:</b></p>
         <div class="row">
           <div class="form-group col-sm-12 col-md-3 col-lg-3">
-            <label for="sel4">Day:</label>
-            <select id="sel4" [(ngModel)]="dayEnd" > 
-                <option *ngFor="let day of optionsDay" value="{{day}}">{{day}}</option>
+            <label for="">Day:</label>
+            <select [(ngModel)]="dayEnd" *ngIf="monthEnd==='April'|| monthEnd==='June'|| monthEnd==='September'|| monthEnd==='November'">
+              <option *ngFor="let day of optionsDay2" value="{{day}}">{{day}}</option>
+            </select>
+            <select [(ngModel)]="dayEnd" *ngIf="monthEnd===''|| monthEnd==='January'|| monthEnd==='March'|| monthEnd==='May'|| monthEnd==='July'|| monthEnd==='August'|| monthEnd==='December'">
+              <option *ngFor="let day of optionsDay1" value="{{day}}">{{day}}</option>
+            </select>
+            <select  [(ngModel)]="dayEnd" *ngIf="monthEnd==='February' && isLeapYear(yearEnd)">
+              <option *ngFor="let day of optionsDay3" value="{{day}}">{{day}}</option>
+            </select>
+            <select  [(ngModel)]="dayEnd" *ngIf="monthEnd==='February' && !isLeapYear(yearEnd)">
+              <option *ngFor="let day of optionsDay4" value="{{day}}">{{day}}</option>
             </select>
           </div>
           <div class="form-group col-sm-12 col-md-5 col-lg-5">

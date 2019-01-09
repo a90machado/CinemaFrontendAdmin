@@ -11,7 +11,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./edit-movie-modal.component.css']
 })
 export class EditMovieModalComponent implements OnInit {
-  optionsDay=[]
+  optionsDay1=[];
+  optionsDay2=[];
+  optionsDay3=[];
+  optionsDay4=[];
   movie: Movie = new Movie();
   dayRelease:string;
   monthRelease = "";
@@ -97,12 +100,24 @@ export class EditMovieModalComponent implements OnInit {
   createArrayDays(){
     for (let i = 1; i < 32; i++) {
       if(i<10){
-        this.optionsDay.push('0'+i)
+        this.optionsDay1.push('0'+i)
+        this.optionsDay2.push('0'+i)
+        this.optionsDay3.push('0'+i)
+        this.optionsDay4.push('0'+i)
+
       } else {
-        this.optionsDay.push(i)
+        this.optionsDay1.push(i)
+        this.optionsDay2.push(i)
+        this.optionsDay3.push(i)
+        this.optionsDay4.push(i)
+
       }
       
     }
+    this.optionsDay2.splice(this.optionsDay2.length-1,1);
+    this.optionsDay3.splice(this.optionsDay3.length-2,2);
+    this.optionsDay4.splice(this.optionsDay4.length-3,3);
+
   }
 
   convertMonthToNumber(monthString){
@@ -183,5 +198,11 @@ export class EditMovieModalComponent implements OnInit {
     }
     return monthNumber;
   }
-
+  isLeapYear(ano){
+    if ( ( ano % 4 == 0 && ano % 100 != 0 ) || (ano % 400 == 0) ) { 
+      return true; 
+  } else {
+      return false;
+  }
+  }
 }
