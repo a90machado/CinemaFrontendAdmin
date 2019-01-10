@@ -1,9 +1,9 @@
 .my-modal{
   max-width: 800px;
-  top: 10%;
+  top: 8%;
 }
 
 .modal-content{
-
+  background-color: rgb( 33, 41, 66);
+  border-radius: 10px;
 }
-  

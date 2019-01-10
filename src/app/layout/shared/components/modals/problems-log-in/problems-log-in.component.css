@@ -4,34 +4,97 @@
 }
 
 /* Header */
+.modal-header{
+  border-bottom: 2px solid #79A6FE;
+}
+.modal-title{
+  color: #5C6BC0;
+  font-size: 35px;
+}
+.modal-title span {
+  color: #DFDEEE;
+  font-weight: lighter;
+}
 .close{
-    color: #79A6FE;
+  margin: -1.8rem -1rem -1rem auto;
+}
+.close span{
+  font-size: 50px;
+  color: #79A6FE;
 }
 
 /* Form */
+.modal-body{
+  margin-top: 15px;
+}
+.form-group input, textarea{
+  background: #262E49;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  color: rgb(99, 108, 136);
+}
+::-webkit-input-placeholder {
+  color: #565F79;
+}
+.form-group textarea{
+  background-color: #262E49;
+}
 .form-group #from_name{
   width: 298px;
+  text-indent: 25px;
 }
+
+.form-group #subject{
+  text-indent: 25px;
+}
+
+.icon{
+  position: relative;
+  margin: 0 auto;
+}
+.icon .fa-user-tie, .fa-envelope, .fa-receipt, .fa-scroll{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #3b476b;
+  font-size: 1.125rem;
+}
+.fa-scroll{
+  left: 8px;
+  font-size: 1rem;
+}
+.fa-envelope{
+  left: 20px;
+}
+
 .form-group #reply_to{
   width: 470px;
   margin-left: 10px;
+  text-indent: 25px;
 }
 .form-group #message_html{
   height: 200px;
   resize: none;
+  text-indent: 25px;
 }
-.not_robot{
-  width: 298px;
-  border: none;
-  padding: 0;
-  margin-top: 5px;
-}
-.btnSubmit{
-  width: 300px;
-}
+/* ------------- */
+
 .btnSubmit:disabled{
-  color: red;
+  background: #7F5FEB;
 }
+
+.btnSubmit{
+  border: 0;
+  background: #5D33E6;
+  color: #DFDEEE;
+  border-radius: 100px;
+  width: 320px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 
 /* States Validations */
 .is-invalid{
