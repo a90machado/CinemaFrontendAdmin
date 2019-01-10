@@ -15,9 +15,9 @@
         <!-- Name Field -->
         <div class="form-group" [class.is-invalid]="from_name.invalid && from_name.touched" [class.is-valid]="from_name.valid">
           <div class="icon">
-          <i class="fas fa-user-tie"></i>
-          <input id="from_name" name="from_name" [(ngModel)]="email.from_name" type="text" class="form-control"
-            placeholder="Name" required minlength="3" pattern="[a-zA-Z ]*" #from_name="ngModel">
+            <i class="fas fa-user-tie"></i>
+            <input id="from_name" name="from_name" [(ngModel)]="email.from_name" type="text" class="form-control"
+              placeholder="Name" required minlength="3" pattern="[a-zA-Z ]*" #from_name="ngModel">
           </div>
           <span class="form-text" *ngIf="from_name?.errors?.required && from_name.touched">
             Name is required
@@ -32,25 +32,25 @@
         <!-- Email Field -->
         <div class="form-group" [class.is-invalid]="reply_to.invalid && reply_to.touched" [class.is-valid]="reply_to.valid">
           <div class="icon">
-          <i class="fas fa-envelope"></i>
-          <input id="reply_to" name="reply_to" type="text" [(ngModel)]="email.reply_to" type="text" class="form-control"
-            placeholder="Email" required email #reply_to="ngModel">
+            <i class="fas fa-envelope"></i>
+            <input id="reply_to" name="reply_to" type="text" [(ngModel)]="email.reply_to" type="text" class="form-control"
+              placeholder="Email" required email #reply_to="ngModel">
           </div>
-          <span class="form-text" *ngIf="reply_to?.errors?.required && reply_to.touched">
+          <span class="form-text marginLeftTenPx" *ngIf="reply_to?.errors?.required && reply_to.touched">
             Email is required
           </span>
-          <span class="form-text" *ngIf="reply_to?.errors?.email && reply_to.touched">
+          <span class="form-text marginLeftTenPx" *ngIf="reply_to?.errors?.email && reply_to.touched">
             Email is invalid
           </span>
         </div>
       </div>
       <!-- Subject Field -->
       <div class="form-group" [class.is-invalid]="subject.invalid && subject.touched" [class.is-valid]="subject.valid">
-          <div class="icon">
-        <i class="fas fa-receipt"></i>
-        <input id="subject" name="subject" type="text" [(ngModel)]="email.subject" type="text" class="form-control"
-          placeholder="Subject" required minlength="5" pattern="[a-zA-Z ]*" #subject="ngModel">
-          </div>
+        <div class="icon">
+          <i class="fas fa-receipt"></i>
+          <input id="subject" name="subject" type="text" [(ngModel)]="email.subject" type="text" class="form-control"
+            placeholder="Subject" required minlength="5" pattern="[a-zA-Z ]*" #subject="ngModel">
+        </div>
         <span class="form-text" *ngIf="subject?.errors?.required && subject.touched">
           Subject is required
         </span>
@@ -64,9 +64,9 @@
       <!-- Message Field -->
       <div class="form-group" [class.is-invalid]="message_html.invalid && message_html.touched" [class.is-valid]="message_html.valid">
         <div class="icon">
-        <i class="fas fa-scroll"></i>
-        <textarea id="message_html" name="message_html" type="text" [(ngModel)]="email.message_html" type="text" class="form-control"
-          placeholder="Write your message" required minlength="10" #message_html="ngModel"></textarea>
+          <i class="fas fa-scroll"></i>
+          <textarea id="message_html" name="message_html" type="text" [(ngModel)]="email.message_html" type="text"
+            class="form-control" placeholder="Write your message" required minlength="10" #message_html="ngModel"></textarea>
         </div>
         <span class="form-text" *ngIf="message_html?.errors?.required && message_html.touched">
           Message is required
@@ -78,7 +78,7 @@
       <!-- Submit Action -->
       <div class="text-center">
         <button type="submit" class="btn btn-primary btnSubmit" [disabled]="formContact.invalid">{{(formContact.invalid)?
-            'Form incomplete' : 'Send'}}</button>
+          'Please fill information' : 'Send'}}</button>
       </div>
     </form>
   </div>

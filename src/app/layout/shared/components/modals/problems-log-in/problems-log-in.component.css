@@ -95,20 +95,30 @@
   cursor: pointer;
 }
 
+/* Correct margin of input on span error */
+.marginLeftTenPx{
+  margin-left: 10px;
+}
 
 /* States Validations */
-.is-invalid{
+.form-group input[type="text"]:focus, .form-group textarea:focus {
+  border: 1px solid #79A6FE;
+}
+.is-invalid span{
   color: red;
+  font-size: 12px;
+}
+.is-invalid .icon input,.is-invalid .icon textarea{
+  border: 0.5px solid rgb(167, 3, 3);
+}
+.is-invalid .icon .fas{
+  color: rgb(139, 3, 3);
 }
 
-.is-invalid input{
-  border-color: red;
+.is-valid .icon input,.is-valid .icon textarea{
+  border: 0.5px solid rgb(63, 100, 173);
+}
+.is-valid .icon .fas{
+  color: #79A6FE;
 }
 
-.is-valid{
-  color: green;
-}
-
-.is-valid input{
-  border-color: green;
-}
