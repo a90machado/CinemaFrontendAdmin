@@ -1,10 +1,11 @@
 export class Movie {
+    "id":number;
     "title": string;
     "image": String;
     "minimumAge": number;
     "duration": number;
-    "releaseDate": Date;
-    "endDate": Date;
+    "releaseDate": string;
+    "endDate": string;
     "director":string;
     "cast":string;
     "synopsis":string;

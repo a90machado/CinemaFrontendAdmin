@@ -2,24 +2,26 @@
   <table class="table" [ngClass]='theme'>
     <thead>
       <tr>
-        <th *ngFor="let col of header">
+        <th *ngFor="let col of header" [ngClass]="{'data': col=='endDate' || col=='releaseDate'}">
           {{col}}
         </th>
         <!-- Actions -->
         <th>
-          <input type="checkbox" aria-label="">
+            <a class="icons" title="Delete" data-toggle="tooltip"></a>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data$ | async" (click)="clickedRow(row)">
-        <td *ngFor="let col of header">
+      <tr *ngFor="let row of data$ | async" >
+        <td *ngFor="let col of header"  (click)="clickedRow(row)">
           {{row[col]}}
         </td>
         <!-- Actions -->
         <td>
-          <input type="checkbox" aria-label="">
-        </td>
+          <div class="icons">
+              <a title="Edit"><i class="material-icons"(click)="clickEdit(row)">edit</i></a><a class="delete" title="Delete"><i class="material-icons delete" (click)="clickDelete(row)">&#xE872;</i></a>
+          </div>
+      </td>
       </tr>
     </tbody>
   </table>

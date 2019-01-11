@@ -1,7 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../shared/services';
 import { ReplaySubject } from 'rxjs';
-import { Movie } from 'src/app/layout/shared/components/modals/movie';
+import { Movie } from 'src/app/shared/models/movie';
+import { MovieApiService } from '../shared/services/movie-api.service';
+import { MovieModalComponent } from '../shared/components/modals/movie-modal/movie-modal.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { EditMovieModalComponent } from '../shared/components/modals/edit-movie-modal/edit-movie-modal.component';
+import { NewMovieModalComponent } from '../shared/components/modals/new-movie-modal/new-movie-modal.component';
 
 
 @Component({
@@ -10,24 +15,18 @@ import { Movie } from 'src/app/layout/shared/components/modals/movie';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  @Input() duration = ''
-  @Input() releaseDate = ''
-  @Input() director = ''
-  @Input() cast = ''
-  @Input() synopsis = ''
-  @Input() delete = ''
-
+ 
   public movies$: ReplaySubject<Movie[]>;
   movie: Movie;
+  modalRef: BsModalRef;
 
-  constructor(    private dataService: DataService
-    ) { 
-      this.duration = "Duration: ";
-      this.releaseDate= "Release Date: ";
-      this.director= "Director: ";
-      this.cast= "Cast: ";
-      this.synopsis= "Synopsis: ";
-      this.delete= "Delete Movie";
+  constructor(    private dataService: DataService,
+    private movieApiService: MovieApiService,
+    
+    public modalService: BsModalService,
+    ) 
+    { 
+      
       this.movies$ = this.dataService.movies$;
     }
 
@@ -35,9 +34,28 @@ export class MoviesComponent implements OnInit {
   }
 
   handleSelectedRow(eventData) {
-    this.movie = eventData;
+    const initialState = eventData;
+    this.modalRef = this.modalService.show(MovieModalComponent, {initialState});
   }
+
+
   updateMovies(){
     this.dataService.updateMovies();
+  }
+  
+  handleDelete(eventData){
+    this.movieApiService.deleteMovie(eventData.id).subscribe(() =>{
+      this.dataService.updateMovies();
+    });
+    
+  }
+  handleEdit(eventData){
+    console.log("moviecomponent")
+    const initialState = eventData;
+    this.modalRef = this.modalService.show(EditMovieModalComponent, {"initialState":initialState});
+  }
+
+  addNew(){
+    this.modalRef = this.modalService.show(NewMovieModalComponent);
   }
 }

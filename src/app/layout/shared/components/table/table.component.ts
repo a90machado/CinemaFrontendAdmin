@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../../services';
 
 @Component({
   selector: 'app-table',
@@ -8,17 +9,31 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TableComponent implements OnInit {
   @Input()  header: any;
   @Input()  data$: any;
+  @Input()  value = false;
   @Input()  theme = 'table-dark';
   @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
+  @Output() delete: EventEmitter<any> = new EventEmitter<any>();
+  @Output() edit: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor( ) {
+  constructor(private dataService: DataService ) {
+
+
   }
 
   ngOnInit() {
+    
   }
 
   clickedRow(row) {
     this.selectedRow.emit(row);
   }
 
-}
+  clickDelete(row){
+    this.delete.emit(row);
+  }
+  clickEdit(row){
+    console.log(row)
+    this.edit.emit(row);
+  }
+
+ }
