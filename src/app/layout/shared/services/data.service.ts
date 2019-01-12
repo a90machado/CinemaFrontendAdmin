@@ -3,6 +3,7 @@ import { ReplaySubject } from 'rxjs';
 import { AccountsService } from './accounts.service';
 import { MovieApiService } from './movie-api.service';
 import { DatePipe } from '@angular/common';
+import { CinemasService } from './cinemas.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,13 @@ import { DatePipe } from '@angular/common';
 export class DataService {
   public accounts$: ReplaySubject<any[]> = new ReplaySubject(1);
   public movies$: ReplaySubject<any []>= new ReplaySubject(1);
+  public cinemas$: ReplaySubject<any []>= new ReplaySubject(1);
 
 
-  constructor( private _accountService: AccountsService , private movieApi: MovieApiService, public datepipe: DatePipe) {
+  constructor( private _accountService: AccountsService , private movieApi: MovieApiService, public datepipe: DatePipe, private cinemasService: CinemasService) {
     this.updateAccounts();
     this.updateMovies();
+    this.updateCinemas();
   }
 
   public updateAccounts() {
@@ -24,6 +27,14 @@ export class DataService {
       }
     );
   }
+  public updateCinemas() {
+    this.cinemasService.getCinemas().subscribe(
+      (res: any) => {
+        this.cinemas$.next(res);
+      }
+    );
+  }
+  
   public updateMovies() {
     this.movieApi.getMovies().subscribe((res: any) => {
       
