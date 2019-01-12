@@ -10,9 +10,9 @@ export class CinemasService {
   constructor(private http: HttpClient) { }
 
   public getCinemas(){
-    return this.http.get('http://localhost:8080/CinemaTicketSystem/api/cinema/');
+    return this.http.get('http://localhost:4200/api/CinemaTicketSystem/api/cinema/');
 }
   public deleteCinema(id:number): Observable<{}>{
-    return this.http.delete(`http://localhost:8080/CinemaTicketSystem/api/cinema/${id}`);
+    return this.http.delete(`http://localhost:4200/api/CinemaTicketSystem/api/cinema/${id}`);
   }
 }

@@ -14,7 +14,7 @@ import { Movie } from 'src/app/shared/models/movie';
     ){}
 
     public getMovies(){
-        return this.http.get('http://localhost:8080/CinemaTicketSystem/api/movie/');
+        return this.http.get('http://localhost:4200/api/CinemaTicketSystem/api/movie/');
     }
     public searchMovie(titleToSearch: string, yearToSearch: string){
         return this.http.get(`http://www.omdbapi.com/?apikey=9bcc8f54&t=${titleToSearch}&y=${yearToSearch}&plot=full`);
@@ -23,19 +23,19 @@ import { Movie } from 'src/app/shared/models/movie';
     public deleteMovie (id: number): Observable<{}>{
         console.log("is in movieapiservice")
         console.log(id);
-        const url = `http://localhost:8080/CinemaTicketSystem/api/movie/${id}`; 
+        const url = `http://localhost:4200/api/CinemaTicketSystem/api/movie/${id}`; 
         return this.http.delete(url).pipe(
             catchError(this.handleError)
           );;
       }
       public editMovie (movie: Movie): Observable<Movie>{
-        const url = `http://localhost:8080/CinemaTicketSystem/api/movie/`; 
+        const url = `http://localhost:4200/api/CinemaTicketSystem/api/movie/`; 
         return this.http.put<Movie>(url,movie).pipe(
             catchError(this.handleError)
           );;
       }
       public addMovie (movie: Movie): Observable<Movie>{
-        const url = `http://localhost:8080/CinemaTicketSystem/api/movie/new`; 
+        const url = `http://localhost:4200/api/CinemaTicketSystem/api/movie/new`; 
         return this.http.post<Movie>(url,movie).pipe(
             catchError(this.handleError)
           );;
