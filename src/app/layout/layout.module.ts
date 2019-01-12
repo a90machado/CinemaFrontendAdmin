@@ -23,7 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {MatSelectModule} from '@angular/material/select';
-import { MinutesToHoursPipe } from './cinemas/minutes-to-hours.pipe';
+import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-modal/new-cinema-modal.component';
 
 
 @NgModule({
@@ -41,7 +41,7 @@ import { MinutesToHoursPipe } from './cinemas/minutes-to-hours.pipe';
     MovieModalComponent,
     EditMovieModalComponent,
     NewMovieModalComponent,
-    MinutesToHoursPipe
+    NewCinemaModalComponent
   ],
   imports: [
     CommonModule,
