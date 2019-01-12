@@ -16,6 +16,7 @@ export class CinemasComponent implements OnInit {
 
   constructor(private dataService: DataService, private cinemasService: CinemasService) {
     this.cinemas$=this.dataService.cinemas$;
+    
    }
 
   ngOnInit() {
@@ -24,6 +25,6 @@ export class CinemasComponent implements OnInit {
     this.cinemasService.deleteCinema(eventData.id).subscribe(() =>{
       this.dataService.updateCinemas();
     });
-    
 }
+
 }

@@ -9,11 +9,12 @@
         <th>
             <a class="icons" title="Delete" data-toggle="tooltip"></a>
         </th>
+
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of data$ | async" >
-        <td *ngFor="let col of header"  (click)="clickedRow(row)">
+      <tr *ngFor="let row of data$ | async">
+        <td *ngFor="let col of header" (click)="clickedRow(row)">
           {{row[col]}}
         </td>
         <!-- Actions -->

@@ -30,6 +30,30 @@ export class DataService {
   public updateCinemas() {
     this.cinemasService.getCinemas().subscribe(
       (res: any) => {
+
+        for (const iterator of res){
+          if (iterator.timeOpen%60==0) {
+            iterator.timeOpen = String(iterator.timeOpen/60)+"H:00 min";
+          }
+          else{
+            iterator.timeOpen = String(Math.round(iterator.timeOpen/60))+"H:"+String(iterator.timeOpen%60)+" min";
+          }
+        }
+
+        for (const iterator of res){
+          if (iterator.timeClose%60==0) {
+            iterator.timeClose = String(iterator.timeClose/60)+"H:00 min";
+          }
+          else{
+            iterator.timeClose = String(Math.round(iterator.timeClose/60))+"H:"+String(iterator.timeClose%60)+" min";
+          }
+        }
+
+        for (const iterator of res){
+          
+          iterator.pause = String(iterator.pause)+ " min";
+        }
+
         this.cinemas$.next(res);
       }
     );
