@@ -1,8 +1,15 @@
+/*
+#FCFCFF
+#1B1B1E
+#001F54
+#03519B
+#1282A2
+*/
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
 
 .login-block {
-  background: #1d243d;
+  background: #FCFCFF;
   padding: 0;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
@@ -15,53 +22,51 @@
   display: flex;
 }
 
+section img{
+  margin: 10px;
+}
+
 .container{
-  margin-top: 40px;
-  background-color: rgb( 33, 41, 66);
-  border-radius: 9px;
-  border-top: 10px solid #79A6FE;
-  border-bottom: 10px solid #88D17C;
+  background-color: #FCFCFF;
   max-width: 400px;
   height: 500px;
-  box-shadow: 1px 1px 108.8px 19.2px rgb(25,31,53);
 }
 
-.box h4{
-  color: #5C6BC0;
-  font-size: 20px;
-  margin-top: 30px;
+.header h4{
+  color: #001F54;
+  font-size: 25px;
 }
 
-.box h4 span {
-  color: #DFDEEE;
+.header h4 span {
+  color: #1B1B1E;
   font-weight: lighter;
 }
 
-.box h5{
-  font-size: 14px;
-  color: #A1A4AD;
+.header h5{
+  font-size: 15px;
+  color: #1B1B1E;
   letter-spacing: 1.5px;
   margin-top: 5px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .box input[type="text"], .box input[type="password"]{
   display: block;
   margin: 20px auto;
-  background: #262E49;
+  background: #FCFCFF;
   border: 0;
-  border-radius: 5px;
+  border-radius: 0px;
   padding: 15px 10px;
   width: 320px;
-  outline: none;
-  color: #565F79;
+  border-bottom: 1px solid #1B1B1E;
+  color: #1B1B1E;
 }
 ::-webkit-input-placeholder {
-  color: #565F79;
+  color: #1B1B1E;
 }
 
 .box input[type="text"]:focus, .box input[type="password"]:focus {
-  border: 1px solid #79A6FE;
+  border-bottom: 1px solid #1282A2;
 }
 
 .eye{
@@ -73,41 +78,41 @@
   position: absolute;
   left: 310px;
   top: 10px;
-  color: #3b476b;
+  color: #001F54;
   font-size: 18px;
   cursor: pointer;
 }
 
 .active{
-  color: #7F60EB!important;
+  color: #1282A2!important;
 }
 
 .error{
   margin-left: 28px;
   padding: 2px;
   border: 0;
-  color: #ff3333;
+  color: #c22222;
   margin-top: 0;
 }
 
 .btn{
   border: 0;
-  background: #7F5FEB;
+  background: #03519B;
   color: #DFDEEE;
-  border-radius: 100px;
-  width: 320px;
+  border-radius: 5px;
+  width: 300px;
   height: 40px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .btn:hover{
-  background: #5D33E6;
+  background: #1282A2;
 }
 
 p{
-  color: #5C7FDA;
+  color: #03519B;
   text-decoration: none;
   cursor: pointer;
 }
@@ -137,5 +142,5 @@ p:hover{
 }
 
 .footer span{
-  color: #79A6FE;
+  color: #001F54;
 }

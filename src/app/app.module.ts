@@ -28,6 +28,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ModalModule.forRoot(),
     SDKBrowserModule.forRoot(),
   ],
+  entryComponents: [ ProblemsLogInComponent ],
   providers: [ TableComponent, DatePipe ],
   bootstrap: [AppComponent]
 })

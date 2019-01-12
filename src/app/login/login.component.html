@@ -1,12 +1,11 @@
 <section class="login-block">
-
+  <img src="https://imagizer.imageshack.com/v2/1024x768q90/922/vEfdrN.png" alt="Jarvis your TicketLine" width="220">
   <div class="container">
     <div class="header">
-      <img src="https://imageshack.com/a/img922/1139/98OUg5.png" alt="Jarvis your TicketLine" width="180">
+      <h4 class="text-center">Admin<span>Dashboard</span></h4>
+      <h5 class="text-center">Sign in to your account</h5>
     </div>
     <form #formLogin="ngForm" (ngSubmit)="onLogin()" class="box text-center">
-      <h4 class="text-center">Admin<span>Dashboard</span></h4>
-      <h5 class="text-center">Sign in to your account.</h5>
       <input name="username" type="text" [(ngModel)]="account.username" class="form-control" placeholder="Username"
         autocomplete="off" required #username="ngModel">
       <div class="eye">
