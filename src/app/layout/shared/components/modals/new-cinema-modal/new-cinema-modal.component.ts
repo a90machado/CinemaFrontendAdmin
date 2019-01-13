@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cinema } from 'src/app/shared/models/cinema';
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { CinemasService } from '../../../services/cinemas.service';
+import { DataService } from '../../../services';
 
 @Component({
   selector: 'app-new-cinema-modal',
@@ -16,21 +19,26 @@ export class NewCinemaModalComponent implements OnInit {
   hourOptions= [];
   minutesOptions= [];
   breakOptions= [];
-  cinema: Cinema;
+  cinema: Cinema = new Cinema();
 
-  constructor() { }
+  constructor(public modalRef: BsModalRef, public cinemasService: CinemasService, public dataService: DataService) { }
 
   ngOnInit() {
     this.createHourOptions();
-    this.createMinutesOptions();
-    this.createBreakOptions()
+   this.createMinutesOptions();
+    this.createBreakOptions();
   }
 
   newCinema(){
     this.cinema.timeOpen=(Number(this.openHour)*60)+Number(this.openMinutes);
     this.cinema.timeClose=(Number(this.closeHour)*60)+Number(this.closeMinutes);
-    this.cinema.pause=(Number(this.closeHour)*60)+Number(this.closeMinutes);
+    this.cinema.pause=Number(this.break);
+    console.log(this.cinema.pause);
 
+      this.cinemasService.addCinema(this.cinema).subscribe(() =>{
+        this.dataService.updateCinemas();
+        this.modalRef.hide();
+      });
   }
 
   createHourOptions(){
@@ -44,7 +52,7 @@ export class NewCinemaModalComponent implements OnInit {
   }
   }
   createMinutesOptions(){
-    for (let i = 0; i <= 60; i+5) {
+    for (let i = 0; i < 60; i=i+5) {
       if (i<10){
         this.minutesOptions.push("0"+ String(i));
       }
@@ -54,7 +62,7 @@ export class NewCinemaModalComponent implements OnInit {
     }
     }
     createBreakOptions(){
-      for (let i = 0; i <= 45; i+5) {
+      for (let i = 10; i <= 55; i=i+5) {
         if (i<10){
           this.breakOptions.push("0"+ String(i));
         }

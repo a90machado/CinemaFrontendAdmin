@@ -57,6 +57,6 @@ import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-m
     MatSelectModule
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent ]
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent ]
 })
 export class LayoutModule { }
