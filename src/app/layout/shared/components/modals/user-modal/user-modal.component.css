@@ -37,7 +37,7 @@
 h5{
   color: #001F54;
   font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 h5 span, h6{
@@ -55,11 +55,11 @@ h5 a{
 }
 
 .role{
-  margin: auto 0 0 auto;
+  margin: auto 0 auto auto;
 }
 
 .fas{
-  font-size: 80px;
+  font-size: 90px;
   color: #03519B;
 }
 

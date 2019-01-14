@@ -9,7 +9,7 @@
       <div class="labels">
           <h5>Username: <span>{{username}}</span></h5>
           <h5>Email: <a [href]="'mailto:' + email +'?Subject=Jarvis Administracion -'">{{email}}</a></h5>
-          <h6><i class="fas fa-calendar-check"></i>   {{createdAt | createdAtPipe}} days with us</h6>
+          <h6><i class="fas fa-calendar-check"></i> {{createdAt | createdAtPipe}} days with us.</h6>
       </div>
       <div class="role">
         <i class="fas fa-user" *ngIf="role==='user'"></i>
