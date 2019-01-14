@@ -94,6 +94,7 @@ export class NewMovieModalComponent implements OnInit {
     if (this.error=="") {
       this.movieApiService.addMovie(this.movieToSave).subscribe(() =>{
         this.dataService.updateMovies();
+        this.modalRef.hide();
       });
     }
     
