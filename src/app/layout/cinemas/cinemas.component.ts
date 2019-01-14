@@ -13,30 +13,31 @@ import { EditCinemaModalComponent } from '../shared/components/modals/edit-cinem
   styleUrls: ['./cinemas.component.css']
 })
 export class CinemasComponent implements OnInit {
-  
+
   public cinemas$: ReplaySubject<Cinema[]>;
   cinema: Cinema;
   modalRef: BsModalRef;
 
 
   constructor(private dataService: DataService, private cinemasService: CinemasService, public modalService: BsModalService) {
-    this.cinemas$=this.dataService.cinemas$;
-    
-   }
+    this.cinemas$ = this.dataService.cinemas$;
+  }
 
   ngOnInit() {
   }
-  handleDelete(eventData){
-    this.cinemasService.deleteCinema(eventData.id).subscribe(() =>{
+
+  handleDelete(eventData) {
+    this.cinemasService.deleteCinema(eventData.id).subscribe(() => {
       this.dataService.updateCinemas();
     });
-}
-  handleEdit(eventData){
+  }
+  handleEdit(eventData) {
     const initialState = eventData;
-    this.modalRef= this.modalService.show(EditCinemaModalComponent, {"initialState":initialState});
-    }
-  
-  addNew(){
+    this.modalRef = this.modalService.show(EditCinemaModalComponent, { "initialState": initialState });
+  }
+
+  addNew() {
+
     this.modalRef = this.modalService.show(NewCinemaModalComponent);
   }
 
