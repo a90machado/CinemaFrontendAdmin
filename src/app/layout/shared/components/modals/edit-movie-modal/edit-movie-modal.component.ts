@@ -70,8 +70,8 @@ export class EditMovieModalComponent implements OnInit {
   editMovie(){
     this.error="";
 
-    this.releaseDateNew=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease+"T00:00:00";
-    this.endDateNew=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd+"T00:00:00";
+    this.releaseDateNew=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease;
+    this.endDateNew=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd;
 
     this.movie.id=this.id;
     this.movie.title=this.title;
