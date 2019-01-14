@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -8,12 +8,15 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class UserModalComponent implements OnInit {
 
-  name = '';
-  email = '';
-  username = '';
-  role = '';
+  @Input()name = '';
+  @Input()email = '';
+  @Input()username = '';
+  @Input()role = '';
+  @Input()createdAt; // what a fuck i go do with this cheet
 
-  constructor(  public _modalRef: BsModalRef ) { }
+  constructor(  public _modalRef: BsModalRef ) {
+
+  }
 
   ngOnInit() {
   }

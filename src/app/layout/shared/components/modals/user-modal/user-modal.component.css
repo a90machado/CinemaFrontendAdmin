@@ -40,7 +40,7 @@ h5{
   margin-bottom: 15px;
 }
 
-h5 span{
+h5 span, h6{
   color: #03519B;
   font-weight: lighter;
 }
@@ -61,4 +61,12 @@ h5 a{
 .fas{
   font-size: 60px;
   color: #03519B;
+}
+
+h6{
+  font-size: 15px;
+}
+
+.fa-calendar-check{
+  font-size: 25px;
 }
