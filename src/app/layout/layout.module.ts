@@ -23,6 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {MatSelectModule} from '@angular/material/select';
+import { UserModalComponent } from './shared/components/modals/user-modal/user-modal.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {MatSelectModule} from '@angular/material/select';
     NewMovieModalComponent,
     MovieModalComponent,
     EditMovieModalComponent,
-    NewMovieModalComponent
+    NewMovieModalComponent,
+    UserModalComponent
   ],
   imports: [
     CommonModule,
@@ -55,6 +57,11 @@ import {MatSelectModule} from '@angular/material/select';
     MatSelectModule
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent ]
+  entryComponents: [  NewUserModalComponent,
+                      EditUserModalComponent,
+                      MovieModalComponent,
+                      EditMovieModalComponent,
+                      NewMovieModalComponent,
+                      UserModalComponent ]
 })
 export class LayoutModule { }

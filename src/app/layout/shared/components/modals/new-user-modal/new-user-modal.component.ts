@@ -17,11 +17,10 @@ export class NewUserModalComponent implements OnInit {
   constructor(  public _modalRef: BsModalRef,
                 private _accountApi: AccountApi,
                 private _dataService: DataService ) {
-                  this.account.emailVerified = true;
-                  this.account.createdAt = new Date();
                 }
 
   ngOnInit() {
+    this.account.createdAt = new Date;
   }
 
   private newUser() {

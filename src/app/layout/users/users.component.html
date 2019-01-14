@@ -4,5 +4,5 @@
   <button class="btn btn-warning" type="button" (click)="deleteUser()">Delete</button>
 </div>
 <div class="container">
-  <app-table [header]='["name","email","username","role"]' [data$]='accounts$' [theme]='"table-bordered"' (selectedRow)="handleSelectedRow($event)"></app-table>
+  <app-table [header]='["name","email"]' [data$]='accounts$' [theme]='"table-bordered"' (selectedRow)="handleSelectedRow($event)"></app-table>
 </div>

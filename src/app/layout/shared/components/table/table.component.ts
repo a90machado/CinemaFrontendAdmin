@@ -21,19 +21,17 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
-    
   }
 
   clickedRow(row) {
     this.selectedRow.emit(row);
   }
 
-  clickDelete(row){
+  clickDelete(row) {
     this.delete.emit(row);
   }
-  clickEdit(row){
-    console.log(row)
+  clickEdit(row) {
     this.edit.emit(row);
   }
 
- }
+}

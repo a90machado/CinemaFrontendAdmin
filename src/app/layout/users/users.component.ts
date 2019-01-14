@@ -2,7 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { DataService } from '../shared/services';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { NewUserModalComponent, EditUserModalComponent } from '../shared/components';
+import { NewUserModalComponent } from '../shared/components';
+import { UserModalComponent } from '../shared/components/modals/user-modal/user-modal.component';
 
 
 @Component({
@@ -13,6 +14,12 @@ import { NewUserModalComponent, EditUserModalComponent } from '../shared/compone
 export class UsersComponent implements OnInit {
   accounts$: ReplaySubject<Account[]>;
   modalRef: BsModalRef;
+  config = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false
+  };
 
   constructor(  private _dataService: DataService,
                 private _modalService: BsModalService) {
@@ -36,10 +43,9 @@ export class UsersComponent implements OnInit {
   }
 
   handleSelectedRow(eventData) {
-    console.log(eventData);
-    console.log(eventData.name);
     const initialState = eventData;
-    this.modalRef = this._modalService.show(EditUserModalComponent, {initialState});
+    this.modalRef = this._modalService.show(UserModalComponent, Object.assign({}, this.config, {class: 'details-user' , initialState }));
+
   }
 
 }

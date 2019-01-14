@@ -14,20 +14,18 @@ import { NewMovieModalComponent } from '../shared/components/modals/new-movie-mo
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
+
 export class MoviesComponent implements OnInit {
- 
+
   public movies$: ReplaySubject<Movie[]>;
   movie: Movie;
   modalRef: BsModalRef;
 
   constructor(    private dataService: DataService,
-    private movieApiService: MovieApiService,
-    
-    public modalService: BsModalService,
-    ) 
-    { 
-      
-      this.movies$ = this.dataService.movies$;
+                  private movieApiService: MovieApiService,
+                  public modalService: BsModalService) {
+
+                    this.movies$ = this.dataService.movies$;
     }
 
   ngOnInit() {
@@ -39,23 +37,21 @@ export class MoviesComponent implements OnInit {
   }
 
 
-  updateMovies(){
+  updateMovies() {
     this.dataService.updateMovies();
   }
-  
-  handleDelete(eventData){
-    this.movieApiService.deleteMovie(eventData.id).subscribe(() =>{
+  handleDelete(eventData) {
+    this.movieApiService.deleteMovie(eventData.id).subscribe(() => {
       this.dataService.updateMovies();
     });
-    
   }
-  handleEdit(eventData){
-    console.log("moviecomponent")
+  handleEdit(eventData) {
+    console.log('moviecomponent');
     const initialState = eventData;
-    this.modalRef = this.modalService.show(EditMovieModalComponent, {"initialState":initialState});
+    this.modalRef = this.modalService.show(EditMovieModalComponent, {'initialState': initialState});
   }
 
-  addNew(){
+  addNew() {
     this.modalRef = this.modalService.show(NewMovieModalComponent);
   }
 }

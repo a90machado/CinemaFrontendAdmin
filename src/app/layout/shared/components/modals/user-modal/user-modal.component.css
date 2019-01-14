@@ -1,0 +1,64 @@
+/*
+#FCFCFF
+#1B1B1E
+#001F54
+#03519B
+#1282A2
+*/
+
+/* Modal Header */
+.modal-header{
+  border-bottom: 2px solid #001F54;
+}
+
+.modal-dialog{
+  top: 40%;
+}
+
+.modal-title{
+  color: #001F54;
+  font-size: 35px;
+}
+
+.modal-title span {
+  color: #03519B;
+  font-weight: lighter;
+}
+
+.close{
+  margin: -1.8rem -1rem -1rem auto;
+}
+.close span{
+  font-size: 50px;
+  color: #001F54;
+}
+
+/* Modal Body */
+h5{
+  color: #001F54;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+h5 span{
+  color: #03519B;
+  font-weight: lighter;
+}
+
+h5 a{
+  color: #03519B;
+  font-weight: lighter;
+}
+
+.labels{
+  margin-top: 10px;
+}
+
+.role{
+  margin: auto 0 auto auto;
+}
+
+.fas{
+  font-size: 60px;
+  color: #03519B;
+}

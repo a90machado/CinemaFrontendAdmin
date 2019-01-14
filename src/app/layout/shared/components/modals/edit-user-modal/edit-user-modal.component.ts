@@ -13,6 +13,9 @@ export class EditUserModalComponent implements OnInit {
   account: Account = new Account();
   message = '';
   email = '';
+  username = '';
+  name = '';
+  role = '';
 
   constructor(  public _modalRef: BsModalRef,
 

@@ -1,0 +1,9 @@
+.details-user{
+  max-width: 600px;
+  top: 30%;
+}
+
+.modal-content{
+  background-color: #FCFCFF;
+  border-radius: 5px;
+}

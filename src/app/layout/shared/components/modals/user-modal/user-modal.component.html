@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Details of: <span>{{ name }}</span></h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="_modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="d-flex flex-row">
+      <div class="labels">
+          <h5>Username: <span>{{username}}</span></h5>
+          <h5>Email: <a [href]="'mailto:' + email +'?Subject=Jarvis Administracion -'">{{email}}</a></h5>
+
+      </div>
+      <div class="role">
+        <i class="fas fa-user" *ngIf="role==='user'"></i>
+        <i class="fas fa-user-tie" *ngIf="role==='admin'"></i>
+      </div>
+  </div>
+</div>

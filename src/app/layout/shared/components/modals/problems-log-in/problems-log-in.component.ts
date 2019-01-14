@@ -25,12 +25,13 @@ export class ProblemsLogInComponent implements OnInit {
   }
 
   emailUs() {
-
+    this._modalRef.hide();
     emailjs.send('gmail', 'template_Usm8sltX', this.email, 'user_D79wQNojPhIDfDrMSz3OI')
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
       }, (err) => {
         console.log('FAILED...', err);
+        this._modalRef.hide();
       });
   }
 
