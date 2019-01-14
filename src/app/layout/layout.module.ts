@@ -26,6 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { UserModalComponent } from './shared/components/modals/user-modal/user-modal.component';
 import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-modal/new-cinema-modal.component';
 import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
+import { RoomsModalComponent } from './shared/components/modals/rooms-modal/rooms-modal.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema
     NewMovieModalComponent,
     UserModalComponent,
     NewCinemaModalComponent,
-    EditCinemaModalComponent
+    EditCinemaModalComponent,
+    RoomsModalComponent
   ],
   imports: [
     CommonModule,
@@ -61,6 +63,6 @@ import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema
     MatSelectModule
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent ]
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent, RoomsModalComponent ]
 })
 export class LayoutModule { }

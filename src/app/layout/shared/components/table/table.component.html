@@ -15,7 +15,11 @@
     <tbody>
       <tr *ngFor="let row of data$ | async">
         <td *ngFor="let col of header" (click)="clickedRow(row)">
-          {{row[col]}}
+         <p *ngIf="col!=='rooms'">{{row[col]}}</p>
+         <div class="row"><div class="col-sm-4"></div><div class="col-sm-1"><p *ngIf="col==='details'"><i class="material-icons screan" title="Rooms" (click)="clickSeeRooms(row)">
+          personal_video
+          </i></p></div><div class="col-sm-1"><p *ngIf="col==='details'"><i class="fas fa-ticket-alt" title="Tickets" (click)="clickSeeTickets(row)"></i></p></div><div class="col-sm-4"></div>
+        </div>
         </td>
         <!-- Actions -->
         <td>

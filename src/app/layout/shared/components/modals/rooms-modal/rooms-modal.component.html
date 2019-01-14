@@ -4,7 +4,7 @@
         <div class="col-sm-12 col-md-1 col-lg-1"></div>
         <div class="col-sm-12 col-md-10 col-lg-10 cinemasBox">
 
-            <h2 class="text-center cinemasPage">My Cinemas </h2>
+            <h2 class="text-center cinemasPage">cinema.name </h2>
         </div>
         <div class="col-sm-12 col-md-1 col-lg-1">
         </div>
@@ -13,8 +13,8 @@
     <div class="container">
         <button type="button" style="float: left" class="btn btn-info add-new" (click)="addNew()"><i class="fa fa-plus"></i>
             Add New</button>
-        <app-table [header]='["id","name","timeOpen","timeClose","pause", "details"]' [data$]='cinemas$' [theme]='"table-bordered"'
-            (rooms)="handleRooms($event)" (delete)=handleDelete($event) (edit)=handleEdit($event)></app-table>
+        <app-table [header]='["movie","cinema","numberOfQueues","numberOfSeatsPerQueue"]' [data$]='rooms$' [theme]='"table-bordered"'
+            (delete)=handleDelete($event) (edit)=handleEdit($event)></app-table>
     </div>
     <br>
 </div>

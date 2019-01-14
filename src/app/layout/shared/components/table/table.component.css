@@ -12,6 +12,7 @@
 
 tr {
     cursor: pointer;
+
 }
 th, thead{
     border: 1px solid black;
@@ -25,4 +26,7 @@ th, thead{
 }
 .data{
     min-width: 120px;
+}
+.detais{
+    text-align: center;
 }

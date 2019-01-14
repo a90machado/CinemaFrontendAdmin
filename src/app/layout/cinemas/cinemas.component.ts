@@ -6,6 +6,8 @@ import { CinemasService } from '../shared/services/cinemas.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NewCinemaModalComponent } from '../shared/components/modals/new-cinema-modal/new-cinema-modal.component';
 import { EditCinemaModalComponent } from '../shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
+import { RoomsModalComponent } from '../shared/components/modals/rooms-modal/rooms-modal.component';
+import { Room } from 'src/app/shared/models/room';
 
 @Component({
   selector: 'app-cinemas',
@@ -15,12 +17,28 @@ import { EditCinemaModalComponent } from '../shared/components/modals/edit-cinem
 export class CinemasComponent implements OnInit {
 
   public cinemas$: ReplaySubject<Cinema[]>;
+  public rooms$: ReplaySubject<Room[]>;
+
   cinema: Cinema;
   modalRef: BsModalRef;
+  rooms:Room[];
+  config = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false,
+    class: 'my-modal'
+  };
 
 
   constructor(private dataService: DataService, private cinemasService: CinemasService, public modalService: BsModalService) {
     this.cinemas$ = this.dataService.cinemas$;
+    this.rooms$ = this.dataService.rooms$;
+    this.dataService.updateRooms();
+    this.rooms$.subscribe((rooms:Room[])=>{
+      this.rooms=rooms;
+    })
+
   }
 
   ngOnInit() {
@@ -39,6 +57,12 @@ export class CinemasComponent implements OnInit {
   addNew() {
 
     this.modalRef = this.modalService.show(NewCinemaModalComponent);
+  }
+  handleRooms(row){
+    var initialState = {rooms$:this.rooms$};
+    console.log(this.rooms);
+    
+    this.modalRef = this.modalService.show(RoomsModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState }));
   }
 
 }

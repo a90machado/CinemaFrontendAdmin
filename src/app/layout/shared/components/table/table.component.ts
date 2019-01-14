@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { RoomsModalComponent } from '../modals/rooms-modal/rooms-modal.component';
 
 @Component({
   selector: 'app-table',
@@ -14,8 +16,13 @@ export class TableComponent implements OnInit {
   @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
   @Output() delete: EventEmitter<any> = new EventEmitter<any>();
   @Output() edit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() rooms: EventEmitter<any> = new EventEmitter<any>();
+  @Output() typeOfTickets: EventEmitter<any> = new EventEmitter<any>();
+  
+  modalRef: BsModalRef;
 
-  constructor(private dataService: DataService ) {
+
+  constructor(private dataService: DataService, private modalService: BsModalService,  ) {
 
 
   }
@@ -32,6 +39,12 @@ export class TableComponent implements OnInit {
   }
   clickEdit(row) {
     this.edit.emit(row);
+  }
+  clickSeeRooms(row){
+    this.rooms.emit(row);
+  }
+  clickSeeTickets(row){
+    this.typeOfTickets.emit(row);
   }
 
 }
