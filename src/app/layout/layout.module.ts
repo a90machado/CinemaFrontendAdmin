@@ -26,6 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { UserModalComponent } from './shared/components/modals/user-modal/user-modal.component';
 import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-modal/new-cinema-modal.component';
 import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
+import { CreatedAtPipePipe } from './shared/components/modals/user-modal/created-at-pipe.pipe';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema
     NewMovieModalComponent,
     UserModalComponent,
     NewCinemaModalComponent,
-    EditCinemaModalComponent
+    EditCinemaModalComponent,
+    CreatedAtPipePipe
   ],
   imports: [
     CommonModule,

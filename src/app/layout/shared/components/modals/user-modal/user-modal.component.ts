@@ -21,4 +21,6 @@ export class UserModalComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+
 }
