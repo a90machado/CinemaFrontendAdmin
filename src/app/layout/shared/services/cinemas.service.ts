@@ -19,4 +19,8 @@ export class CinemasService {
   public addCinema (cinema: Cinema): Observable<Cinema>{
     return this.http.post<Cinema>(`http://localhost:8080/CinemaTicketSystem/api/cinema/new`,cinema);
   }
+  public editCinema (cinema: Cinema): Observable<Cinema>{
+    console.log(cinema)
+    return this.http.put<Cinema>(`http://localhost:8080/CinemaTicketSystem/api/cinema`,cinema);
+  }
 }

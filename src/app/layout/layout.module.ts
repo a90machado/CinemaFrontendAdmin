@@ -24,6 +24,7 @@ import {MatInputModule} from '@angular/material/input';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-modal/new-cinema-modal.component';
+import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-m
     MovieModalComponent,
     EditMovieModalComponent,
     NewMovieModalComponent,
-    NewCinemaModalComponent
+    NewCinemaModalComponent,
+    EditCinemaModalComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +59,6 @@ import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-m
     MatSelectModule
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent ]
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent ]
 })
 export class LayoutModule { }

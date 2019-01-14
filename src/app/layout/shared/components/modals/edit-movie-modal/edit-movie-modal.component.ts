@@ -87,8 +87,7 @@ export class EditMovieModalComponent implements OnInit {
     this.dateRelease= new Date(this.releaseDate);
     this.dateEnd= new Date(this.endDate);
 
-    console.log(this.dateRelease.getTime());
-    console.log(this.dateEnd.getTime());
+
 
     if (this.dateRelease.getTime()>this.dateEnd.getTime()) {
       this.error="Release date of the movie must be equal or before end date";
@@ -99,7 +98,6 @@ export class EditMovieModalComponent implements OnInit {
         this.dataService.updateMovies();
         this.modalRef.hide();
       });
-      console.log(this.movie.releaseDate,this.releaseDate,this.movie.endDate,this.endDate,this.movie.minimumAge,this.minimumAge)
     }
   }
 

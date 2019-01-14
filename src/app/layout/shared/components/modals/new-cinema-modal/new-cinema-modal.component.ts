@@ -42,15 +42,10 @@ export class NewCinemaModalComponent implements OnInit {
   }
 
   createHourOptions(){
-  for (let i = 0; i < 24; i++) {
-    if (i<10){
-      this.hourOptions.push("0"+ String(i));
+    for (let i = 0; i < 24; i++) {
+        this.hourOptions.push(String(i));
+         }
     }
-    else{
-      this.hourOptions.push(String(i));
-    }
-  }
-  }
   createMinutesOptions(){
     for (let i = 0; i < 60; i=i+5) {
       if (i<10){
@@ -61,15 +56,10 @@ export class NewCinemaModalComponent implements OnInit {
       }
     }
     }
-    createBreakOptions(){
-      for (let i = 10; i <= 55; i=i+5) {
-        if (i<10){
-          this.breakOptions.push("0"+ String(i));
-        }
-        else{
-          this.breakOptions.push(String(i));
-        }
-      }
-      }
+  createBreakOptions(){
+    for (let i = 10; i <= 55; i=i+5) {
+        this.breakOptions.push(String(i));
+    }
 
+}
 }

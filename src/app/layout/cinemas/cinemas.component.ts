@@ -5,6 +5,7 @@ import { DataService } from '../shared/services';
 import { CinemasService } from '../shared/services/cinemas.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NewCinemaModalComponent } from '../shared/components/modals/new-cinema-modal/new-cinema-modal.component';
+import { EditCinemaModalComponent } from '../shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
 
 @Component({
   selector: 'app-cinemas',
@@ -30,8 +31,13 @@ export class CinemasComponent implements OnInit {
       this.dataService.updateCinemas();
     });
 }
-addNew(){
-  this.modalRef = this.modalService.show(NewCinemaModalComponent);
-}
+  handleEdit(eventData){
+    const initialState = eventData;
+    this.modalRef= this.modalService.show(EditCinemaModalComponent, {"initialState":initialState});
+    }
+  
+  addNew(){
+    this.modalRef = this.modalService.show(NewCinemaModalComponent);
+  }
 
 }
