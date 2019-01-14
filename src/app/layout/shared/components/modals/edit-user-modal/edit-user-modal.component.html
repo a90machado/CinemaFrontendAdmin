@@ -1,28 +1,58 @@
 <div class="modal-header">
-  <h4 class="modal-title pull-left">Update a User</h4>
+  <h4 class="modal-title pull-left">Edit user: <span>{{ name }}</span></h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="_modalRef.hide()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <form #formLogin="ngForm" (ngSubmit)="updateUser()" class="login-form">
-    <div class="form-group">
-      <label for="inputUsername" class="text-uppercase">Username</label>
-      <input  id="username" name="username" type="text" [(ngModel)]="account.username" class="form-control" placeholder="{{ username }}" required>
+  <form #editUser="ngForm" (ngSubmit)="updateUser()" class="edit-user">
+    <!-- Name Field -->
+    <div class="form-group" [class.is-invalid]="newName.invalid && name.touched" [class.is-valid]="newName.valid">
+      <div class="icon">
+        <i class="fas fa-user-tie"></i>
+        <input id="name" name="name" [(ngModel)]="account.name" type="text" class="form-control" placeholder="{{ name }}"
+          minlength="3" pattern="[a-zA-Z ]*" #newName="ngModel">
+      </div>
+      <span class="form-text" *ngIf="newName?.errors?.pattern && newName.touched">
+        Only text is available
+      </span>
+      <span class="form-text" *ngIf="!newName?.errors?.pattern && newName?.errors?.minlength && newName.touched">
+        Name required three caractheres minimum
+      </span>
+    </div>
+    <!-- Username Field -->
+    <div class="form-group" [class.is-invalid]="newUsername.invalid && newUsername.touched" [class.is-valid]="newUsername.valid">
+      <div class="icon">
+        <i class="fas fa-theater-masks"></i>
+        <input id="username" name="username" [(ngModel)]="account.username" type="text" class="form-control"
+          placeholder="{{ username }}" minlength="3" pattern="[a-zA-Z ][1-9]*" #newUsername="ngModel">
+      </div>
+      <span class="form-text" *ngIf="newUsername?.errors?.pattern && newUsername.touched">
+        Only text and numbers are available
+      </span>
+      <span class="form-text" *ngIf="!newUsername?.errors?.pattern && newUsername?.errors?.minlength && newUsername.touched">
+        Username required three caractheres minimum
+      </span>
+    </div>
+    <!-- Email Field -->
+    <div class="form-group" [class.is-invalid]="newEmail.invalid && newEmail.touched" [class.is-valid]="newEmail.valid">
+      <div class="icon">
+        <i class="fas fa-envelope"></i>
+        <input id="email" name="email" type="text" [(ngModel)]="account.email" type="text" class="form-control"
+          placeholder="{{ email }}" email #newEmail="ngModel">
+      </div>
+      <span class="form-text marginLeftTenPx" *ngIf="newEmail?.errors?.email && newEmail.touched">
+        Email is invalid
+      </span>
     </div>
     <div class="form-group">
-      <label for="email" class="text-uppercase">Email</label>
-      <input  id="email" name="email" type="text" [(ngModel)]="account.email" class="form-control" placeholder="{{ email }}" required>
+      <select name="role" id="role" [(ngModel)]="role" class="form-control">
+        <option *ngFor="let i of roles" value="{{ i }}">{{ i }}</option>
+      </select>
     </div>
-    <div class="form-group">
-      <label for="name" class="text-uppercase">Name</label>
-      <input id="name" name="name" type="text" [(ngModel)]="account.name" class="form-control" placeholder="{{ name }}" required>
-    </div>
-    <div class="form-group">
-      <label for="role" class="text-uppercase">Role</label>
-      <input  id="role" name="role" type="text" [(ngModel)]="account.role" class="form-control" placeholder="{{ role }}" required>
-    </div>
+
     RESET PASSWORD
+    <button type="click" (click)="resetPassword()" class="btn btn-login float-right">RESET PASSWORD</button>
     <button type="submit" class="btn btn-login float-right">Save</button>
   </form>
 </div>
