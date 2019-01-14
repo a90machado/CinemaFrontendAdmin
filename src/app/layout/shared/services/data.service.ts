@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 })
 export class DataService {
   public accounts$: ReplaySubject<any[]> = new ReplaySubject(1);
-  public movies$: ReplaySubject<any []>= new ReplaySubject(1);
+  public movies$: ReplaySubject<any []> = new ReplaySubject(1);
 
 
   constructor( private _accountService: AccountsService , private movieApi: MovieApiService, public datepipe: DatePipe) {
@@ -26,9 +26,6 @@ export class DataService {
   }
   public updateMovies() {
     this.movieApi.getMovies().subscribe((res: any) => {
-      
-     
-      
       for (const iterator of res) {
         iterator.releaseDate = this.datepipe.transform(iterator.releaseDate, 'yyyy-MM-dd');
         iterator.endDate = this.datepipe.transform(iterator.endDate, 'yyyy-MM-dd');
