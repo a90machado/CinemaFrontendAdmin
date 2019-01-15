@@ -16,6 +16,7 @@ import { Room } from 'src/app/shared/models/room';
 })
 export class CinemasComponent implements OnInit {
 
+  
   public cinemas$: ReplaySubject<Cinema[]>;
   public rooms$: ReplaySubject<Room[]>;
   newRooms=[];
