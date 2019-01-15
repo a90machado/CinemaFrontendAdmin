@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
 /*
 #FCFCFF
 #1B1B1E
@@ -9,10 +10,6 @@
 /* Modal Header */
 .modal-header{
   border-bottom: 2px solid #001F54;
-}
-
-.modal-dialog{
-  top: 40%;
 }
 
 .modal-title{

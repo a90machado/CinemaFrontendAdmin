@@ -6,8 +6,11 @@
 </div>
 <div class="modal-body">
   <form #editUser="ngForm" (ngSubmit)="updateUser()" class="edit-user">
+
+    <div class="d-flex flex-row">
+
     <!-- Name Field -->
-    <div class="form-group" [class.is-invalid]="newName.invalid && name.touched" [class.is-valid]="newName.valid">
+    <div class="form-group" [class.is-invalid]="newName.invalid && newName.touched" [class.is-valid]="newName.valid">
       <div class="icon">
         <i class="fas fa-user-tie"></i>
         <input id="name" name="name" [(ngModel)]="account.name" type="text" class="form-control" placeholder="{{ name }}"
@@ -25,15 +28,16 @@
       <div class="icon">
         <i class="fas fa-theater-masks"></i>
         <input id="username" name="username" [(ngModel)]="account.username" type="text" class="form-control"
-          placeholder="{{ username }}" minlength="3" pattern="[a-zA-Z ][1-9]*" #newUsername="ngModel">
+          placeholder="{{ username }}" minlength="3" pattern="[a-zA-Z0-9 ]*" #newUsername="ngModel">
       </div>
-      <span class="form-text" *ngIf="newUsername?.errors?.pattern && newUsername.touched">
+      <span class="form-text marginLeftTenPx" *ngIf="newUsername?.errors?.pattern && newUsername.touched">
         Only text and numbers are available
       </span>
-      <span class="form-text" *ngIf="!newUsername?.errors?.pattern && newUsername?.errors?.minlength && newUsername.touched">
+      <span class="form-text marginLeftTenPx" *ngIf="!newUsername?.errors?.pattern && newUsername?.errors?.minlength && newUsername.touched">
         Username required three caractheres minimum
       </span>
     </div>
+  </div>
     <!-- Email Field -->
     <div class="form-group" [class.is-invalid]="newEmail.invalid && newEmail.touched" [class.is-valid]="newEmail.valid">
       <div class="icon">
@@ -42,7 +46,7 @@
           placeholder="{{ email }}" email #newEmail="ngModel">
       </div>
       <span class="form-text marginLeftTenPx" *ngIf="newEmail?.errors?.email && newEmail.touched">
-        Email is invalid
+        This type of email is invalid
       </span>
     </div>
     <div class="form-group">
@@ -50,9 +54,10 @@
         <option *ngFor="let i of roles" value="{{ i }}">{{ i }}</option>
       </select>
     </div>
-
-    RESET PASSWORD
-    <button type="click" (click)="resetPassword()" class="btn btn-login float-right">RESET PASSWORD</button>
-    <button type="submit" class="btn btn-login float-right">Save</button>
+    <div class="d-flex flex-row">
+      <button (click)="resetPwd()" class="btn btnPwd float-right">Reset Password</button>
+      <button type="submit" class="btn btnSubmit float-right">Update</button>
+    </div>
+    <span>* Reset password will generate a new password and send to the user email.</span>
   </form>
 </div>

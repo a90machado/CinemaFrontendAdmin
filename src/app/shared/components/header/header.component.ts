@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
   private checkRoleUser() {
     this._accountApi.getCurrent().subscribe((result: any) => {
       this.account = result;
-      this.roleUser = (this.account.role === 'admin') ? true : false;
+      this.roleUser = (this.account.role === 'Admin') ? true : false;
     });
   }
 
