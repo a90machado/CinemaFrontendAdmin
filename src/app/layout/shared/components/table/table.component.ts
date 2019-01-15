@@ -9,6 +9,7 @@ import { RoomsModalComponent } from '../modals/rooms-modal/rooms-modal.component
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+
   @Input()  header: any;
   @Input()  data$: any;
   @Input()  value = false;

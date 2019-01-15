@@ -18,10 +18,13 @@ export class CinemasComponent implements OnInit {
 
   public cinemas$: ReplaySubject<Cinema[]>;
   public rooms$: ReplaySubject<Room[]>;
+  newRooms=[];
+  cinemaName="";
+  movieName="";
 
   cinema: Cinema;
   modalRef: BsModalRef;
-  rooms:Room[];
+ 
   config = {
     animated: true,
     keyboard: true,
@@ -34,10 +37,6 @@ export class CinemasComponent implements OnInit {
   constructor(private dataService: DataService, private cinemasService: CinemasService, public modalService: BsModalService) {
     this.cinemas$ = this.dataService.cinemas$;
     this.rooms$ = this.dataService.rooms$;
-    this.dataService.updateRooms();
-    this.rooms$.subscribe((rooms:Room[])=>{
-      this.rooms=rooms;
-    })
 
   }
 
@@ -59,8 +58,9 @@ export class CinemasComponent implements OnInit {
     this.modalRef = this.modalService.show(NewCinemaModalComponent);
   }
   handleRooms(row){
+    this.dataService.updateRooms();
+
     var initialState = {rooms$:this.rooms$};
-    console.log(this.rooms);
     
     this.modalRef = this.modalService.show(RoomsModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState }));
   }

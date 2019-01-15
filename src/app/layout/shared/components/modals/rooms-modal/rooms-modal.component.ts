@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-rooms-modal',
@@ -7,14 +6,13 @@ import { ReplaySubject } from 'rxjs';
   styleUrls: ['./rooms-modal.component.css']
 })
 export class RoomsModalComponent implements OnInit {
-@Input() rooms$:ReplaySubject<any>;
+  
+  @Input()rooms$;
+  
   constructor() { }
 
   ngOnInit() {
-    this.rooms$.subscribe((rooms)=>{
-      console.log(rooms);
-      
-    })
+
   }
 
 }
