@@ -11,7 +11,6 @@ import { NewRoomModalComponent } from '../new-room-modal/new-room-modal.componen
 export class RoomsModalComponent implements OnInit, OnDestroy {
 
   @Input() rooms$;
-  modalRef: BsModalRef;
   cinema: any;
   private subs: any;
 
@@ -23,7 +22,7 @@ export class RoomsModalComponent implements OnInit, OnDestroy {
     class: 'my-modal'
   };
 
-  constructor(private dataService: DataService, public modalService: BsModalService) { }
+  constructor(private dataService: DataService, public modalService: BsModalService,public modalRef: BsModalRef) { }
 
   ngOnInit() {
     this.subs = this.rooms$.subscribe((a) => {
