@@ -3,6 +3,8 @@ import { DataService } from '../../../services';
 import { ReplaySubject } from 'rxjs';
 import { Cinema } from 'src/app/shared/models/cinema';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { Room } from 'src/app/shared/models/room';
+import { RoomsService } from '../../../services/rooms.service';
 
 @Component({
   selector: 'app-new-room-modal',
@@ -16,10 +18,11 @@ export class NewRoomModalComponent implements OnInit  {
   nQueues:number;
   nSeats:number;
   @Input()cinema:any;
+  room:Room= new Room();
 
 
 
-  constructor(private dataService: DataService,public modalRef: BsModalRef) {   
+  constructor(private dataService: DataService,public modalRef: BsModalRef,private roomService: RoomsService) {   
     this.movies$ = this.dataService.movies$;
 
   }
@@ -35,6 +38,13 @@ export class NewRoomModalComponent implements OnInit  {
         }
       }
     });
-    console.log(this.cinema,this.movie,this.nQueues,this.nSeats)
+    this.room.cinema=this.cinema;
+    this.room.movie=this.movie;
+    this.room.numberOfQueues=this.nQueues;
+    this.room.numberOfSeatsPerQueue=this.nSeats;
+    this.roomService.addRoom(this.room).subscribe(() =>{
+      this.dataService.updateRooms();
+      this.modalRef.hide();
+    });
   }
 }

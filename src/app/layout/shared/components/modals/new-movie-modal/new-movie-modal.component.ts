@@ -69,8 +69,8 @@ export class NewMovieModalComponent implements OnInit {
       }
     }
 
-    this.releaseDate=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease;
-    this.endDate=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd;
+    this.releaseDate=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease+"T00:00:00";
+    this.endDate=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd+"T00:00:00";
     this.movieToSave.title=movie.Title;
     this.movieToSave.image=movie.Poster;
     this.movieToSave.duration=this.duration;

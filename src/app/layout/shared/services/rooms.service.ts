@@ -14,6 +14,6 @@ export class RoomsService {
     return this.http.get('http://localhost:8080/CinemaTicketSystem/api/room/');
 }
 public addRoom(room: Room): Observable<Room>{
-  return this.http.post<Room>(`http://localhost:8080/CinemaTicketSystem/api/cinema`,room);
+  return this.http.post<Room>(`http://localhost:8080/CinemaTicketSystem/api/room/new`,room);
 }
 }
