@@ -27,6 +27,7 @@ import { UserModalComponent } from './shared/components/modals/user-modal/user-m
 import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-modal/new-cinema-modal.component';
 import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
 import { RoomsModalComponent } from './shared/components/modals/rooms-modal/rooms-modal.component';
+import { NewRoomModalComponent } from './shared/components/modals/new-room-modal/new-room-modal.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { RoomsModalComponent } from './shared/components/modals/rooms-modal/room
     UserModalComponent,
     NewCinemaModalComponent,
     EditCinemaModalComponent,
-    RoomsModalComponent
+    RoomsModalComponent,
+    NewRoomModalComponent
   ],
   imports: [
     CommonModule,
@@ -63,6 +65,6 @@ import { RoomsModalComponent } from './shared/components/modals/rooms-modal/room
     MatSelectModule
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent, RoomsModalComponent ]
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent, RoomsModalComponent,NewRoomModalComponent ]
 })
 export class LayoutModule { }
