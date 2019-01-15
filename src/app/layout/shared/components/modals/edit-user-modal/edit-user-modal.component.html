@@ -6,9 +6,7 @@
 </div>
 <div class="modal-body">
   <form #editUser="ngForm" (ngSubmit)="updateUser()" class="edit-user">
-
     <div class="d-flex flex-row">
-
     <!-- Name Field -->
     <div class="form-group" [class.is-invalid]="newName.invalid && newName.touched" [class.is-valid]="newName.valid">
       <div class="icon">

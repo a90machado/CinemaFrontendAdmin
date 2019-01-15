@@ -13,17 +13,22 @@ export class NewUserModalComponent implements OnInit {
 
   account: Account = new Account();
   message = '';
+  roles = ['Admin', 'User'];
+  role = '';
 
   constructor(  public _modalRef: BsModalRef,
                 private _accountApi: AccountApi,
                 private _dataService: DataService ) {
+                  this.role = 'User';
                 }
 
   ngOnInit() {
     this.account.createdAt = new Date;
+
   }
 
-  private newUser() {
+  createNewUser() {
+    this.account.role = this.role;
     this._accountApi.create(this.account).subscribe(() => {
       this._modalRef.hide();
       this._dataService.updateAccounts();

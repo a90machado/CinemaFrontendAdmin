@@ -37,7 +37,7 @@ export class UsersComponent implements OnInit {
   }
 
   addNewUser() {
-    this.modalRef = this._modalService.show(NewUserModalComponent);
+    this.modalRef = this._modalService.show(NewUserModalComponent, Object.assign({}, this.config, {class: 'edit-user'}));
   }
 
   deleteUser() {
