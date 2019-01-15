@@ -10,10 +10,12 @@ import { Cinema } from 'src/app/shared/models/cinema';
 })
 export class NewRoomModalComponent implements OnInit  {
   public movies$: ReplaySubject<any>;
-  movie:any;
+  movieTitle:any;
+  movie:any
   nQueues:number;
   nSeats:number;
   @Input()cinema:any;
+
 
 
   constructor(private dataService: DataService) {   
@@ -25,6 +27,13 @@ export class NewRoomModalComponent implements OnInit  {
   }
   
   newRoom(){
-    console.log(this.cinema)
+    this.movies$.subscribe((a) => {
+      for (let i = 0; i < a.length; i++) {
+        if (a[i].title==this.movieTitle) {
+          this.movie = a[i]
+        }
+      }
+    });
+    console.log(this.cinema,this.movie,this.nQueues,this.nSeats)
   }
 }

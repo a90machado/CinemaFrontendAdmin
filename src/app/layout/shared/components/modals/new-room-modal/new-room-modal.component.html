@@ -6,16 +6,16 @@
 </div>
 <div class="form-group" class="col-sm-12 col-md-4 col-lg-4">
   <label for="sel3">Select movie:</label>
-  <select id="sel3" [(ngModel)]="movie">
+  <select id="sel3" [(ngModel)]="movieTitle">
     <option *ngFor="let movie of movies$ | async" >{{movie.title}}</option>
   </select>
 </div>
 <div class="form-group">
   <label for="inputNqueues" class="text-uppercase">Number of queues of the room: </label>
-  <input  id="inputNqueues" name="nQueues" type="text" class="form-control" [(ngModel)]="nQueues" placeholder="" required>
+  <input  id="inputNqueues" name="nQueues" type="number" class="form-control" [(ngModel)]="nQueues" placeholder="" required>
 </div>
 <div class="form-group">
   <label for="inputNseats" class="text-uppercase">Number of seats per queue: </label>
-  <input  id="inputNseats" name="nSeats" type="text" class="form-control" [(ngModel)]="nSeats" placeholder="" required>
+  <input  id="inputNseats" name="nSeats" type="number" class="form-control" [(ngModel)]="nSeats" placeholder="" required>
 </div>
 <button type="submit" (click)="newRoom()" class="btn btn-login float-right">Create</button>
