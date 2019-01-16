@@ -19,4 +19,7 @@ public addRoom(room: Room): Observable<Room>{
 public editRoom (room: Room): Observable<Room>{
   return this.http.put<Room>(`http://localhost:8080/CinemaTicketSystem/api/room/`,room);
 }
+public deleteRoom(id:number): Observable<{}>{
+  return this.http.delete(`http://localhost:8080/CinemaTicketSystem/api/room/${id}`);
+}
 }

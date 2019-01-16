@@ -3,6 +3,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DataService } from '../../../services';
 import { NewRoomModalComponent } from '../new-room-modal/new-room-modal.component';
 import { EditRoomModalComponent } from '../edit-room-modal/edit-room-modal.component';
+import { RoomsService } from '../../../services/rooms.service';
+import { ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-rooms-modal',
@@ -15,6 +17,7 @@ export class RoomsModalComponent implements OnInit, OnDestroy {
   cinema: any;
   private subs: any;
 
+
   config = {
     animated: true,
     keyboard: true,
@@ -23,7 +26,10 @@ export class RoomsModalComponent implements OnInit, OnDestroy {
     class: 'my-modal'
   };
 
-  constructor(private dataService: DataService, public modalService: BsModalService,public modalRef: BsModalRef) { }
+  constructor(private dataService: DataService, public modalService: BsModalService,public modalRef: BsModalRef, private roomService: RoomsService) { 
+
+
+  }
 
   ngOnInit() {
     this.subs = this.rooms$.subscribe((a) => {
@@ -47,6 +53,11 @@ export class RoomsModalComponent implements OnInit, OnDestroy {
     const initialState = eventData;
     this.modalRef = this.modalService.show(EditRoomModalComponent, { "initialState": initialState });
   }
+  handleDelete(eventData){
 
+    this.roomService.deleteRoom(eventData.id).subscribe(()=>{
+      this.dataService.updateRooms();
+    });
+  }
 
 }
