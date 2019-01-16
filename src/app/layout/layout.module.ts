@@ -67,7 +67,7 @@ import { EditRoomModalComponent } from './shared/components/modals/edit-room-mod
     MatSelectModule
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent, RoomsModalComponent,NewRoomModalComponent,     EditRoomModalComponent
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent, RoomsModalComponent,NewRoomModalComponent,EditRoomModalComponent
   ]
 })
 export class LayoutModule { }
