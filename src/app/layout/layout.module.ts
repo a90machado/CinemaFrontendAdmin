@@ -27,6 +27,7 @@ import { UserModalComponent } from './shared/components/modals/user-modal/user-m
 import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-modal/new-cinema-modal.component';
 import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
 import { CreatedAtPipePipe } from './shared/components/modals/user-modal/created-at-pipe.pipe';
+import { ConfirmEqualValidatorDirective } from './shared/validators';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { CreatedAtPipePipe } from './shared/components/modals/user-modal/created
     UserModalComponent,
     NewCinemaModalComponent,
     EditCinemaModalComponent,
-    CreatedAtPipePipe
+    CreatedAtPipePipe,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     CommonModule,
@@ -63,6 +65,13 @@ import { CreatedAtPipePipe } from './shared/components/modals/user-modal/created
     MatSelectModule
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent ]
+  entryComponents: [  NewUserModalComponent,
+                      EditUserModalComponent,
+                      MovieModalComponent,
+                      EditMovieModalComponent,
+                      NewMovieModalComponent,
+                      NewCinemaModalComponent,
+                      EditCinemaModalComponent,
+                      UserModalComponent ]
 })
 export class LayoutModule { }

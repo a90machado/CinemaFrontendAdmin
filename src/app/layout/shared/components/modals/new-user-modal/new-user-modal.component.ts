@@ -15,6 +15,7 @@ export class NewUserModalComponent implements OnInit {
   message = '';
   roles = ['Admin', 'User'];
   role = '';
+  cPassword = '';
 
   constructor(  public _modalRef: BsModalRef,
                 private _accountApi: AccountApi,

@@ -1,7 +1,7 @@
 <h2>Users</h2>
 <div class="container">
-  <button class="btn btn-outline-primary" type="button" (click)="addNewUser()">Create</button>
+
 </div>
 <div class="container">
-  <app-table [header]='["name","email"]' [data$]='accounts$' [theme]='"table-bordered"' (edit)="handleEdit($event)" (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
+  <app-table [header]='["name","email"]' [data$]='accounts$' [title]="'Users Managment'" [theme]='"table-bordered"' (edit)="handleEdit($event)" (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
 </div>

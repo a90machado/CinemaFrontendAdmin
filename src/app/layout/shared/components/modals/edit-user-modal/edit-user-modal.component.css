@@ -45,7 +45,7 @@
   position: relative;
   margin: 0 auto;
 }
-.icon .fa-user-tie, .fa-envelope, .fa-theater-masks{
+.icon .fa-user-tie, .fa-envelope, .fa-user-tag{
   position: absolute;
   left: 10px;
   top: 10px;
@@ -53,7 +53,7 @@
   font-size: 1.125rem;
 }
 
-.fa-theater-masks{
+.fa-user-tag{
   left: 26px;
 }
 

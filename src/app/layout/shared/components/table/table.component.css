@@ -1,11 +1,11 @@
-
 .table-responsive{
     margin: auto;
     margin-top: 3rem;
     height:600px;
-    overflow:auto;  
+    overflow:auto;
     text-align: center;
 }
+
 .table tbody tr:hover td, .table tbody tr:hover th {
     background-color: rgb(177, 182, 182);
 }
@@ -13,6 +13,7 @@
 tr {
     cursor: pointer;
 }
+
 th, thead{
     border: 1px solid black;
 }
@@ -25,4 +26,15 @@ th, thead{
 }
 .data{
     min-width: 120px;
+}
+
+/* Table Container */
+
+.tableContainer{
+
+}
+
+/* Table Header */
+.tableHeader{
+
 }

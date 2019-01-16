@@ -13,65 +13,65 @@
     <form #formContact="ngForm" (ngSubmit)="emailUs()" class="">
       <div class="d-flex flex-row">
         <!-- Name Field -->
-        <div class="form-group" [class.is-invalid]="from_name.invalid && from_name.touched" [class.is-valid]="from_name.valid">
+        <div class="form-group" [class.is-invalid]="from_name.touched && from_name.invalid" [class.is-valid]="from_name.valid">
           <div class="icon">
             <i class="fas fa-user-tie"></i>
             <input id="from_name" name="from_name" [(ngModel)]="email.from_name" type="text" class="form-control"
               placeholder="Name" required minlength="3" pattern="[a-zA-Z ]*" #from_name="ngModel">
           </div>
-          <span class="form-text" *ngIf="from_name?.errors?.required && from_name.touched">
+          <span class="form-text" *ngIf="from_name.touched && from_name?.errors?.required">
             Name is required
           </span>
-          <span class="form-text" *ngIf="from_name?.errors?.pattern && from_name.touched">
+          <span class="form-text" *ngIf="from_name.touched && from_name?.errors?.pattern">
             Only text is available
           </span>
-          <span class="form-text" *ngIf="!from_name?.errors?.pattern && from_name?.errors?.minlength && from_name.touched">
+          <span class="form-text" *ngIf="from_name.touched && !from_name?.errors?.pattern && from_name?.errors?.minlength">
             Name required three caractheres minimum
           </span>
         </div>
         <!-- Email Field -->
-        <div class="form-group" [class.is-invalid]="reply_to.invalid && reply_to.touched" [class.is-valid]="reply_to.valid">
+        <div class="form-group" [class.is-invalid]="reply_to.touched && reply_to.invalid" [class.is-valid]="reply_to.valid">
           <div class="icon">
             <i class="fas fa-envelope"></i>
             <input id="reply_to" name="reply_to" type="text" [(ngModel)]="email.reply_to" type="text" class="form-control"
               placeholder="Email" required email #reply_to="ngModel">
           </div>
-          <span class="form-text marginLeftTenPx" *ngIf="reply_to?.errors?.required && reply_to.touched">
+          <span class="form-text marginLeftTenPx" *ngIf="reply_to.touched && reply_to?.errors?.required">
             Email is required
           </span>
-          <span class="form-text marginLeftTenPx" *ngIf="reply_to?.errors?.email && reply_to.touched">
+          <span class="form-text marginLeftTenPx" *ngIf="reply_to.touched && reply_to?.errors?.email">
             Email is invalid
           </span>
         </div>
       </div>
       <!-- Subject Field -->
-      <div class="form-group" [class.is-invalid]="subject.invalid && subject.touched" [class.is-valid]="subject.valid">
+      <div class="form-group" [class.is-invalid]="subject.touched && subject.invalid" [class.is-valid]="subject.valid">
         <div class="icon">
           <i class="fas fa-receipt"></i>
           <input id="subject" name="subject" type="text" [(ngModel)]="email.subject" type="text" class="form-control"
             placeholder="Subject" required minlength="5" pattern="[a-zA-Z ]*" #subject="ngModel">
         </div>
-        <span class="form-text" *ngIf="subject?.errors?.required && subject.touched">
+        <span class="form-text" *ngIf="subject.touched && subject?.errors?.required">
           Subject is required
         </span>
-        <span class="form-text" *ngIf="subject?.errors?.pattern && subject.touched">
+        <span class="form-text" *ngIf="subject.touched && subject?.errors?.pattern">
           Only text is available
         </span>
-        <span class="form-text" *ngIf="!subject?.errors?.pattern && subject?.errors?.minlength && subject.touched">
+        <span class="form-text" *ngIf="subject.touched && !subject?.errors?.pattern && subject?.errors?.minlength">
           Is required ten caractheres minimum
         </span>
       </div>
       <!-- Message Field -->
-      <div class="form-group" [class.is-invalid]="message_html.invalid && message_html.touched" [class.is-valid]="message_html.valid">
+      <div class="form-group" [class.is-invalid]="message_html.touched && message_html.invalid" [class.is-valid]="message_html.valid">
         <div class="icon">
           <i class="fas fa-scroll"></i>
           <textarea id="message_html" name="message_html" type="text" [(ngModel)]="email.message_html" type="text"
             class="form-control" placeholder="Write your message" required minlength="10" #message_html="ngModel"></textarea>
         </div>
-        <span class="form-text" *ngIf="message_html?.errors?.required && message_html.touched">
+        <span class="form-text" *ngIf="message_html.touched && message_html?.errors?.required">
           Message is required
         </span>
-        <span class="form-text" *ngIf="message_html?.errors?.minlength && message_html.touched">
+        <span class="form-text" *ngIf="message_html.touched && message_html?.errors?.minlength">
           Is required ten caractheres minimum
         </span>
       </div>

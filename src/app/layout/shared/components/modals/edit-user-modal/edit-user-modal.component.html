@@ -8,42 +8,42 @@
   <form #editUser="ngForm" (ngSubmit)="updateUser()" class="edit-user">
     <div class="d-flex flex-row">
     <!-- Name Field -->
-    <div class="form-group" [class.is-invalid]="newName.invalid && newName.touched" [class.is-valid]="newName.valid">
+    <div class="form-group" [class.is-invalid]="newName.touched && newName.invalid" [class.is-valid]="newName.valid">
       <div class="icon">
         <i class="fas fa-user-tie"></i>
         <input id="name" name="name" [(ngModel)]="account.name" type="text" class="form-control" placeholder="{{ name }}"
           minlength="3" pattern="[a-zA-Z ]*" #newName="ngModel">
       </div>
-      <span class="form-text" *ngIf="newName?.errors?.pattern && newName.touched">
+      <span class="form-text" *ngIf="newName.touched && newName?.errors?.pattern">
         Only text is available
       </span>
-      <span class="form-text" *ngIf="!newName?.errors?.pattern && newName?.errors?.minlength && newName.touched">
+      <span class="form-text" *ngIf="newName.touched && !newName?.errors?.pattern && newName?.errors?.minlength">
         Name required three caractheres minimum
       </span>
     </div>
     <!-- Username Field -->
-    <div class="form-group" [class.is-invalid]="newUsername.invalid && newUsername.touched" [class.is-valid]="newUsername.valid">
+    <div class="form-group" [class.is-invalid]="newUsername.touched && newUsername.invalid" [class.is-valid]="newUsername.valid">
       <div class="icon">
-        <i class="fas fa-theater-masks"></i>
+        <i class="fas fa-user-tag"></i>
         <input id="username" name="username" [(ngModel)]="account.username" type="text" class="form-control"
           placeholder="{{ username }}" minlength="3" pattern="[a-zA-Z0-9 ]*" #newUsername="ngModel">
       </div>
-      <span class="form-text marginLeftTenPx" *ngIf="newUsername?.errors?.pattern && newUsername.touched">
+      <span class="form-text marginLeftTenPx" *ngIf="newUsername.touched && newUsername?.errors?.pattern">
         Only text and numbers are available
       </span>
-      <span class="form-text marginLeftTenPx" *ngIf="!newUsername?.errors?.pattern && newUsername?.errors?.minlength && newUsername.touched">
+      <span class="form-text marginLeftTenPx" *ngIf="newUsername.touched && !newUsername?.errors?.pattern && newUsername?.errors?.minlength">
         Username required three caractheres minimum
       </span>
     </div>
   </div>
     <!-- Email Field -->
-    <div class="form-group" [class.is-invalid]="newEmail.invalid && newEmail.touched" [class.is-valid]="newEmail.valid">
+    <div class="form-group" [class.is-invalid]="newEmail.touched && newEmail.invalid" [class.is-valid]="newEmail.valid">
       <div class="icon">
         <i class="fas fa-envelope"></i>
         <input id="email" name="email" type="text" [(ngModel)]="account.email" type="text" class="form-control"
           placeholder="{{ email }}" email #newEmail="ngModel">
       </div>
-      <span class="form-text marginLeftTenPx" *ngIf="newEmail?.errors?.email && newEmail.touched">
+      <span class="form-text marginLeftTenPx" *ngIf="newEmail.touched && newEmail?.errors?.email">
         This type of email is invalid
       </span>
     </div>

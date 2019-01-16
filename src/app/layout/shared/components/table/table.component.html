@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive tableContainer">
   <table class="table" [ngClass]='theme'>
     <thead>
       <tr>
@@ -19,8 +19,9 @@
         </td>
         <!-- Actions -->
         <td>
-          <div class="icons">
-              <a title="Edit"><i class="material-icons"(click)="clickEdit(row)">edit</i></a><a class="delete" title="Delete"><i class="material-icons delete" (click)="clickDelete(row)">&#xE872;</i></a>
+          <div class="d-flex flex-row icons">
+              <a title="Edit"><i class="material-icons"(click)="clickEdit(row)">edit</i></a>
+              <a class="delete" title="Delete"><i class="material-icons delete" (click)="clickDelete(row)">&#xE872;</i></a>
           </div>
       </td>
       </tr>
