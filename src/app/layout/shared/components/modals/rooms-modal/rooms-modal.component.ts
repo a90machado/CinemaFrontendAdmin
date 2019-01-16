@@ -5,6 +5,7 @@ import { NewRoomModalComponent } from '../new-room-modal/new-room-modal.componen
 import { EditRoomModalComponent } from '../edit-room-modal/edit-room-modal.component';
 import { RoomsService } from '../../../services/rooms.service';
 import { ReplaySubject } from 'rxjs';
+import { Cinema } from 'src/app/shared/models/cinema';
 
 @Component({
   selector: 'app-rooms-modal',
@@ -14,9 +15,9 @@ import { ReplaySubject } from 'rxjs';
 export class RoomsModalComponent implements OnInit, OnDestroy {
 
   @Input() rooms$;
-  cinema: any;
+  @Input() row;
   private subs: any;
-
+  cinema:Cinema;
 
   config = {
     animated: true,
@@ -34,18 +35,18 @@ export class RoomsModalComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subs = this.rooms$.subscribe((a) => {
       for (let i = 0; i < a.length; i++) {
-        this.cinema = a[i].cinema
-        a[i].movie = a[i].movie.title;
-        a[i].cinema = a[i].cinema.name;
+        if (a[i].cinema==this.row) {
+          this.cinema = a[i].cinema;
+        }
       }
     });
-
+    console.log(this.cinema)
   }
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
   addNew() {
-    // console.log(this.cinema);
+    console.log(this.row)
     const initialState = {'cinema': this.cinema};
     this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState }));
   }
@@ -56,7 +57,7 @@ export class RoomsModalComponent implements OnInit, OnDestroy {
   handleDelete(eventData){
 
     this.roomService.deleteRoom(eventData.id).subscribe(()=>{
-      this.dataService.updateRooms();
+      this.dataService.updateRooms(eventData.id);
     });
   }
 

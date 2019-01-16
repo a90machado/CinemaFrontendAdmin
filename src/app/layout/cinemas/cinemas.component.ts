@@ -59,11 +59,11 @@ export class CinemasComponent implements OnInit {
     this.modalRef = this.modalService.show(NewCinemaModalComponent);
   }
   handleRooms(row){
-    this.dataService.updateRooms();
+    this.dataService.updateRooms(row.id);
 
-    var initialState = {rooms$:this.rooms$};
+    var initialState = {rooms$:this.rooms$, row :row};
     
-    this.modalRef = this.modalService.show(RoomsModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState, row }));
+    this.modalRef = this.modalService.show(RoomsModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState}));
   }
 
 }

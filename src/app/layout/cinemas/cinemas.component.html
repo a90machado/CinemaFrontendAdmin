@@ -13,7 +13,7 @@
     <div class="container">
         <button type="button" style="float: left" class="btn btn-info add-new" (click)="addNew()"><i class="fa fa-plus"></i>
             Add New</button>
-        <app-table [header]='["id","name","timeOpen","timeClose","pause", "details"]' [data$]='cinemas$' [theme]='"table-bordered"'
+        <app-table [header]='["name","timeOpen","timeClose","pause", "details"]' [data$]='cinemas$' [theme]='"table-bordered"'
             (rooms)="handleRooms($event)" (delete)=handleDelete($event) (edit)=handleEdit($event)></app-table>
     </div>
     <br>

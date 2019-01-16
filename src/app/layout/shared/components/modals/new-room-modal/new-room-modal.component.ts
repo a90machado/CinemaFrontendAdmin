@@ -41,10 +41,11 @@ export class NewRoomModalComponent implements OnInit  {
     this.room.movie=this.movie;
     this.room.numberOfQueues=this.nQueues;
     this.room.numberOfSeatsPerQueue=this.nSeats;
-    
+    console.log(this.room)
     this.roomService.addRoom(this.room).subscribe(() =>{
-      this.dataService.updateRooms();
+      this.dataService.updateRooms(this.room.cinema.id);
       this.modalRef.hide();
     });
+
   }
 }

@@ -75,7 +75,7 @@ export class EditRoomModalComponent implements OnInit {
 
     if (this.movieOld!=this.room.movie.title||this.numberOfQueuesOld!=this.room.numberOfQueues||this.numberOfSeatsPerQueueOld!=this.numberOfSeatsPerQueue) {
       this.roomService.editRoom(this.room).subscribe(()=>{
-        this.dataService.updateRooms();
+        this.dataService.updateRooms(this.room.cinema.id);
         this.modalRef.hide();
       })
       console.log(this.room)

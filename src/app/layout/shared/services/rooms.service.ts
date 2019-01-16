@@ -10,8 +10,8 @@ export class RoomsService {
 
   constructor(private http: HttpClient) { }
 
-  public getRooms(){
-    return this.http.get('http://localhost:8080/CinemaTicketSystem/api/room/');
+  public getRooms(id:number){
+    return this.http.get(`http://localhost:8080/CinemaTicketSystem/api/room/cinema/${id}`);
 }
 public addRoom(room: Room): Observable<Room>{
   return this.http.post<Room>(`http://localhost:8080/CinemaTicketSystem/api/room/new`,room);

@@ -79,8 +79,8 @@ export class DataService {
     });
   }
 
-  public updateRooms() {
-    this.roomsService.getRooms().subscribe((res: Room[]) => {
+  public updateRooms(id) {
+    this.roomsService.getRooms(id).subscribe((res: Room[]) => {
 
       this.rooms$.next(res);
     });
