@@ -20,14 +20,16 @@ export class EditRoomModalComponent implements OnInit {
   numberOfQueuesOld:any;
   numberOfSeatsPerQueueOld:any;
   movieOld:any;
+  cinemaObject:any;
 
   public movies$: ReplaySubject<any>;
+  public cinemas$: ReplaySubject<any>;
   room:Room=new Room();
 
 
   constructor(private dataService: DataService,public modalRef: BsModalRef, public roomService: RoomsService) {
     this.movies$ = this.dataService.movies$;
-
+    this.cinemas$= this.dataService.cinemas$;
    }
 
   ngOnInit() {
@@ -44,9 +46,16 @@ export class EditRoomModalComponent implements OnInit {
         }
       }
     });
+    this.cinemas$.subscribe((a) => {
+      for (let i = 0; i < a.length; i++) {
+        if (a[i].name==this.cinema) {
+          this.cinemaObject = a[i]
+        }
+      }
+    });
 
     this.room.id=this.id;
-    this.room.cinema=this.cinema;
+    this.room.cinema=this.cinemaObject;
     this.room.movie=this.movieObject;
     this.room.numberOfQueues=this.numberOfQueues;
     this.room.numberOfSeatsPerQueue=this.numberOfSeatsPerQueue;
@@ -56,7 +65,7 @@ export class EditRoomModalComponent implements OnInit {
         this.dataService.updateRooms();
         this.modalRef.hide();
       })
-      console.log(this.room.cinema);
+      console.log(this.room);
       console.log("fez pedido")
     }
 
