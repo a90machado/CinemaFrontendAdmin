@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DataService } from '../../../services';
 import { NewRoomModalComponent } from '../new-room-modal/new-room-modal.component';
+import { EditRoomModalComponent } from '../edit-room-modal/edit-room-modal.component';
 
 @Component({
   selector: 'app-rooms-modal',
@@ -42,5 +43,10 @@ export class RoomsModalComponent implements OnInit, OnDestroy {
     const initialState = {'cinema': this.cinema};
     this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState }));
   }
+  handleEdit(eventData) {
+    const initialState = eventData;
+    this.modalRef = this.modalService.show(EditRoomModalComponent, { "initialState": initialState });
+  }
+
 
 }

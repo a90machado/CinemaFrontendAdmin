@@ -16,4 +16,7 @@ export class RoomsService {
 public addRoom(room: Room): Observable<Room>{
   return this.http.post<Room>(`http://localhost:8080/CinemaTicketSystem/api/room/new`,room);
 }
+public editRoom (room: Room): Observable<Room>{
+  return this.http.put<Room>(`http://localhost:8080/CinemaTicketSystem/api/room`,room);
+}
 }

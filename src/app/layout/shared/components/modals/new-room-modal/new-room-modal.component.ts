@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { DataService } from '../../../services';
 import { ReplaySubject } from 'rxjs';
-import { Cinema } from 'src/app/shared/models/cinema';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Room } from 'src/app/shared/models/room';
 import { RoomsService } from '../../../services/rooms.service';
@@ -42,6 +41,7 @@ export class NewRoomModalComponent implements OnInit  {
     this.room.movie=this.movie;
     this.room.numberOfQueues=this.nQueues;
     this.room.numberOfSeatsPerQueue=this.nSeats;
+    
     this.roomService.addRoom(this.room).subscribe(() =>{
       this.dataService.updateRooms();
       this.modalRef.hide();
