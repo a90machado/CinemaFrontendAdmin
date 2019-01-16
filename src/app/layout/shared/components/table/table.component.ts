@@ -11,8 +11,6 @@ export class TableComponent implements OnInit {
   @Input()  data$: any;
   @Input()  value = false;
   @Input()  theme = 'table-dark';
-  @Input()  inputFunction: Function;
-  @Input()  title = '';
   @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
   @Output() delete: EventEmitter<any> = new EventEmitter<any>();
   @Output() edit: EventEmitter<any> = new EventEmitter<any>();

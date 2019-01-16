@@ -1,1 +1,7 @@
+.containerTable{
+    border: 1px solid black;
+}
 
+.containerHeader{
+    border: 1px solid red;
+}
