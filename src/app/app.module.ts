@@ -12,13 +12,17 @@ import { DatePipe } from '@angular/common';
 import { SDKBrowserModule } from './shared/sdk/index';
 import { TableComponent, ProblemsLogInComponent } from './layout/shared/components';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { RoomsComponent } from './layout/rooms/rooms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProblemsLogInComponent,
-    Page404Component
+    Page404Component,
+    RoomsComponent
+   
+
   ],
   imports: [
     BrowserModule,

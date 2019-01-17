@@ -29,6 +29,7 @@ import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema
 import { RoomsModalComponent } from './shared/components/modals/rooms-modal/rooms-modal.component';
 import { NewRoomModalComponent } from './shared/components/modals/new-room-modal/new-room-modal.component';
 import { EditRoomModalComponent } from './shared/components/modals/edit-room-modal/edit-room-modal.component';
+import { RoomsComponent } from './rooms/rooms.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { EditRoomModalComponent } from './shared/components/modals/edit-room-mod
     EditCinemaModalComponent,
     RoomsModalComponent,
     NewRoomModalComponent,
-    EditRoomModalComponent
+    EditRoomModalComponent,
+    RoomsComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,8 @@ import { EditRoomModalComponent } from './shared/components/modals/edit-room-mod
     MatInputModule,
     BsDatepickerModule.forRoot(),
     LayoutRoutingModule,
-    MatSelectModule
+    MatSelectModule,
+    
   ],
 
   entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent, RoomsModalComponent,NewRoomModalComponent,EditRoomModalComponent

@@ -8,6 +8,7 @@ import { NewCinemaModalComponent } from '../shared/components/modals/new-cinema-
 import { EditCinemaModalComponent } from '../shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
 import { RoomsModalComponent } from '../shared/components/modals/rooms-modal/rooms-modal.component';
 import { Room } from 'src/app/shared/models/room';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cinemas',
@@ -35,7 +36,7 @@ export class CinemasComponent implements OnInit {
   };
 
 
-  constructor(private dataService: DataService, private cinemasService: CinemasService, public modalService: BsModalService) {
+  constructor(private dataService: DataService, private cinemasService: CinemasService, public modalService: BsModalService, private _router: Router) {
     this.cinemas$ = this.dataService.cinemas$;
     this.rooms$ = this.dataService.rooms$;
 
@@ -59,11 +60,13 @@ export class CinemasComponent implements OnInit {
     this.modalRef = this.modalService.show(NewCinemaModalComponent);
   }
   handleRooms(row){
-    this.dataService.updateRooms(row.id);
+    //this.dataService.updateRooms(row.id);
 
-    var initialState = {rooms$:this.rooms$, row :row};
+    this._router.navigate(['roomsTable'],row.id)
+
+    // var initialState = {rooms$:this.rooms$, row :row};
     
-    this.modalRef = this.modalService.show(RoomsModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState}));
+    // this.modalRef = this.modalService.show(RoomsModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState}));
   }
 
 }

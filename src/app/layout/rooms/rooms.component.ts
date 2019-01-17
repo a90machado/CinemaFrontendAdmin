@@ -1,20 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { DataService } from '../../../services';
-import { NewRoomModalComponent } from '../new-room-modal/new-room-modal.component';
-import { EditRoomModalComponent } from '../edit-room-modal/edit-room-modal.component';
-import { RoomsService } from '../../../services/rooms.service';
 import { ReplaySubject } from 'rxjs';
 import { Cinema } from 'src/app/shared/models/cinema';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DataService } from '../shared/services';
+import { RoomsService } from '../shared/services/rooms.service';
+import { NewRoomModalComponent } from '../shared/components/modals/new-room-modal/new-room-modal.component';
+import { EditRoomModalComponent } from '../shared/components/modals/edit-room-modal/edit-room-modal.component';
 
 @Component({
-  selector: 'app-rooms-modal',
-  templateUrl: './rooms-modal.component.html',
-  styleUrls: ['./rooms-modal.component.css']
+  selector: 'app-rooms',
+  templateUrl: './rooms.component.html',
+  styleUrls: ['./rooms.component.css']
 })
-export class RoomsModalComponent implements OnInit {
-
+export class RoomsComponent implements OnInit {
   @Input() rooms$;
   @Input() row;
   private subs: any;
@@ -77,4 +76,5 @@ export class RoomsModalComponent implements OnInit {
     });
   }
 
+ 
 }
