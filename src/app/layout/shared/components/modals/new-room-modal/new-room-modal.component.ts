@@ -24,7 +24,7 @@ export class NewRoomModalComponent implements OnInit  {
   timeOpenNumber;
   timeCloseNumber;
   pauseNumber;
-
+  cinemaCopy:any;
 
 
   constructor(private dataService: DataService,public modalRef: BsModalRef,private roomService: RoomsService) {   
@@ -33,6 +33,7 @@ export class NewRoomModalComponent implements OnInit  {
   }
 
   ngOnInit() {
+    this.cinemaCopy=JSON.parse(JSON.stringify(this.cinema));
   }
   
   newRoom(){
@@ -43,7 +44,7 @@ export class NewRoomModalComponent implements OnInit  {
         }
       }
     });
-    this.room.cinema=this.cinema;
+    this.room.cinema=this.cinemaCopy;
     this.room.movie=this.movie;
     this.room.numberOfQueues=this.nQueues;
     this.room.numberOfSeatsPerQueue=this.nSeats;
@@ -54,7 +55,7 @@ export class NewRoomModalComponent implements OnInit  {
     this.room.cinema.timeOpen=this.timeOpenNumber;
     this.room.cinema.timeClose=this.timeCloseNumber;
     this.room.cinema.pause=this.pauseNumber;
-    
+
     console.log(this.room)
     this.roomService.addRoom(this.room).subscribe(() =>{
       this.dataService.updateRooms(this.room.cinema.id);

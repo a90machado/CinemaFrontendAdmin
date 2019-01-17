@@ -47,8 +47,6 @@ export class RoomsModalComponent implements OnInit {
       this.roomsString$.next(rooms);
     });
 
-
-
     this.cinema = this.row;
 
   }
