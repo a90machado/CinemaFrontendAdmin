@@ -18,6 +18,8 @@ export class RoomsModalComponent implements OnInit {
   @Input() rooms$;
   @Input() row;
   private subs: any;
+  private isButtonVisible = true;
+
 
   roomsString$= new ReplaySubject<any>(1);
 

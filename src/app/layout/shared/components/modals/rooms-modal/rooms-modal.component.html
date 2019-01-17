@@ -1,9 +1,8 @@
-<br>
-<div class="cinemas container">
+<div class="cinemas container" *ngIf="this.isButtonVisible">
     <div class="row">
 
         <div class="col-sm-12 col-md-1 col-lg-1"></div>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()" (click)="this.isButtonVisible = false">
                 <span aria-hidden="true">&times;</span>
               </button>
         <div class="col-sm-12 col-md-10 col-lg-10 cinemasBox">
