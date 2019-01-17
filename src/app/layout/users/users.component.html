@@ -6,5 +6,4 @@
     </div>
     <app-table [header]='["name","createdAt", "email"]' [data$]='accounts$' [title]="'Users Managment'" [theme]='"table-bordered"' (edit)="handleEdit($event)" (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
   </div>
-  
 </div>

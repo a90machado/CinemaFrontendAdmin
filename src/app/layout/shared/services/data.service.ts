@@ -23,6 +23,9 @@ export class DataService {
   public updateAccounts() {
     this._accountService.getAccounts().subscribe(
       (res: any) => {
+        for (const iterator of res) {
+          iterator.createdAt = this.datepipe.transform(iterator.createdAt, 'dd-MM-yyyy');
+        }
         this.accounts$.next(res);
       }
     );
@@ -56,7 +59,7 @@ export class DataService {
         }
 
         for (const iterator of res){
-          
+
           iterator.pause = String(iterator.pause)+ " min";
         }
 
@@ -64,7 +67,7 @@ export class DataService {
       }
     );
   }
-  
+
   public updateMovies() {
     this.movieApi.getMovies().subscribe((res: any) => {
       for (const iterator of res) {

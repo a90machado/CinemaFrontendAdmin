@@ -1,7 +1,16 @@
+:host{
+  background-color: rgb(245,248,252);
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
 .containerTable{
-    border: 1px solid black;
+    margin-top: 10px;
+    border: 0px;
+    border-radius: 5px;
+    background-color: white;
 }
 
 .containerHeader{
-    border: 1px solid red;
+    padding: 20px;
 }

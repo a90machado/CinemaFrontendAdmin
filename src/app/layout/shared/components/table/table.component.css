@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+
 .table-responsive{
     margin: auto;
     height:600px;
@@ -13,9 +15,6 @@ tr {
     cursor: pointer;
 }
 
-th, thead{
-    border: 1px solid black;
-}
 
 .delete{
     color:rgb(145, 9, 9);
@@ -34,6 +33,17 @@ th, thead{
 }
 
 /* Table Header */
-.tableHeader{
+thead{
+  background-color: rgb(246, 249, 252);
+  color: rgb(141, 157, 176);
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 1px solid rgb(234, 237, 240);
+  border-top: 1px solid rgb(234, 237, 240);
+}
 
+thead tr th{
+  border: none;
+  font-size: 15px;
+  font-weight: normal;
 }
