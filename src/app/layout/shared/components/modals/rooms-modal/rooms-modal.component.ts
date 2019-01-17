@@ -6,6 +6,7 @@ import { EditRoomModalComponent } from '../edit-room-modal/edit-room-modal.compo
 import { RoomsService } from '../../../services/rooms.service';
 import { ReplaySubject } from 'rxjs';
 import { Cinema } from 'src/app/shared/models/cinema';
+import { Room } from 'src/app/shared/models/room';
 
 @Component({
   selector: 'app-rooms-modal',
@@ -18,8 +19,10 @@ export class RoomsModalComponent implements OnInit {
   @Input() row;
   private subs: any;
 
-  cinema:Cinema;
-IntersectionObserverEntryInit
+  roomsString$= new ReplaySubject<any>(1);
+
+  cinema: Cinema;
+  IntersectionObserverEntryInit
   config = {
     animated: true,
     keyboard: true,
@@ -28,18 +31,25 @@ IntersectionObserverEntryInit
     class: 'my-modal'
   };
 
-  constructor(private dataService: DataService, public modalService: BsModalService,public modalRef: BsModalRef, private roomService: RoomsService) { 
+  constructor(private dataService: DataService, public modalService: BsModalService, public modalRef: BsModalRef, private roomService: RoomsService) {
 
   }
 
   ngOnInit() {
     this.subs = this.rooms$.subscribe((a) => {
+      // console.log(a);
+       let rooms = [];
       for (let i = 0; i < a.length; i++) {
-        a[i].cinema=JSON.parse(JSON.stringify(a[i].cinema.name));
-        a[i].movie=JSON.parse(JSON.stringify(a[i].movie.title));
+        rooms[i]=JSON.parse(JSON.stringify(a[i]))
+        rooms[i].cinema= rooms[i].cinema.name;
+        rooms[i].movie= rooms[i].movie.title;
       }
+      this.roomsString$.next(rooms);
     });
-    this.cinema=this.row;
+
+
+
+    this.cinema = this.row;
 
   }
   // ngOnDestroy() {
@@ -47,16 +57,16 @@ IntersectionObserverEntryInit
   // }
   addNew() {
     console.log(this.row)
-    const initialState = {'cinema': this.cinema};
-    this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, this.config, {class: 'my-modal' , initialState }));
+    const initialState = { 'cinema': this.cinema };
+    this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, this.config, { class: 'my-modal', initialState }));
   }
   handleEdit(eventData) {
     const initialState = eventData;
     this.modalRef = this.modalService.show(EditRoomModalComponent, { "initialState": initialState });
   }
-  handleDelete(eventData){
+  handleDelete(eventData) {
 
-    this.roomService.deleteRoom(eventData.id).subscribe(()=>{
+    this.roomService.deleteRoom(eventData.id).subscribe(() => {
       this.dataService.updateRooms(eventData.id);
     });
   }
