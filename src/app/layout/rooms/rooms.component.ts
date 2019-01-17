@@ -14,12 +14,12 @@ import { EditRoomModalComponent } from '../shared/components/modals/edit-room-mo
   styleUrls: ['./rooms.component.css']
 })
 export class RoomsComponent implements OnInit {
-  @Input() rooms$;
-  @Input() row;
+
   private subs: any;
   selectedId:number;
   roomsString$= new ReplaySubject<any>(1);
-  //public rooms$: ReplaySubject<any>;
+  rooms$:any;
+  cinemas$:any;
 
   cinema: Cinema;
   IntersectionObserverEntryInit
@@ -39,7 +39,9 @@ export class RoomsComponent implements OnInit {
 
       }
     );
-    //this.rooms$ =this.dataService.updateRooms(this.selectedId);
+    this.rooms$ =this.dataService.updateRooms(this.selectedId);
+    this.cinemas$ =this.dataService.updateCinemas();
+
   }
 
   ngOnInit() {
@@ -54,14 +56,19 @@ export class RoomsComponent implements OnInit {
       this.roomsString$.next(rooms);
     });
 
-    this.cinema = this.row;
+    this.cinemas$.subscribe((a)=>{
+      for (let i = 0; i < a.length; i++) {
+        if (a[i].cinema.id==this.selectedId) {
+          this.cinema=a[i].cinema;
+        }
+      }
+    })
 
   }
   // ngOnDestroy() {
   //   this.subs.unsubscribe();
   // }
   addNew() {
-    console.log(this.row)
     const initialState = { 'cinema': this.cinema };
     this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, this.config, { class: 'my-modal', initialState }));
   }
