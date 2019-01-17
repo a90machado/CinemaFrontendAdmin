@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DataService } from '../../../services';
 import { NewRoomModalComponent } from '../new-room-modal/new-room-modal.component';
@@ -12,13 +12,14 @@ import { Cinema } from 'src/app/shared/models/cinema';
   templateUrl: './rooms-modal.component.html',
   styleUrls: ['./rooms-modal.component.css']
 })
-export class RoomsModalComponent implements OnInit, OnDestroy {
+export class RoomsModalComponent implements OnInit {
 
   @Input() rooms$;
   @Input() row;
   private subs: any;
-  cinema:Cinema;
 
+  cinema:Cinema;
+IntersectionObserverEntryInit
   config = {
     animated: true,
     keyboard: true,
@@ -29,22 +30,21 @@ export class RoomsModalComponent implements OnInit, OnDestroy {
 
   constructor(private dataService: DataService, public modalService: BsModalService,public modalRef: BsModalRef, private roomService: RoomsService) { 
 
-
   }
 
   ngOnInit() {
     this.subs = this.rooms$.subscribe((a) => {
       for (let i = 0; i < a.length; i++) {
-        if (a[i].cinema==this.row) {
-          this.cinema = a[i].cinema;
-        }
+        a[i].cinema=JSON.parse(JSON.stringify(a[i].cinema.name));
+        a[i].movie=JSON.parse(JSON.stringify(a[i].movie.title));
       }
     });
-    console.log(this.cinema)
+    this.cinema=this.row;
+
   }
-  ngOnDestroy() {
-    this.subs.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subs.unsubscribe();
+  // }
   addNew() {
     console.log(this.row)
     const initialState = {'cinema': this.cinema};

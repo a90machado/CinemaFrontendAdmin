@@ -16,7 +16,7 @@ export class EditRoomModalComponent implements OnInit {
   @Input()cinema:any;
   @Input()movie:any;
   @Input()id:number;
-  @Input()movieObject:any;
+  movieObject:any;
   numberOfQueuesOld:any;
   numberOfSeatsPerQueueOld:any;
   movieOld:any;
@@ -46,9 +46,12 @@ export class EditRoomModalComponent implements OnInit {
 
   editRoom(){
     this.movies$.subscribe((a) => {
+      console.log(a)
       for (let i = 0; i < a.length; i++) {
         if (a[i].title==this.movie) {
-          this.movieObject = a[i]
+          this.movieObject = JSON.parse(JSON.stringify(a[i]));
+          console.log(this.movieObject)
+
         }
       }
     });
