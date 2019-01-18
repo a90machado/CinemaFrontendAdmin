@@ -42,6 +42,7 @@ export class RoomsComponent implements OnInit, OnDestroy {
     );
     console.log(this.selectedId)
     //getting rooms
+    this.dataService.updateRooms(this.selectedId);
     this.rooms$=this.dataService.rooms$;
 
     //getting cinemas 
@@ -94,8 +95,8 @@ export class RoomsComponent implements OnInit, OnDestroy {
   handleDelete(eventData) {
 
     this.roomService.deleteRoom(eventData.id).subscribe(() => {
-      console.log('aqui');
-      this.dataService.updateRooms(eventData.id);
+      console.log(eventData);
+      this.dataService.updateRooms(this.cinema.id);
     });
   }
 
