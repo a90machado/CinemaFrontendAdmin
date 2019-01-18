@@ -25,11 +25,8 @@ export class NewRoomModalComponent implements OnInit  {
   timeCloseNumber;
   pauseNumber;
   cinemaCopy:any;
-  modalRef: BsModalRef;
 
-
-
-  constructor(private dataService: DataService,private roomService: RoomsService) {
+  constructor(private dataService: DataService,private roomService: RoomsService,public modalRef: BsModalRef) {
     
     //getting movies
     this.movies$ = this.dataService.movies$;
