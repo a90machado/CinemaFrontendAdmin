@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { RoomsModalComponent } from '../modals/rooms-modal/rooms-modal.component';
 
 @Component({
   selector: 'app-table',
