@@ -8,8 +8,7 @@ import { RoomsComponent } from './layout/rooms/rooms.component';
 const routes: Routes = [
   { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: '**', component: Page404Component },
-  { path: 'roomsTable/:id', component: RoomsComponent}
+  { path: '**', component: Page404Component }
 ];
 
 @NgModule({

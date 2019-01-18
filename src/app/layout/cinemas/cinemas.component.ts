@@ -6,7 +6,6 @@ import { CinemasService } from '../shared/services/cinemas.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NewCinemaModalComponent } from '../shared/components/modals/new-cinema-modal/new-cinema-modal.component';
 import { EditCinemaModalComponent } from '../shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
-import { RoomsModalComponent } from '../shared/components/modals/rooms-modal/rooms-modal.component';
 import { Room } from 'src/app/shared/models/room';
 import { Router } from '@angular/router';
 
@@ -61,8 +60,8 @@ export class CinemasComponent implements OnInit {
   }
   handleRooms(row){
     //this.dataService.updateRooms(row.id);
-
-    this._router.navigate(['roomsTable'],row.id)
+    console.log(row.id)
+    this._router.navigate(['roomsTable',row.id]);
 
     // var initialState = {rooms$:this.rooms$, row :row};
     

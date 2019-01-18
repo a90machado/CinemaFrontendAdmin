@@ -20,6 +20,7 @@ export class RoomsComponent implements OnInit {
   roomsString$= new ReplaySubject<any>(1);
   rooms$:any;
   cinemas$:any;
+  modalRef: BsModalRef;
 
   cinema: Cinema;
   IntersectionObserverEntryInit
@@ -31,16 +32,19 @@ export class RoomsComponent implements OnInit {
     class: 'my-modal'
   };
 
-  constructor(private dataService: DataService, public modalService: BsModalService, public modalRef: BsModalRef, private roomService: RoomsService, private _router: Router, private route: ActivatedRoute) {
+  constructor(private dataService: DataService, public modalService: BsModalService,  private roomService: RoomsService, private _router: Router, private route: ActivatedRoute) {
 
     this.route.paramMap.subscribe(
       params => {
         this.selectedId = +params.get('id');
-
       }
     );
+    console.log(this.selectedId)
     this.rooms$ =this.dataService.updateRooms(this.selectedId);
+    this.rooms$=this.dataService.rooms$;
+
     this.cinemas$ =this.dataService.updateCinemas();
+    this.cinemas$=this.dataService.cinemas$;
 
   }
 
@@ -58,8 +62,8 @@ export class RoomsComponent implements OnInit {
 
     this.cinemas$.subscribe((a)=>{
       for (let i = 0; i < a.length; i++) {
-        if (a[i].cinema.id==this.selectedId) {
-          this.cinema=a[i].cinema;
+        if (a[i].id==this.selectedId) {
+          this.cinema=a[i];
         }
       }
     })

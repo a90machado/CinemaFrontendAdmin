@@ -12,15 +12,13 @@ import { DatePipe } from '@angular/common';
 import { SDKBrowserModule } from './shared/sdk/index';
 import { TableComponent, ProblemsLogInComponent } from './layout/shared/components';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { RoomsComponent } from './layout/rooms/rooms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProblemsLogInComponent,
-    Page404Component,
-    RoomsComponent
+    Page404Component
    
 
   ],
@@ -30,7 +28,7 @@ import { RoomsComponent } from './layout/rooms/rooms.component';
     NoopAnimationsModule,
     FormsModule,
     ModalModule.forRoot(),
-    SDKBrowserModule.forRoot(),
+    SDKBrowserModule.forRoot()
   ],
   entryComponents: [ ProblemsLogInComponent ],
   providers: [ TableComponent, DatePipe ],
