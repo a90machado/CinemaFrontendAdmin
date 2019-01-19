@@ -29,6 +29,7 @@ import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema
 import { NewRoomModalComponent } from './shared/components/modals/new-room-modal/new-room-modal.component';
 import { EditRoomModalComponent } from './shared/components/modals/edit-room-modal/edit-room-modal.component';
 import { RoomsComponent } from './rooms/rooms.component';
+import { TypeOfTicketsComponent } from './type-of-tickets/type-of-tickets.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { RoomsComponent } from './rooms/rooms.component';
     EditCinemaModalComponent,
     NewRoomModalComponent,
     EditRoomModalComponent,
-    RoomsComponent
+    RoomsComponent,
+    TypeOfTicketsComponent
   ],
   imports: [
     CommonModule,
