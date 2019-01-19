@@ -30,6 +30,8 @@ import { NewRoomModalComponent } from './shared/components/modals/new-room-modal
 import { EditRoomModalComponent } from './shared/components/modals/edit-room-modal/edit-room-modal.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { TypeOfTicketsComponent } from './type-of-tickets/type-of-tickets.component';
+import { NewTypeofticketsModalComponent } from './shared/components/modals/new-typeoftickets-modal/new-typeoftickets-modal.component';
+import { EditTypeofticketModalComponent } from './shared/components/modals/edit-typeofticket-modal/edit-typeofticket-modal.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { TypeOfTicketsComponent } from './type-of-tickets/type-of-tickets.compon
     NewRoomModalComponent,
     EditRoomModalComponent,
     RoomsComponent,
-    TypeOfTicketsComponent
+    TypeOfTicketsComponent,
+    NewTypeofticketsModalComponent,
+    EditTypeofticketModalComponent
   ],
   imports: [
     CommonModule,
@@ -70,7 +74,8 @@ import { TypeOfTicketsComponent } from './type-of-tickets/type-of-tickets.compon
     
   ],
 
-  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent, NewRoomModalComponent,EditRoomModalComponent
+  entryComponents: [ NewUserModalComponent, EditUserModalComponent, MovieModalComponent, EditMovieModalComponent, NewMovieModalComponent, NewCinemaModalComponent,  EditCinemaModalComponent, UserModalComponent, NewRoomModalComponent,EditRoomModalComponent, NewTypeofticketsModalComponent,     EditTypeofticketModalComponent
+
   ]
 })
 export class LayoutModule { }

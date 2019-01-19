@@ -89,8 +89,8 @@ export class DataService {
     });
   }
   
-  public updateTypeOfTickets() {
-    this.typeOfTicketService.getTypeOfTickets().subscribe((res: TypeOfTicket[]) => {
+  public updateTypeOfTickets(id) {
+    this.typeOfTicketService.getTypeOfTickets(id).subscribe((res: TypeOfTicket[]) => {
 
       this.typeoftickets$.next(res);
     });
