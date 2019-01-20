@@ -1,7 +1,9 @@
-<h2>Users</h2>
-<div class="container">
-  <button class="btn btn-outline-primary" type="button" (click)="addNewUser()">Create</button>
-</div>
-<div class="container">
-  <app-table [header]='["name","email"]' [data$]='accounts$' [theme]='"table-bordered"' (edit)="handleEdit($event)" (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
+<div class="users-section">
+  <div class="d-flex flex-column containerTable">
+    <div class="d-flex flex-row containerHeader">
+      <h4>Manage Users</h4>
+      <button (click)="addNewUser()" class="ml-auto"><i class="fas fa-folder-plus"></i> Create new</button>
+    </div>
+    <app-table [header]='["name","createdAt", "email"]' [data$]='accounts$' [title]="'Users Managment'" [theme]='"table-bordered"' (edit)="handleEdit($event)" (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
+  </div>
 </div>

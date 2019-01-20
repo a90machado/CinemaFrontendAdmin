@@ -3,6 +3,11 @@
   top: 30%;
 }
 
+.edit-user{
+  max-width: 600px;
+  top: 20%;
+}
+
 .modal-content{
   background-color: #FCFCFF;
   border-radius: 5px;

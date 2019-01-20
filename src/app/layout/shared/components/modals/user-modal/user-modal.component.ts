@@ -12,7 +12,7 @@ export class UserModalComponent implements OnInit {
   @Input()email = '';
   @Input()username = '';
   @Input()role = '';
-  @Input()createdAt; // what a fuck i go do with this cheet
+  @Input()createdAt;
 
   constructor(  public _modalRef: BsModalRef ) {
 
@@ -21,6 +21,6 @@ export class UserModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
 
 }

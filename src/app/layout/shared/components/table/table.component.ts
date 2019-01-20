@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-table',
@@ -14,13 +15,20 @@ export class TableComponent implements OnInit {
   @Output() selectedRow: EventEmitter<any> = new EventEmitter<any>();
   @Output() delete: EventEmitter<any> = new EventEmitter<any>();
   @Output() edit: EventEmitter<any> = new EventEmitter<any>();
+  public headerRename = [];
 
-  constructor(private dataService: DataService ) {
+  constructor(  private dataService: DataService ) {
 
 
   }
 
   ngOnInit() {
+    for (let iterator of this.header) {
+      if (iterator === 'createdAt') {
+        iterator = 'created at';
+      }
+      this.headerRename.push(iterator);
+    }
   }
 
   clickedRow(row) {

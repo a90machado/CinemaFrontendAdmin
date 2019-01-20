@@ -15,6 +15,7 @@ import { AccountApi } from 'src/app/shared/sdk';
 export class UsersComponent implements OnInit {
   accounts$: ReplaySubject<Account[]>;
   modalRef: BsModalRef;
+
   config = {
     animated: true,
     keyboard: true,
@@ -26,7 +27,7 @@ export class UsersComponent implements OnInit {
                 private _accountApi: AccountApi,
                 private _modalService: BsModalService) {
 
-                  this.accounts$ = this._dataService.accounts$;
+                this.accounts$ = this._dataService.accounts$;
   }
 
   ngOnInit() {
@@ -37,7 +38,7 @@ export class UsersComponent implements OnInit {
   }
 
   addNewUser() {
-    this.modalRef = this._modalService.show(NewUserModalComponent);
+    this.modalRef = this._modalService.show(NewUserModalComponent, Object.assign({}, this.config, {class: 'edit-user'}));
   }
 
   deleteUser() {
