@@ -40,11 +40,12 @@ export class NewMovieModalComponent implements OnInit {
   currentYear: number;
   dateRelease:Date;
   dateEnd:Date;
-  
+
   movieToSave: Movie = new Movie();
   public movie$: ReplaySubject<any []>= new ReplaySubject(1);
-  constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) { 
-    
+
+  constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) {
+
   }
 
   ngOnInit() {
@@ -97,7 +98,7 @@ export class NewMovieModalComponent implements OnInit {
         this.modalRef.hide();
       });
     }
-    
+
   }
   createArrayDays(){
     for (let i = 1; i < 32; i++) {
@@ -114,7 +115,7 @@ export class NewMovieModalComponent implements OnInit {
         this.optionsDay4.push(i)
 
       }
-      
+
     }
     this.optionsDay2.splice(this.optionsDay2.length-1,1);
     this.optionsDay3.splice(this.optionsDay3.length-2,2);
@@ -170,8 +171,8 @@ export class NewMovieModalComponent implements OnInit {
     return monthString;
   }
   isLeapYear(ano){
-    if ( ( ano % 4 == 0 && ano % 100 != 0 ) || (ano % 400 == 0) ) { 
-      return true; 
+    if ( ( ano % 4 == 0 && ano % 100 != 0 ) || (ano % 400 == 0) ) {
+      return true;
   } else {
       return false;
   }

@@ -1,29 +1,29 @@
-<div class="table-responsive tableContainer">
+<div class="table-responsive">
   <table class="table" [ngClass]='theme'>
     <thead>
       <tr>
-        <th *ngFor="let col of header" [ngClass]="{'data': col=='endDate' || col=='releaseDate'}">
+        <th *ngFor="let col of headerRename" [ngClass]="{'data': col=='endDate' || col=='releaseDate'}">
           {{col}}
         </th>
         <!-- Actions -->
         <th>
-            <a class="icons" title="Delete" data-toggle="tooltip"></a>
+          <a class="icons" title="Delete" data-toggle="tooltip"></a>
         </th>
 
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let row of data$ | async">
-        <td *ngFor="let col of header" (click)="clickedRow(row)">
+        <td *ngFor="let col of header" (click)="clickedRow(row)" [ngClass]="{'bold':col=='name' || col=='email' , 'color-light': col=='createdAt'}">
           {{row[col]}}
         </td>
         <!-- Actions -->
-        <td>
-          <div class="d-flex flex-row icons">
-              <a title="Edit"><i class="material-icons" (click)="clickEdit(row)">edit</i></a>
-              <a class="delete" title="Delete"><i class="material-icons delete" (click)="clickDelete(row)">&#xE872;</i></a>
-          </div>
-      </td>
+        <td class="cellactions">
+
+          <a title="Edit"><i class="material-icons edit" (click)="clickEdit(row)">edit</i></a>
+          <a title="Delete"><i class="material-icons delete" (click)="clickDelete(row)">&#xE872;</i></a>
+
+        </td>
       </tr>
     </tbody>
   </table>

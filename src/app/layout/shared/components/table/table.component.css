@@ -1,49 +1,93 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
 
-.table-responsive{
-    margin: auto;
-    height:600px;
-    overflow:auto;
-    text-align: center;
-}
-
-.table tbody tr:hover td, .table tbody tr:hover th {
-    background-color: rgb(177, 182, 182);
-}
-
-tr {
-    cursor: pointer;
-}
-
-
-.delete{
-    color:rgb(145, 9, 9);
-}
-.icons{
-    padding: 2px;
-}
-.data{
-    min-width: 120px;
+/* Main Settings */
+table{
+  margin-bottom: 0;
 }
 
 /* Table Container */
-
-.tableContainer{
-
+.table-responsive {
+  margin: auto;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
 }
 
 /* Table Header */
-thead{
+thead {
   background-color: rgb(246, 249, 252);
   color: rgb(141, 157, 176);
   text-transform: uppercase;
   text-align: left;
-  border-bottom: 1px solid rgb(234, 237, 240);
   border-top: 1px solid rgb(234, 237, 240);
 }
 
-thead tr th{
+thead tr th {
   border: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: normal;
+}
+
+/* Table Body */
+tbody{
+  text-align: left;
+}
+
+.table td, .table th{
+  padding: 1rem;
+}
+
+tbody tr td{
+
+  border: none;
+  border-top: 1px solid rgb(234, 237, 240);
+}
+
+/* Hover Row */
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background-color: rgb(238, 241, 241);
+}
+
+tr {
+  cursor: pointer;
+}
+
+/* Icons from Actions */
+.cellactions{
+  text-align: center;
+  border: 1px red solid;
+}
+
+.cellactions .edit{
+  margin-right: 7.5px;
+  color: rgb(172, 181, 190);
+}
+
+.cellactions .edit:hover{
+  color: #001F54;
+}
+
+.cellactions .delete{
+  margin-left: 7.5px;
+  color: rgb(172, 181, 190);
+}
+
+.cellactions .delete:hover{
+  color: rgb(155, 3, 3);
+}
+
+/* Movies Table Style */
+.data {
+  min-width: 120px;
+}
+
+/* Users Table Custom Style */
+.bold{
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.color-light{
+  color: rgb(172, 181, 190);
 }

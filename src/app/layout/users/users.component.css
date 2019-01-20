@@ -1,16 +1,75 @@
-:host{
+/* Main Defaults */
+.users-section{
   background-color: rgb(245,248,252);
+  font-family: 'Source Sans Pro', sans-serif;
+  float: left;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
   display: flex;
 }
+
 .containerTable{
     margin-top: 10px;
+    width: 80%;
     border: 0px;
     border-radius: 5px;
     background-color: white;
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.4);
 }
 
+/* Header for Table */
 .containerHeader{
     padding: 20px;
 }
+
+.containerHeader h4{
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: #32325d;
+}
+
+.containerHeader button{
+  cursor: pointer;
+  color: #5e71e4;
+  font-size: 0.85rem;
+  height: 35px;
+  letter-spacing: .025em;
+  height: auto;
+  border-radius: .25rem;
+  border-color: #fff;
+  background-color: #fff;
+  box-shadow: 2px 4px 6px rgba(50, 50, 93, 0.295),
+              1px -3px 3px rgba(190, 149, 149, 0.151);
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+}
+
+.containerHeader button i{
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+.containerHeader button:hover{
+  cursor: pointer;
+  color: #2d3770;
+  font-size: 0.85rem;
+  height: 35px;
+  letter-spacing: .025em;
+  height: auto;
+  border-radius: .25rem;
+  border-color: #fff;
+  background-color: #fff;
+  box-shadow: 2px 4px 6px rgba(50, 50, 93, 0.295),
+              1px -3px 3px rgba(190, 149, 149, 0.151);
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  transform: translateY(-1px);
+}
+
