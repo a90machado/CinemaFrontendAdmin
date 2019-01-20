@@ -59,7 +59,9 @@ export class RoomsComponent implements OnInit, OnDestroy {
       for (let i = 0; i < a.length; i++) {
         rooms[i]=JSON.parse(JSON.stringify(a[i]))
         rooms[i].cinema= rooms[i].cinema.name;
-        rooms[i].movie= rooms[i].movie.title;
+        if(rooms[i].movie!=null){
+          rooms[i].movie= rooms[i].movie.title;
+        }
       }
       this.roomsString$.next(rooms);
     });
