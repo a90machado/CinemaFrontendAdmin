@@ -65,6 +65,7 @@ export class NewRoomModalComponent implements OnInit  {
     this.room.cinema.pause=this.pauseNumber;
 
     //sending room to backend, updating table and hiding modalRef
+    console.log(this.room)
     this.roomService.addRoom(this.room).subscribe(() =>{
       this.dataService.updateRooms(this.room.cinema.id);
       this.modalRef.hide();

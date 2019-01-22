@@ -90,12 +90,16 @@ export class EditRoomModalComponent implements OnInit{
     //editing room only if something changed, update table rooms and hide modal
     if (this.movieOld!=this.room.movie.title||this.numberOfQueuesOld!=this.room.numberOfQueues||this.numberOfSeatsPerQueueOld!=this.numberOfSeatsPerQueue) {
       this.roomService.editRoom(this.room).subscribe(()=>{
-        this.dataService.updateRooms(this.room.cinema.id);
+        console.log(this.cinemaObject.id);
+        
+        this.dataService.updateRooms(this.cinemaObject.id);
         this.modalRef.hide();
       })
 
     }
-
+    console.log(this.room.cinema.id);
+    
+   
   }
 
   //method to take " min" to get pause

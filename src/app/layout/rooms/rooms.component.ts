@@ -53,8 +53,9 @@ export class RoomsComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     //making a copy of rooms named roomsString to present name of cinema and title of the movie instead of object cinema and movie
+
     this.subs = this.rooms$.subscribe((a) => {
-      console.log('a : ',a );
+      console.log('a : ', a);
        let rooms = [];
       for (let i = 0; i < a.length; i++) {
         rooms[i]=JSON.parse(JSON.stringify(a[i]))
