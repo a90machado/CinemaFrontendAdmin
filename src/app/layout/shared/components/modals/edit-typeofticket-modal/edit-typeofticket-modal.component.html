@@ -1,0 +1,19 @@
+<div class="modal-new-cinema">
+  <div class="modal-header">
+      <h4 class="modal-title pull-left">Edit type of ticket</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+          <label for="inputTypeOfTicket" class="text-uppercase">Type of ticket: </label>
+          <input  id="inputTypeOfTicket" name="typeOfTicket" type="text" [(ngModel)]="typeOfTicket" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="priceOfTicket" class="text-uppercase">Price of ticket: </label>
+          <input  id="priceOfTicket" name="priceOfTicket" type="number" [(ngModel)]="priceOfTicket" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-login float-right"(click)="editTypeOfTicket()">Edit</button>
+    </div>
+  </div>

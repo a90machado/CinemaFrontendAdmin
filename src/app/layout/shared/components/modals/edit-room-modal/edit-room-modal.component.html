@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit Room</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="form-group" class="col-sm-12 col-md-4 col-lg-4">
+    <label for="sel3">Select movie:</label>
+    <select id="sel3" [(ngModel)]="movie">
+      <option *ngFor="let movie of movies$ | async" >{{movie.title}}</option>
+    </select>
+  </div>
+  <br><br>
+  <div class="form-group">
+    <label for="inputNqueues" class="text-uppercase">Number of queues of the room: </label>
+    <input  id="inputNqueues" name="numberOfQueues" type="number" class="form-control" [(ngModel)]="numberOfQueues" placeholder="" required>
+  </div>
+  <br><br>
+  <div class="form-group">
+    <label for="inputNseats" class="text-uppercase">Number of seats per queue: </label>
+    <input  id="inputNseats" name="numberOfSeatsPerQueue" type="number" class="form-control" [(ngModel)]="numberOfSeatsPerQueue" placeholder="" required>
+  </div>
+  <button type="submit" (click)="editRoom()" class="btn btn-login float-right">Submit Changes</button>
+  </div>

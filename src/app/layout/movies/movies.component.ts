@@ -20,20 +20,27 @@ export class MoviesComponent implements OnInit {
   public movies$: ReplaySubject<Movie[]>;
   movie: Movie;
   modalRef: BsModalRef;
+  config = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false,
+    class: 'my-modal'
+  };
 
-  constructor(    private dataService: DataService,
-                  private movieApiService: MovieApiService,
-                  public modalService: BsModalService) {
+  constructor(private dataService: DataService,
+    private movieApiService: MovieApiService,
+    public modalService: BsModalService) {
 
-                    this.movies$ = this.dataService.movies$;
-    }
+    this.movies$ = this.dataService.movies$;
+  }
 
   ngOnInit() {
   }
 
   handleSelectedRow(eventData) {
     const initialState = eventData;
-    this.modalRef = this.modalService.show(MovieModalComponent, {initialState});
+    this.modalRef = this.modalService.show(MovieModalComponent, { initialState });
   }
 
 
@@ -48,7 +55,8 @@ export class MoviesComponent implements OnInit {
   handleEdit(eventData) {
     console.log('moviecomponent');
     const initialState = eventData;
-    this.modalRef = this.modalService.show(EditMovieModalComponent, {'initialState': initialState});
+    this.modalRef = this.modalService.show(EditMovieModalComponent, { 'initialState': initialState });
+
   }
 
   addNew() {

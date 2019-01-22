@@ -27,6 +27,10 @@ export class EditCinemaModalComponent implements OnInit {
   hourOptions= [];
   minutesOptions= [];
   breakOptions= [];
+  nameOld:string;
+  timeOpenOld:number;
+  timeCloseOld:number;
+  pauseOld:String;
   cinema: Cinema = new Cinema();
 
   constructor(public modalRef: BsModalRef, private cinemasService: CinemasService, private dataService: DataService) { }
@@ -40,6 +44,10 @@ export class EditCinemaModalComponent implements OnInit {
     this.closeHour=this.getHour(this.timeClose);
     this.closeMinutes=this.getMinutes(this.timeClose);
     this.break=this.getBreak(this.pause);
+    this.nameOld=this.name;
+    this.timeOpenOld=(Number(this.getHour(this.timeOpen))*60)+Number(this.getMinutes(this.timeOpen));
+    this.timeCloseOld=(Number(this.getHour(this.timeClose))*60)+Number(this.getMinutes(this.timeClose));
+    this.pauseOld=this.getBreak(this.pause);
   }
 
   editCinema(){
@@ -49,10 +57,15 @@ export class EditCinemaModalComponent implements OnInit {
     this.cinema.pause=Number(this.break);
     this.cinema.name=this.name;
     console.log(this.cinema);
+    console.log(Number(this.timeOpenOld),Number(this.timeCloseOld),Number(this.pauseOld),this.nameOld)
+
+    if (this.cinema.timeOpen!=Number(this.timeOpenOld)||this.cinema.timeClose!=Number(this.timeCloseOld)||this.cinema.name!=this.nameOld||this.cinema.pause!=Number(this.pauseOld)) {
     this.cinemasService.editCinema(this.cinema).subscribe(() =>{
       this.dataService.updateCinemas();
       this.modalRef.hide();
     });
+    console.log("fez pedido")
+  }
   }
 
 

@@ -30,6 +30,13 @@ import { ConfirmEqualValidatorDirective } from './shared/validators';
 import { MainNavComponent } from './shared/components/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { NewRoomModalComponent } from './shared/components/modals/new-room-modal/new-room-modal.component';
+import { EditRoomModalComponent } from './shared/components/modals/edit-room-modal/edit-room-modal.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { TypeOfTicketsComponent } from './type-of-tickets/type-of-tickets.component';
+import { NewTypeofticketsModalComponent } from './shared/components/modals/new-typeoftickets-modal/new-typeoftickets-modal.component';
+import { EditTypeofticketModalComponent } from './shared/components/modals/edit-typeofticket-modal/edit-typeofticket-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +57,13 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule } fr
     EditCinemaModalComponent,
     CreatedAtPipePipe,
     ConfirmEqualValidatorDirective,
-    MainNavComponent
+    MainNavComponent,
+    NewRoomModalComponent,
+    EditRoomModalComponent,
+    RoomsComponent,
+    TypeOfTicketsComponent,
+    NewTypeofticketsModalComponent,
+    EditTypeofticketModalComponent
   ],
   imports: [
     CommonModule,
@@ -78,6 +91,14 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule } fr
                       NewMovieModalComponent,
                       NewCinemaModalComponent,
                       EditCinemaModalComponent,
-                      UserModalComponent ]
+                      UserModalComponent,
+                      NewRoomModalComponent,
+                      EditRoomModalComponent,
+                     NewTypeofticketsModalComponent,   
+                     EditTypeofticketModalComponent
+                    ]
+
+
+
 })
 export class ContentModule { }

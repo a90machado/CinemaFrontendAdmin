@@ -19,6 +19,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     LoginComponent,
     ProblemsLogInComponent,
     Page404Component
+   
+
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     NoopAnimationsModule,
     FormsModule,
     ModalModule.forRoot(),
-    SDKBrowserModule.forRoot(),
+    SDKBrowserModule.forRoot()
   ],
   entryComponents: [ ProblemsLogInComponent ],
   providers: [ TableComponent, DatePipe ],

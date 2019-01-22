@@ -6,6 +6,8 @@ import { CinemasService } from '../shared/services/cinemas.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NewCinemaModalComponent } from '../shared/components/modals/new-cinema-modal/new-cinema-modal.component';
 import { EditCinemaModalComponent } from '../shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
+import { Room } from 'src/app/shared/models/room';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cinemas',
@@ -14,13 +16,29 @@ import { EditCinemaModalComponent } from '../shared/components/modals/edit-cinem
 })
 export class CinemasComponent implements OnInit {
 
+  
   public cinemas$: ReplaySubject<Cinema[]>;
+  public rooms$: ReplaySubject<Room[]>;
+  newRooms=[];
+  cinemaName="";
+  movieName="";
+
   cinema: Cinema;
   modalRef: BsModalRef;
+ 
+  config = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false,
+    class: 'my-modal'
+  };
 
 
-  constructor(private dataService: DataService, private cinemasService: CinemasService, public modalService: BsModalService) {
+  constructor(private dataService: DataService, private cinemasService: CinemasService, public modalService: BsModalService, private _router: Router) {
     this.cinemas$ = this.dataService.cinemas$;
+    this.rooms$ = this.dataService.rooms$;
+
   }
 
   ngOnInit() {
@@ -40,5 +58,14 @@ export class CinemasComponent implements OnInit {
 
     this.modalRef = this.modalService.show(NewCinemaModalComponent);
   }
+  handleRooms(row){
 
+    this._router.navigate(['roomsTable',row.id]);
+
+  }
+  handleTypeOfTickets(row){
+    //this.dataService.updateRooms(row.id);
+    this._router.navigate(['typeOfTicketsTable',row.id]);
+
+  }
 }

@@ -4,6 +4,10 @@ import { AccountsService } from './accounts.service';
 import { MovieApiService } from './movie-api.service';
 import { DatePipe } from '@angular/common';
 import { CinemasService } from './cinemas.service';
+import { RoomsService } from './rooms.service';
+import { Room } from 'src/app/shared/models/room';
+import { TypeOfTicketsService } from './type-of-tickets.service';
+import { TypeOfTicket } from 'src/app/shared/models/typeofticket';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +16,11 @@ export class DataService {
   public accounts$: ReplaySubject<any[]> = new ReplaySubject(1);
   public movies$: ReplaySubject<any []>= new ReplaySubject(1);
   public cinemas$: ReplaySubject<any []>= new ReplaySubject(1);
+  public rooms$: ReplaySubject<any []>= new ReplaySubject(1);
+  public typeoftickets$: ReplaySubject<any []>= new ReplaySubject(1);
 
 
-  constructor( private _accountService: AccountsService , private movieApi: MovieApiService, public datepipe: DatePipe, private cinemasService: CinemasService) {
+  constructor( private _accountService: AccountsService , private movieApi: MovieApiService, public datepipe: DatePipe, private cinemasService: CinemasService,private roomsService: RoomsService, private typeOfTicketService: TypeOfTicketsService) {
     this.updateAccounts();
     this.updateMovies();
     this.updateCinemas();
@@ -76,6 +82,20 @@ export class DataService {
       }
 
       this.movies$.next(res);
+    });
+  }
+
+  public updateRooms(id) {
+    this.roomsService.getRooms(id).subscribe((res: Room[]) => {
+
+      this.rooms$.next(res);
+    });
+  }
+  
+  public updateTypeOfTickets(id) {
+    this.typeOfTicketService.getTypeOfTickets(id).subscribe((res: TypeOfTicket[]) => {
+
+      this.typeoftickets$.next(res);
     });
   }
 

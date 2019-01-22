@@ -1,4 +1,3 @@
-import { BsTimepickerViewComponent } from 'ngx-bootstrap/datepicker/themes/bs/bs-timepicker-view.component';
 
 export class Cinema{
 
