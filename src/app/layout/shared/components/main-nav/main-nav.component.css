@@ -1,0 +1,85 @@
+/*
+#FCFCFF
+#1B1B1E
+#001F54
+#03519B
+#1282A2
+*/
+
+/* Side Nav Defaults */
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 230px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+  border:0;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar .mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+}
+
+.mat-sidenav-content .mat-toolbar{
+  background-color: #03519B;
+}
+/* ******************** */
+
+/* LOGO */
+img{
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Logout button */
+.logout{
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+}
+
+.btn{
+  position: relative;
+}
+
+/* Navigation List */
+mat-nav-list{
+  margin-top:20px;
+}
+
+mat-nav-list a span{
+  text-indent: 40px;
+  color: rgb(133, 133, 134);
+}
+
+mat-nav-list a .fa-caret-right{
+  margin-left: auto;
+  color: rgb(133, 133, 134);
+}
+
+mat-nav-list .fas{
+  color: #03519B;
+  font-size: 20px;
+  height: 20px;
+}
+
+.navItem{
+  position: relative;
+  margin: 0 auto;
+}
+
+.navItem  .fa-home, .fa-theater-masks, .fa-film, .fa-user-cog{
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  font-size: 1.125rem;
+}
+

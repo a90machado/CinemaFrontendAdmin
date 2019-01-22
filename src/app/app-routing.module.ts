@@ -5,7 +5,7 @@ import { Page404Component } from './page404/page404.component';
 import { AuthGuard } from './shared/guards/index';
 
 const routes: Routes = [
-  { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard]},
+  { path: '', loadChildren: './layout/content.module#ContentModule', canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: '**', component: Page404Component }
 ];

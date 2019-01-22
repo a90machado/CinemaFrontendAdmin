@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { LayoutRoutingModule } from './layout-routing.module';
-import { LayoutComponent } from './layout.component';
+import { ContentRoutingModule } from './content-routing.module';
+import { ContentComponent } from './content.component';
 import { CinemasComponent } from './cinemas/cinemas.component';
 import { LandingComponent } from './landing/landing.component';
 import { MoviesComponent } from './movies/movies.component';
@@ -28,11 +28,13 @@ import { NewCinemaModalComponent } from './shared/components/modals/new-cinema-m
 import { EditCinemaModalComponent } from './shared/components/modals/edit-cinema-modal/edit-cinema-modal.component';
 import { CreatedAtPipePipe } from './shared/components/modals/user-modal/created-at-pipe.pipe';
 import { ConfirmEqualValidatorDirective } from './shared/validators';
-
+import { MainNavComponent } from './shared/components/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
+    ContentComponent,
     CinemasComponent,
     LandingComponent,
     MoviesComponent,
@@ -49,7 +51,8 @@ import { ConfirmEqualValidatorDirective } from './shared/validators';
     NewCinemaModalComponent,
     EditCinemaModalComponent,
     CreatedAtPipePipe,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective,
+    MainNavComponent
   ],
   imports: [
     CommonModule,
@@ -61,8 +64,13 @@ import { ConfirmEqualValidatorDirective } from './shared/validators';
     MatFormFieldModule,
     MatInputModule,
     BsDatepickerModule.forRoot(),
-    LayoutRoutingModule,
-    MatSelectModule
+    ContentRoutingModule,
+    MatSelectModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule
   ],
 
   entryComponents: [  NewUserModalComponent,
@@ -74,4 +82,4 @@ import { ConfirmEqualValidatorDirective } from './shared/validators';
                       EditCinemaModalComponent,
                       UserModalComponent ]
 })
-export class LayoutModule { }
+export class ContentModule { }

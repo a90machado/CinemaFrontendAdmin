@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="side" opened class="sidenav" fixedInViewport="fixed">
+    <mat-toolbar><img src="https://imagizer.imageshack.com/v2/1024x768q90/922/vEfdrN.png" alt="Jarvis your TicketLine"
+        width="150"></mat-toolbar>
+    <mat-nav-list>
+      <div class="navItem">
+        <i class="fas fa-home"></i>
+        <a mat-list-item routerLink="/home" routerLinkActive="active"><span>Home</span> <i class="fas fa-caret-right"></i></a>
+      </div>
+      <div class="navItem">
+        <i class="fas fa-theater-masks"> </i>
+        <a mat-list-item routerLink="/cinemas" routerLinkActive="active"> <span>Cinemas</span> <i class="fas fa-caret-right"></i></a>
+      </div>
+      <div class="navItem">
+        <i class="fas fa-film"></i>
+        <a mat-list-item routerLink="/movies" routerLinkActive="active"><span>Movies</span> <i class="fas fa-caret-right"></i></a>
+      </div>
+      <div class="navItem">
+        <i class="fas fa-user-cog"></i>
+        <a mat-list-item *ngIf=(roleUser) routerLink="/manage/users" routerLinkActive="active"> <span>Users</span> <i
+            class="fas fa-caret-right"></i></a>
+      </div>
+    </mat-nav-list>
+    <div class="text-center logout">
+      <button (click)="logout()" class="btn btn-outline-danger" type="button">Logout</button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
