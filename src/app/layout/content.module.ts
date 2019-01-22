@@ -8,7 +8,6 @@ import { CinemasComponent } from './cinemas/cinemas.component';
 import { LandingComponent } from './landing/landing.component';
 import { MoviesComponent } from './movies/movies.component';
 import { UsersComponent } from './users/users.component';
-import { HeaderComponent } from '../shared/components/index';
 import { TableComponent } from './shared/components/index';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NewUserModalComponent } from './shared/components/modals/new-user-modal/new-user-modal.component';
@@ -38,7 +37,6 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatListModule } fr
     CinemasComponent,
     LandingComponent,
     MoviesComponent,
-    HeaderComponent,
     UsersComponent,
     TableComponent,
     NewUserModalComponent,
