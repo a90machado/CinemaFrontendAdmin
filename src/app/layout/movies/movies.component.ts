@@ -42,7 +42,7 @@ export class MoviesComponent implements OnInit {
 
   handleSelectedRow(eventData) {
     const initialState = eventData;
-    this.modalRef = this.modalService.show(MovieModalComponent, {initialState});
+    this.modalRef = this.modalService.show(MovieModalComponent, Object.assign({}, this.config, {initialState}, {class: 'bigger-width'}));
   }
 
   handleDelete(eventData) {
@@ -53,8 +53,8 @@ export class MoviesComponent implements OnInit {
 
   handleEdit(eventData) {
     console.log('moviecomponent');
-    const initialState = eventData;
-    this.modalRef = this.modalService.show(EditMovieModalComponent, {'initialState': initialState});
+    // const initialState = eventData;
+    // this.modalRef = this.modalService.show(EditMovieModalComponent, {'initialState': initialState});
   }
 
   addNew() {
