@@ -76,7 +76,20 @@ tr {
 .cellactions .delete:hover{
   color: rgb(155, 3, 3);
 }
+.tickets{
+  color: rgb(172, 181, 190);
+}
 
+.tickets:hover{
+  color: goldenrod;
+}
+
+.screan{
+    color: rgb(167, 192, 218);
+}
+.screan:hover{
+  color: blue;
+}
 /* Movies Table Style */
 .data {
   min-width: 120px;
