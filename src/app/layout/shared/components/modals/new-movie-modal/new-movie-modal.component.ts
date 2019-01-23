@@ -4,6 +4,8 @@ import { MovieApiService } from '../../../services/movie-api.service';
 import { ReplaySubject } from 'rxjs';
 import { Movie } from 'src/app/shared/models/movie';
 import { DataService } from '../../../services';
+import { BsDaterangepickerConfig } from 'ngx-bootstrap/datepicker';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-new-movie-modal',
@@ -11,20 +13,20 @@ import { DataService } from '../../../services';
   styleUrls: ['./new-movie-modal.component.css']
 })
 export class NewMovieModalComponent implements OnInit {
+  datePickerConfig: Partial<BsDaterangepickerConfig>;
+
   optionsDay1=[];
   optionsDay2=[];
   optionsDay3=[];
   optionsDay4=[];
 
-  titleToSearch='';
-  yearToSearch='';
   dayRelease = "";
   monthRelease = "";
   yearRelease = "";
   dayEnd= "";
   monthEnd = "";
   yearEnd = "";
-  releaseDate="";
+  releaseDate = '';
   endDate="";
   error="";
   title="";
@@ -36,27 +38,59 @@ export class NewMovieModalComponent implements OnInit {
   cast="";
   synopsis="";
   teste="";
-  years = [];
+
   currentYear: number;
   dateRelease:Date;
   dateEnd:Date;
-
   movieToSave: Movie = new Movie();
-  public movie$: ReplaySubject<any []>= new ReplaySubject(1);
 
-  constructor(public modalRef: BsModalRef, public movieApiService: MovieApiService, public dataService: DataService) {
 
+
+  searchedMovie = false;
+  years = [];
+  yearToSearch = '';
+  titleToSearch = '';
+  message = '';
+  newDate = [''];
+
+  public movie$: ReplaySubject<any []> = new ReplaySubject(1);
+
+  constructor(  public modalRef: BsModalRef,
+                public movieApiService: MovieApiService,
+                public datepipe: DatePipe,
+                public dataService: DataService) {
+                this.yearToSearch = '2019';
+                this.datePickerConfig = Object.assign({},
+                  {
+                    containerClass: 'theme-dark-blue',
+                    minDate: (new Date()),
+                    rangeInputFormat: 'YYYY-MM-DD',
+                    rangeSeparator: ' to '
+                  });
   }
 
   ngOnInit() {
     this.createArrayYears();
+
     this.createArrayDays();
   }
 
-  searchMovie(){
-    this.movieApiService.searchMovie(this.titleToSearch,this.yearToSearch).subscribe((res:any) => {this.movie$.next(res)});
+  // SEARCH A MOVIE ON OMDB WITH TITLE AND YEAR
+  searchMovie() {
+    this.movieApiService.searchMovie(this.titleToSearch, this.yearToSearch).subscribe((res: any) => {
+      console.log(res);
+      if (res.Error !== 'Movie not found!') {
+        this.movie$.next(res);
+        this.searchedMovie = true;
+      } else {
+        this.message = 'Movie not Found';
+      }
+    });
   }
-  newMovie(movie){
+
+
+
+  public newMovie(movie) {
     this.error="";
 
     for (let index = 0; index < movie.Runtime.length; index++) {
@@ -69,8 +103,9 @@ export class NewMovieModalComponent implements OnInit {
         break;
       }
     }
-
-    this.releaseDate=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease;
+    this.newDate = this.releaseDate.toString().split(' ');
+    console.log(this.newDate);
+    //this.releaseDate=this.yearRelease+"-"+this.convertMonthToNumber(this.monthRelease)+"-"+this.dayRelease;
     this.endDate=this.yearEnd+"-"+this.convertMonthToNumber(this.monthEnd)+"-"+this.dayEnd;
     this.movieToSave.title=movie.Title;
     this.movieToSave.image=movie.Poster;
@@ -78,15 +113,13 @@ export class NewMovieModalComponent implements OnInit {
     this.movieToSave.director=movie.Director;
     this.movieToSave.cast=movie.Actors;
     this.movieToSave.synopsis=movie.Plot;
-    this.movieToSave.releaseDate=this.releaseDate;
-    this.movieToSave.endDate=this.endDate;
+    this.movieToSave.releaseDate=(this.newDate[3] + '-' + this.convertMonthToNumber(this.newDate[1]) + '-' + this.newDate[2]);
+    this.movieToSave.endDate=(this.newDate[12] + '-' + this.convertMonthToNumber(this.newDate[10]) + '-' + this.newDate[11]);
     this.movieToSave.minimumAge=this.minimumAge;
-
+    console.log(this.movieToSave);
     this.dateRelease= new Date(this.releaseDate);
     this.dateEnd= new Date(this.endDate);
 
-    console.log(this.dateRelease.getTime());
-    console.log(this.dateEnd.getTime());
 
     if (this.dateRelease.getTime()>this.dateEnd.getTime()) {
       this.error="Release date of the movie must be equal or before end date";
@@ -99,6 +132,10 @@ export class NewMovieModalComponent implements OnInit {
       });
     }
 
+  }
+
+  tranformMonth(month) {
+   return this.datepipe.transform(month, 'MM');
   }
   createArrayDays(){
     for (let i = 1; i < 32; i++) {
@@ -122,50 +159,44 @@ export class NewMovieModalComponent implements OnInit {
     this.optionsDay4.splice(this.optionsDay4.length-3,3);
 
   }
-  createArrayYears(){
-    this.currentYear=(new Date()).getFullYear();
-    this.years.push(this.currentYear-1);
-    this.years.push(this.currentYear);
-    for (let i = 0; i < 3; i++) {
-      this.currentYear+=1;
-      this.years.push(this.currentYear);
-    }
-  }
+
+
+
   convertMonthToNumber(monthString){
-    if (monthString=="January") {
+    if (monthString=="Jan") {
       monthString="01";
     }
-    if (monthString=="February") {
+    if (monthString=="Feb") {
       monthString="02";
     }
-    if (monthString=="March") {
+    if (monthString=="Mar") {
       monthString="03";
     }
-    if (monthString=="April") {
+    if (monthString=="Apr") {
       monthString="04";
     }
     if (monthString=="May") {
       monthString="05";
     }
-    if (monthString=="June") {
+    if (monthString=="Jun") {
       monthString="06";
     }
-    if (monthString=="July") {
+    if (monthString=="Jul") {
       monthString="07";
     }
-    if (monthString=="August") {
+    if (monthString=="Aug") {
       monthString="08";
     }
-    if (monthString=="September") {
+    if (monthString=="Sep") {
       monthString="09";
     }
-    if (monthString=="October") {
+    if (monthString=="Oct") {
       monthString="10";
     }
-    if (monthString=="November") {
+    if (monthString=="Nov") {
       monthString="11";
     }
-    if (monthString=="December") {
+    if (monthString=="Dec") {
       monthString="12";
     }
     return monthString;
@@ -176,5 +207,16 @@ export class NewMovieModalComponent implements OnInit {
   } else {
       return false;
   }
+  }
+
+
+
+  createArrayYears() {
+    const maxYears = 40;
+    this.currentYear = (new Date()).getFullYear() + 1;
+    for (let i = 0; i <= maxYears; i++) {
+      this.years.push(this.currentYear);
+      this.currentYear -= 1;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { DataService } from '../shared/services';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -39,10 +39,6 @@ export class UsersComponent implements OnInit {
 
   addNewUser() {
     this.modalRef = this._modalService.show(NewUserModalComponent, Object.assign({}, this.config, {class: 'edit-user'}));
-  }
-
-  deleteUser() {
-
   }
 
   handleSelectedRow(eventData) {

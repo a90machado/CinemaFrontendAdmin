@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/services';
 import { ReplaySubject } from 'rxjs';
 import { Movie } from 'src/app/shared/models/movie';
@@ -20,15 +20,24 @@ export class MoviesComponent implements OnInit {
   public movies$: ReplaySubject<Movie[]>;
   movie: Movie;
   modalRef: BsModalRef;
+  config = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false
+  };
 
   constructor(    private dataService: DataService,
                   private movieApiService: MovieApiService,
-                  public modalService: BsModalService) {
-
+                  public modalService: BsModalService ) {
                     this.movies$ = this.dataService.movies$;
     }
 
   ngOnInit() {
+  }
+
+  updateMovies() {
+    this.dataService.updateMovies();
   }
 
   handleSelectedRow(eventData) {
@@ -36,15 +45,12 @@ export class MoviesComponent implements OnInit {
     this.modalRef = this.modalService.show(MovieModalComponent, {initialState});
   }
 
-
-  updateMovies() {
-    this.dataService.updateMovies();
-  }
   handleDelete(eventData) {
     this.movieApiService.deleteMovie(eventData.id).subscribe(() => {
       this.dataService.updateMovies();
     });
   }
+
   handleEdit(eventData) {
     console.log('moviecomponent');
     const initialState = eventData;
@@ -52,6 +58,7 @@ export class MoviesComponent implements OnInit {
   }
 
   addNew() {
-    this.modalRef = this.modalService.show(NewMovieModalComponent);
+    this.modalRef = this.modalService.show(NewMovieModalComponent, Object.assign({}, this.config, {class: 'top-distance'}));
   }
+
 }

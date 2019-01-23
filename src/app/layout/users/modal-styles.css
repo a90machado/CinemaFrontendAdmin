@@ -1,11 +1,15 @@
 .details-user{
   max-width: 600px;
-  top: 30%;
+  top: 20%;
 }
 
 .edit-user{
   max-width: 600px;
   top: 20%;
+}
+
+.top-distance{
+  top: 5%;
 }
 
 .modal-content{

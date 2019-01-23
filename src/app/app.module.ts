@@ -13,6 +13,7 @@ import { SDKBrowserModule } from './shared/sdk/index';
 import { TableComponent, ProblemsLogInComponent } from './layout/shared/components';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
+
 @NgModule({
   declarations: [
     AppComponent,
