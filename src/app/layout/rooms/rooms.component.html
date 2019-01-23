@@ -1,21 +1,11 @@
-<br>
-<div class="cinemas container" >
-    <div class="row">
 
-        <div class="col-sm-12 col-md-1 col-lg-1"></div>
-        <div class="col-sm-12 col-md-10 col-lg-10 cinemasBox">
-
-            <h2 class="text-center cinemasPage"> Rooms </h2>
-        </div>
-        <div class="col-sm-12 col-md-1 col-lg-1">
-        </div>
-    </div>
-    <br>
-    <div class="container">
-        <button type="button" style="float: left" class="btn btn-info add-new" (click)="addNew()"><i class="fa fa-plus"></i>
-            Add New</button>
-        <app-table [header]='["cinema","movie","numberOfQueues","numberOfSeatsPerQueue"]' [data$]='roomsString$' [theme]='"table-bordered"'
+<div class="rooms-section">
+    <div class="d-flex flex-column containerTable">
+      <div class="d-flex flex-row containerHeader">
+        <h4>Manage Rooms</h4>
+        <button (click)="addNew()" class="ml-auto"><i class="fas fa-folder-plus"></i> Create new</button>
+      </div>
+      <app-table [header]='["cinema","movie","numberOfQueues","numberOfSeatsPerQueue"]' [data$]='roomsString$' [theme]='"table-bordered"'
             (delete)=handleDelete($event) (edit)=handleEdit($event) ></app-table>
     </div>
-    <br>
-</div>
+  </div>

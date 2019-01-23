@@ -29,8 +29,7 @@ export class RoomsComponent implements OnInit, OnDestroy {
     animated: true,
     keyboard: true,
     backdrop: true,
-    ignoreBackdropClick: false,
-    class: 'my-modal'
+    ignoreBackdropClick: false
   };
 
   constructor(private dataService: DataService, public modalService: BsModalService,  private roomService: RoomsService, private _router: Router, private route: ActivatedRoute) {
@@ -45,7 +44,7 @@ export class RoomsComponent implements OnInit, OnDestroy {
     this.dataService.updateRooms(this.selectedId);
     this.rooms$=this.dataService.rooms$;
 
-    //getting cinemas 
+    //getting cinemas
     this.cinemas$=this.dataService.cinemas$;
 
   }
@@ -85,7 +84,7 @@ export class RoomsComponent implements OnInit, OnDestroy {
   //showing modal add room, passing object cinema to send with information that user puts in room
   addNew() {
     const initialState = { 'cinema': this.cinema };
-    this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, this.config, { class: 'my-modal', initialState }));
+    this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, this.config, { initialState }));
   }
 
   //showing modal edit room, passing object room to send with information that user puts in room
@@ -103,5 +102,5 @@ export class RoomsComponent implements OnInit, OnDestroy {
     });
   }
 
- 
+
 }

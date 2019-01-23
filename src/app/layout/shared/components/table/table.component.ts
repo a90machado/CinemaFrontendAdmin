@@ -19,10 +19,10 @@ export class TableComponent implements OnInit {
   @Output() edit: EventEmitter<any> = new EventEmitter<any>();
   public headerRename = [];
 
- 
+
   @Output() rooms: EventEmitter<any> = new EventEmitter<any>();
   @Output() typeOfTickets: EventEmitter<any> = new EventEmitter<any>();
-  
+
   modalRef: BsModalRef;
 
 
@@ -42,6 +42,18 @@ export class TableComponent implements OnInit {
       if (iterator === 'endDate') {
         iterator = 'end date';
       }
+      if (iterator === 'timeOpen') {
+        iterator = 'time open';
+      }
+      if (iterator === 'timeClose') {
+        iterator = 'time close';
+      }
+      if (iterator === 'numberOfQueues') {
+        iterator = 'Queues';
+      }
+      if (iterator === 'numberOfSeatsPerQueue') {
+        iterator = 'Seats per Queue';
+      }
       this.headerRename.push(iterator);
     }
   }
@@ -56,10 +68,10 @@ export class TableComponent implements OnInit {
   clickEdit(row) {
     this.edit.emit(row);
   }
-  clickSeeRooms(row){
+  clickSeeRooms(row) {
     this.rooms.emit(row);
   }
-  clickSeeTickets(row){
+  clickSeeTickets(row) {
     this.typeOfTickets.emit(row);
   }
 

@@ -21,7 +21,14 @@ export class NewCinemaModalComponent implements OnInit {
   breakOptions= [];
   cinema: Cinema = new Cinema();
 
-  constructor(public modalRef: BsModalRef, public cinemasService: CinemasService, public dataService: DataService) { }
+  constructor(public modalRef: BsModalRef, public cinemasService: CinemasService, public dataService: DataService) {
+
+    this.openHour = '12';
+    this.closeHour = '0';
+    this.openMinutes = '00';
+    this.closeMinutes = '30';
+    this.break = '10';
+  }
 
   ngOnInit() {
     this.createHourOptions();
@@ -29,7 +36,7 @@ export class NewCinemaModalComponent implements OnInit {
     this.createBreakOptions();
   }
 
-  newCinema(){
+  newCinema() {
     this.cinema.timeOpen=(Number(this.openHour)*60)+Number(this.openMinutes);
     this.cinema.timeClose=(Number(this.closeHour)*60)+Number(this.closeMinutes);
     this.cinema.pause=Number(this.break);

@@ -44,35 +44,45 @@
   position: relative;
   margin: 0 auto;
 }
-.fa-user-tie, .fa-envelope, .fa-user-tag, .fa-key, .fa-unlock-alt{
+.fa-building{
   position: absolute;
   left: 10px;
   top: 10px;
   color: #001F54;
   font-size: 1.125rem;
 }
-.fa-user-tag, .fa-unlock-alt{
-  left: 26px;
+
+
+.form-group #cinemaName {
+  width: 100%;
 }
 
-.form-group #name, .form-group #username, .form-group #password, .form-group #cPassword {
-  width: 275px;
-}
-
-.form-group #username, .form-group #cPassword{
-  margin-left: 1rem;
-  text-indent: 31px;
-}
-
-.form-group #role{
-  margin-top: 16px;
-  margin-left: auto;
+.form-group .custom-select{
   color: #001F54;
-  font-size: 15px;
-  width: 150px;
+  font-size: 14px;
+  width: 60px;
+  margin-left:auto;
+  margin-top: 5px;
 }
 
-.btnSubmit:disabled{
+.custom-select-inside{
+  color: #001F54;
+  font-size: 14px;
+  width: 60px;
+  height: 38px;
+  margin-top: 5px;
+}
+label{
+  margin-top: 10px;
+  color: #001F54;
+}
+
+p{
+  margin-top: 10px;
+  color: #001F54;
+}
+
+.btnSubmit:hover{
   background: #03519B;
 }
 

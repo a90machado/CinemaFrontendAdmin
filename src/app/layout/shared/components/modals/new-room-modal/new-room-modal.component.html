@@ -1,26 +1,33 @@
-<div class="container">
-<div class="modal-header">
-  <h4 class="modal-title pull-left">New Room</h4>
-  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()" >
-    <span aria-hidden="true">&times;</span>
-  </button>
+<div class="modal-new-cinema">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Create a new <span> Room</span></h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="d-flex flex-row group">
+    <p>Select movie:</p>
+    <select id="sel3" [(ngModel)]="movieTitle" >
+      <option *ngFor="let movie of movies$ | async">{{movie.title}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <div class="d-flex flex-row">
+      <p>Number of queues of the room: </p>
+      <input id="inputNqueues" name="nQueues" type="number" class="form-control" [(ngModel)]="nQueues" placeholder=""
+        required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="d-flex flex-row">
+      <p>Number of seats per queue: </p>
+      <input id="inputNseats" name="nSeats" type="number" class="form-control" [(ngModel)]="nSeats" placeholder=""
+        required>
+    </div>
+  </div>
+<div class="text-center">
+  <button type="submit" (click)="newRoom()" class="btn btnSubmit">Create</button>
 </div>
-<br><br>
-<div class="form-group" class="col-sm-12 col-md-4 col-lg-4">
-  <label for="sel3">Select movie:</label>
-  <select id="sel3" [(ngModel)]="movieTitle">
-    <option *ngFor="let movie of movies$ | async" >{{movie.title}}</option>
-  </select>
-</div>
-<br><br>
-<div class="form-group">
-  <label for="inputNqueues" class="text-uppercase">Number of queues of the room: </label>
-  <input  id="inputNqueues" name="nQueues" type="number" class="form-control" [(ngModel)]="nQueues" placeholder="" required>
-</div>
-<br><br>
-<div class="form-group">
-  <label for="inputNseats" class="text-uppercase">Number of seats per queue: </label>
-  <input  id="inputNseats" name="nSeats" type="number" class="form-control" [(ngModel)]="nSeats" placeholder="" required>
-</div>
-<button type="submit" (click)="newRoom()" class="btn btnSubmit float-right">Create</button>
 </div>
