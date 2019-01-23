@@ -40,12 +40,12 @@ export class TypeOfTicketsComponent implements OnInit {
       }
     );
 
-    //getting typeoftickets 
+    //getting typeoftickets
     this.dataService.updateTypeOfTickets(this.selectedId);
     this.typeoftickets$=this.dataService.typeoftickets$;
 
-    
-    //getting cinemas 
+
+    //getting cinemas
     this.cinemas$=this.dataService.cinemas$;
    }
 
@@ -76,17 +76,17 @@ export class TypeOfTicketsComponent implements OnInit {
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
-  
-  //showing modal add ticket, passing object cinema to send with information that user puts in ticket
+
+  // showing modal add ticket, passing object cinema to send with information that user puts in ticket
   addNew() {
     const initialState = { 'cinema': this.cinema };
-    this.modalRef = this.modalService.show(NewTypeofticketsModalComponent, Object.assign({}, this.config, { class: 'my-modal', initialState }));
+    this.modalRef = this.modalService.show(NewTypeofticketsModalComponent, Object.assign({}, { initialState }));
   }
 
   //showing modal edit ticket, passing object ticket to send with information that user puts in ticket
   handleEdit(eventData) {
     const initialState = eventData;
-    this.modalRef = this.modalService.show(EditTypeofticketModalComponent, { "initialState": initialState });
+    this.modalRef = this.modalService.show(EditTypeofticketModalComponent, {  initialState });
   }
 
   //showing modal delete ticket, passing object ticket to delete by id

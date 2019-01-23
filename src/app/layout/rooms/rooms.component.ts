@@ -25,12 +25,7 @@ export class RoomsComponent implements OnInit, OnDestroy {
 
   cinema: Cinema;
   IntersectionObserverEntryInit
-  config = {
-    animated: true,
-    keyboard: true,
-    backdrop: true,
-    ignoreBackdropClick: false
-  };
+
 
   constructor(private dataService: DataService, public modalService: BsModalService,  private roomService: RoomsService, private _router: Router, private route: ActivatedRoute) {
 
@@ -84,13 +79,13 @@ export class RoomsComponent implements OnInit, OnDestroy {
   //showing modal add room, passing object cinema to send with information that user puts in room
   addNew() {
     const initialState = { 'cinema': this.cinema };
-    this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, this.config, { initialState }));
+    this.modalRef = this.modalService.show(NewRoomModalComponent, Object.assign({}, { initialState }));
   }
 
   //showing modal edit room, passing object room to send with information that user puts in room
   handleEdit(eventData) {
     const initialState = eventData;
-    this.modalRef = this.modalService.show(EditRoomModalComponent, { "initialState": initialState });
+    this.modalRef = this.modalService.show(EditRoomModalComponent, { initialState });
   }
 
 //showing modal delete room, passing object room to delete by id

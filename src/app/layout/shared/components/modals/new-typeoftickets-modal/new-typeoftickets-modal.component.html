@@ -1,6 +1,6 @@
 <div class="modal-new-cinema">
   <div class="modal-header">
-      <h4 class="modal-title pull-left">Create a new type of ticket</h4>
+      <h4 class="modal-title pull-left">Create a new <span>Type of Ticket</span></h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -14,6 +14,8 @@
           <label for="priceOfTicket" class="text-uppercase">Price of ticket: </label>
           <input  id="priceOfTicket" name="priceOfTicket" type="number" [(ngModel)]="priceOfTicket" class="form-control" required>
         </div>
-        <button type="submit" class="btn btnSubmit float-right"(click)="newTypeOfTicket()">Create</button>
+        <div class="text-center margin-custom">
+        <button type="submit" class="btn btnSubmit"(click)="newTypeOfTicket()">Create</button>
+      </div>
     </div>
   </div>

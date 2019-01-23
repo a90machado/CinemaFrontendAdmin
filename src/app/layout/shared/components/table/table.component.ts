@@ -54,6 +54,15 @@ export class TableComponent implements OnInit {
       if (iterator === 'numberOfSeatsPerQueue') {
         iterator = 'Seats per Queue';
       }
+      if (iterator === 'cinemaDTO') {
+        iterator = 'cinema name';
+      }
+      if (iterator === 'typeOfTicket') {
+        iterator = 'type of ticket';
+      }
+      if (iterator === 'priceOfTicket') {
+        iterator = 'price of ticket';
+      }
       this.headerRename.push(iterator);
     }
   }

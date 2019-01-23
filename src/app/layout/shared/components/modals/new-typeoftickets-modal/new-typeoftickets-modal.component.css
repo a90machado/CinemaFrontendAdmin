@@ -55,10 +55,6 @@
   left: 26px;
 }
 
-.form-group #name, .form-group #username, .form-group #password, .form-group #cPassword {
-  width: 275px;
-}
-
 .form-group #username, .form-group #cPassword{
   margin-left: 1rem;
   text-indent: 31px;
@@ -72,7 +68,7 @@
   width: 150px;
 }
 
-.btnSubmit:disabled{
+.btnSubmit:hover{
   background: #03519B;
 }
 
@@ -88,7 +84,9 @@
   margin-left: 1rem;
 }
 
-
+.margin-custom{
+  margin-bottom: 10px;
+}
 /* Correct margin of input on span error */
 .marginLeftTenPx{
   margin-left: 16px;
