@@ -1,7 +1,139 @@
-.buttonSearch{
-    float: "right";
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+
+/* Modal Header */
+.modal-header{
+  border-bottom: 2px solid #001F54;
+}
+
+.modal-title{
+  color: #001F54;
+  font-size: 35px;
+}
+
+.modal-title span {
+  color: #03519B;
+  font-weight: lighter;
+}
+
+.close{
+  margin: -1.8rem -1rem -1rem auto;
+}
+.close span{
+  font-size: 50px;
+  color: #001F54;
+}
+
+/* Modal Body */
+/* Form */
+
+.modal-body{
+  margin-top: 10px;
+}
+.form-group input{
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: #FCFCFF;
+  border-bottom: 1px solid #1B1B1E;
+  color: #1B1B1E;
+  text-indent: 25px;
+}
+::-webkit-input-placeholder {
+  color: #1B1B1E;
+}
+
+.icon{
+  position: relative;
+  margin: 10px auto;
+}
+.fa-film, .fa-calendar-alt{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #001F54;
+  font-size: 1.125rem;
+}
+
+.form-group #titleToSearch {
+  width: 100%;
+}
+
+.form-group #yearToSearch{
+
+  margin-top: 10px;
+  margin-left: 60px;
+  color: #001F54;
+  font-size: 15px;
+  width: 150px;
 }
 .error{
-    color: red; 
-    font-size: 14px;
+  margin-top: 10px;
+  color: rgb(139, 3, 3);
+  width: 260px;
+}
+
+h3{
+  text-align: center;
+  color: #001F54;
+}
+
+p b, p{
+  color: #001F54;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+#label{
+  width: 260px;
+}
+
+#sel5{
+  margin-top: 10px;
+  margin-left: auto;
+  color: #001F54;
+  font-size: 15px;
+  width: 100px;
+}
+
+.btnSubmit:disabled{
+  background: #03519B;
+}
+
+.btnSubmit:hover{
+  background: #03519B;
+}
+
+.btnSubmit{
+  border: 0;
+  background: #1282A2;
+  color: #DFDEEE;
+  border-radius: 5px;
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+
+/* States Validations */
+.form-group input[type="text"]:focus {
+  border-bottom: 1px solid #79A6FE;
+}
+.is-invalid span{
+  color: red;
+  font-size: 12px;
+}
+.is-invalid .icon input {
+  border-bottom: 0.5px solid rgb(167, 3, 3);
+}
+.is-invalid .icon .fas{
+  color: rgb(139, 3, 3);
+}
+
+.is-valid .icon input {
+  border-bottom: 0.5px solid #03519B;
+}
+.is-valid .icon .fas{
+  color: #1282A2;
 }

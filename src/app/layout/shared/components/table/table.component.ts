@@ -36,6 +36,12 @@ export class TableComponent implements OnInit {
       if (iterator === 'createdAt') {
         iterator = 'created at';
       }
+      if (iterator === 'releaseDate') {
+        iterator = 'release date';
+      }
+      if (iterator === 'endDate') {
+        iterator = 'end date';
+      }
       this.headerRename.push(iterator);
     }
   }

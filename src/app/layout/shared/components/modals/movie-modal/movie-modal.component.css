@@ -1,4 +1,44 @@
-.movie-modal{
-    min-height: 50%;
-    min-width: 50%;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+/*
+#FCFCFF
+#1B1B1E
+#001F54
+#03519B
+#1282A2
+*/
+
+/* Modal Header */
+.modal-header{
+  border-bottom: 2px solid #001F54;
 }
+
+.modal-title{
+  color: #001F54;
+  font-size: 35px;
+}
+
+.modal-title span {
+  color: #03519B;
+  font-weight: lighter;
+}
+
+.close{
+  margin: -1.8rem -1rem -1rem auto;
+}
+.close span{
+  font-size: 50px;
+  color: #001F54;
+}
+
+/* Modal Body */
+p b{
+  color: #001F54;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+p, h3{
+  color: #001F54;
+}
+
+

@@ -1,121 +1,75 @@
 <div class="modal-header">
-    <h4 class="modal-title pull-left">New Movie</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+  <h4 class="modal-title pull-left">Create a new <span>Movie</span></h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <div class="modal-body">
-        <div class="form-group">
-        <label for="inputTitle" class="text-uppercase">Title of the Movie: </label>
-        <input  id="inputTitle" name="titleToSearch" type="text" class="form-control" [(ngModel)]="titleToSearch" placeholder="" required>
-        </div>
-        <div class="form-group" class="col-sm-12 col-md-12 col-lg-12">
-            <label for="sel3">Release Year of the Movie:</label>
-            <select id="sel3" [(ngModel)]="yearToSearch">
-              <option *ngFor="let year of years">{{year}}</option>
-            </select>
-          </div>
-        <br>
-        <button (click)="searchMovie()" class="buttonSearch">Search movie</button>
-        <br><br>
-        <div *ngIf="movie$ | async as movie">
-        <p><b>Movie found: </b>{{movie.Title}}</p>
-        <p><b>Release date of the movie found: </b>{{movie.Released}}</p>
-        <p><b>Release Date in my cinemas:</b></p>
-        <div class="row">
-          <div class="form-group col-sm-12 col-md-3 col-lg-3">
-            <label for="sel1">Day:</label>
-            <select id="sel11" [(ngModel)]="dayRelease" *ngIf="monthRelease==='April'|| monthRelease==='June'|| monthRelease==='September'|| monthRelease==='November'">
-              <option *ngFor="let day of optionsDay2" value="{{day}}">{{day}}</option>
-            </select>
-            <select id="sel12" [(ngModel)]="dayRelease" *ngIf="monthRelease===''|| monthRelease==='January'|| monthRelease==='March'|| monthRelease==='May'|| monthRelease==='July'|| monthRelease==='August'|| monthRelease==='December'">
-              <option *ngFor="let day of optionsDay1" value="{{day}}">{{day}}</option>
-            </select>
-            <select id="sel13" [(ngModel)]="dayRelease" *ngIf="monthRelease==='February' && isLeapYear(yearRelease)">
-              <option *ngFor="let day of optionsDay3" value="{{day}}">{{day}}</option>
-            </select>
-            <select id="sel14" [(ngModel)]="dayRelease" *ngIf="monthRelease==='February' && !isLeapYear(yearRelease)">
-              <option *ngFor="let day of optionsDay4" value="{{day}}">{{day}}</option>
-            </select>
-          </div>
-          <div class="form-group col-sm-12 col-md-5 col-lg-5">
-            <label for="sel2">Month:</label>
-            <select id="sel2"[(ngModel)]="monthRelease">
-              <option>January</option>
-              <option>February</option>
-              <option>March</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-          </div>
-          <div class="form-group" class="col-sm-12 col-md-4 col-lg-4">
-              <label for="sel6">Year:</label>
-              <select id="sel6" [(ngModel)]="yearRelease" >
-                <option *ngFor="let year of years" >{{year}}</option>
-              </select>
-            </div>
-        </div>
-        <p><b>End Date in my cinemas:</b></p>
-        <div class="row">
-          <div class="form-group col-sm-12 col-md-3 col-lg-3">
-            <label for="">Day:</label>
-            <select [(ngModel)]="dayEnd" *ngIf="monthEnd==='April'|| monthEnd==='June'|| monthEnd==='September'|| monthEnd==='November'">
-              <option *ngFor="let day of optionsDay2" value="{{day}}">{{day}}</option>
-            </select>
-            <select [(ngModel)]="dayEnd" *ngIf="monthEnd===''|| monthEnd==='January'|| monthEnd==='March'|| monthEnd==='May'|| monthEnd==='July'|| monthEnd==='August'|| monthEnd==='December'">
-              <option *ngFor="let day of optionsDay1" value="{{day}}">{{day}}</option>
-            </select>
-            <select  [(ngModel)]="dayEnd" *ngIf="monthEnd==='February' && isLeapYear(yearEnd)">
-              <option *ngFor="let day of optionsDay3" value="{{day}}">{{day}}</option>
-            </select>
-            <select  [(ngModel)]="dayEnd" *ngIf="monthEnd==='February' && !isLeapYear(yearEnd)">
-              <option *ngFor="let day of optionsDay4" value="{{day}}">{{day}}</option>
-            </select>
-          </div>
-          <div class="form-group col-sm-12 col-md-5 col-lg-5">
-            <label for="sel5">Month:</label>
-            <select id="sel5" [(ngModel)]="monthEnd">
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
-            </select>
-          </div>
-          <div class="form-group" class="col-sm-12 col-md-4 col-lg-4">
-              <label for="sel6">Year:</label>
-              <select id="sel6" [(ngModel)]="yearEnd" >
-                <option *ngFor="let year of years" >{{year}}</option>
-              </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <p><b>Choose minimum age:</b></p>
-            <select id="sel5" [(ngModel)]="minimumAge">
-                <option>6</option>
-                <option>8</option>
-                <option>10</option>
-                <option>12</option>
-                <option>14</option>
-                <option>16</option>
-                <option>18</option>
-            </select>
-          </div>
-          <p class="error">{{error}}</p>
+
+  <form #newSearch="ngForm" (ngSubmit)="searchMovie()" class="new-user" *ngIf="!searchedMovie">
+
+    <!-- Title Field -->
+    <div class="form-group" [class.is-invalid]="newTitle.touched && newTitle.invalid" [class.is-valid]="newTitle.valid">
+      <div class="icon">
+        <i class="fas fa-film"></i>
+        <input id="titleToSearch" name="titleToSearch" [(ngModel)]="titleToSearch" type="text" class="form-control"
+          placeholder="Complete Title" minlength="1" required #newTitle="ngModel">
+      </div>
+      <span class="form-text" *ngIf="newTitle.touched && newTitle?.errors?.required">
+        Title is required
+      </span>
+      <span class="form-text" *ngIf="newTitle.touched && newTitle?.errors?.minlength">
+        Title required one caractheres minimum
+      </span>
     </div>
-    <button *ngIf="movie$ | async as movie" type="submit" (click)="newMovie(movie)" class="btn btn-login float-right">Create</button>
+    <div class="d-flex flex-row">
+      <div class="error">
+        {{ message }}
+      </div>
+      <!-- Year Field -->
+      <div class="form-group">
+        <select name="yearToSearch" id="yearToSearch" [(ngModel)]="yearToSearch" class="form-control">
+          <option *ngFor="let i of years" value="{{ i }}">{{ i }}</option>
+        </select>
+      </div>
     </div>
+    <!-- Submit Search -->
+    <div class="text-center">
+      <button type="submit" class="btn btnSubmit" [disabled]="newSearch.invalid">{{(newSearch.invalid)?
+        'Please fill information' : 'Search'}}</button>
+    </div>
+  </form>
+  <div *ngIf="movie$ | async as movie">
+    <h3>{{movie.Title}}</h3>
+    <p><b>Release at: </b>{{movie.Released}}</p>
+
+    <div class="form-group">
+      <div class="icon">
+      <i class="fas fa-calendar-alt"></i>
+      <input id="releaseDate" placeholder="Select range of exibitions days" [bsConfig]="datePickerConfig" bsDaterangepicker name="releaseDate" [(ngModel)]="releaseDate" type="text" class="form-control"
+        required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="d-flex flex-row">
+      <p id="label"><b>Choose minimum age:</b></p>
+      <select id="sel5" [(ngModel)]="minimumAge">
+        <option>6</option>
+        <option>8</option>
+        <option>10</option>
+        <option>12</option>
+        <option>14</option>
+        <option>16</option>
+        <option>18</option>
+      </select>
+      </div>
+    </div>
+    <p class="error">{{error}}</p>
+  </div>
+
+  <div class="text-center" *ngIf="releaseDate.length > 0">
+  <button *ngIf="movie$ | async as movie" type="submit" (click)="newMovie(movie)" class="btn btn-login btnSubmit">Create new</button>
+  </div>
+</div>

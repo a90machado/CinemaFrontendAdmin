@@ -1,17 +1,10 @@
-<br>
-<div class="movies container">
-    <div class="row">
-            <div class="col-sm-12 col-md-1 col-lg-1"></div>
-                    <div class="col-sm-12 col-md-10 col-lg-10 moviesBox">
-
-                    <h2 class="text-center moviesPage" >My Movies </h2>
-                </div>
-<div class="col-sm-12 col-md-1 col-lg-1">
-</div></div>
-<br>
-<div class="container">
-<button type="button" style= "float: left"class="btn btn-info add-new" (click)="addNew()"><i class="fa fa-plus"></i> Add New</button>
-<app-table [header]='["title","duration","minimumAge","releaseDate","endDate" ]' [data$]='movies$' [theme]='"table-bordered"' (edit)="handleEdit($event)" (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
-</div>
-<br>
+<div class="movies-section">
+  <div class="d-flex flex-column containerTable">
+    <div class="d-flex flex-row containerHeader">
+      <h4>Manage Movies</h4>
+      <button (click)="addNew()" class="ml-auto"><i class="fas fa-folder-plus"></i> Create new</button>
+    </div>
+    <app-table [header]='["title", "releaseDate","endDate" ]' [data$]='movies$' [theme]='"table-bordered"'
+      (edit)="handleEdit($event)" (delete)="handleDelete($event)" (selectedRow)="handleSelectedRow($event)"></app-table>
+  </div>
 </div>
