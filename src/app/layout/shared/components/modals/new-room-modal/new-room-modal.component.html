@@ -5,7 +5,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
+<br><br>
 <div class="form-group" class="col-sm-12 col-md-4 col-lg-4">
   <label for="sel3">Select movie:</label>
   <select id="sel3" [(ngModel)]="movieTitle">
@@ -22,5 +22,5 @@
   <label for="inputNseats" class="text-uppercase">Number of seats per queue: </label>
   <input  id="inputNseats" name="nSeats" type="number" class="form-control" [(ngModel)]="nSeats" placeholder="" required>
 </div>
-<button type="submit" (click)="newRoom()" class="btn btn-login float-right">Create</button>
+<button type="submit" (click)="newRoom()" class="btn btnSubmit float-right">Create</button>
 </div>

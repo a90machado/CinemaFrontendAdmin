@@ -1,0 +1,119 @@
+/* Modal Header */
+.modal-header{
+  border-bottom: 2px solid #001F54;
+}
+
+.modal-title{
+  color: #001F54;
+  font-size: 35px;
+}
+
+.modal-title span {
+  color: #03519B;
+  font-weight: lighter;
+}
+
+.close{
+  margin: -1.8rem -1rem -1rem auto;
+}
+.close span{
+  font-size: 50px;
+  color: #001F54;
+}
+
+/* Modal Body */
+/* Form */
+
+.modal-body{
+  margin-top: 10px;
+}
+.form-group input{
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: #FCFCFF;
+  border-bottom: 1px solid #1B1B1E;
+  color: #1B1B1E;
+  text-indent: 25px;
+}
+::-webkit-input-placeholder {
+  color: #1B1B1E;
+}
+
+.icon{
+  position: relative;
+  margin: 0 auto;
+}
+.fa-user-tie, .fa-envelope, .fa-user-tag, .fa-key, .fa-unlock-alt{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #001F54;
+  font-size: 1.125rem;
+}
+.fa-user-tag, .fa-unlock-alt{
+  left: 26px;
+}
+
+.form-group #name, .form-group #username, .form-group #password, .form-group #cPassword {
+  width: 275px;
+}
+
+.form-group #username, .form-group #cPassword{
+  margin-left: 1rem;
+  text-indent: 31px;
+}
+
+.form-group #role{
+  margin-top: 16px;
+  margin-left: auto;
+  color: #001F54;
+  font-size: 15px;
+  width: 150px;
+}
+
+.btnSubmit:disabled{
+  background: #03519B;
+}
+
+.btnSubmit{
+  border: 0;
+  background: #1282A2;
+  color: #DFDEEE;
+  border-radius: 5px;
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+
+/* Correct margin of input on span error */
+.marginLeftTenPx{
+  margin-left: 16px;
+}
+
+
+/* States Validations */
+.form-group input[type="text"]:focus {
+  border-bottom: 1px solid #79A6FE;
+}
+.is-invalid span{
+  color: red;
+  font-size: 12px;
+}
+.is-invalid .icon input {
+  border-bottom: 0.5px solid rgb(167, 3, 3);
+}
+.is-invalid .icon .fas{
+  color: rgb(139, 3, 3);
+}
+
+.is-valid .icon input {
+  border-bottom: 0.5px solid #03519B;
+}
+.is-valid .icon .fas{
+  color: #1282A2;
+}
+
