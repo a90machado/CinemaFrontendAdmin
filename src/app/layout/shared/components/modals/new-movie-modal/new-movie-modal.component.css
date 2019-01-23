@@ -44,9 +44,9 @@
 
 .icon{
   position: relative;
-  margin: 0 auto;
+  margin: 10px auto;
 }
-.fa-film{
+.fa-film, .fa-calendar-alt{
   position: absolute;
   left: 10px;
   top: 10px;
@@ -59,14 +59,47 @@
 }
 
 .form-group #yearToSearch{
-  margin-top: 16px;
-  margin-left: auto;
+
+  margin-top: 10px;
+  margin-left: 60px;
   color: #001F54;
   font-size: 15px;
   width: 150px;
 }
+.error{
+  margin-top: 10px;
+  color: rgb(139, 3, 3);
+  width: 260px;
+}
+
+h3{
+  text-align: center;
+  color: #001F54;
+}
+
+p b, p{
+  color: #001F54;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+#label{
+  width: 260px;
+}
+
+#sel5{
+  margin-top: 10px;
+  margin-left: auto;
+  color: #001F54;
+  font-size: 15px;
+  width: 100px;
+}
 
 .btnSubmit:disabled{
+  background: #03519B;
+}
+
+.btnSubmit:hover{
   background: #03519B;
 }
 

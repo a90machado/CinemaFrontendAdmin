@@ -60,11 +60,12 @@ export class NewMovieModalComponent implements OnInit {
                 public datepipe: DatePipe,
                 public dataService: DataService) {
                 this.yearToSearch = '2019';
+                this.minimumAge = 18;
                 this.datePickerConfig = Object.assign({},
                   {
                     containerClass: 'theme-dark-blue',
                     minDate: (new Date()),
-                    rangeInputFormat: 'YYYY-MM-DD',
+                    rangeInputFormat: 'MMMM do YYYY',
                     rangeSeparator: ' to '
                   });
   }
